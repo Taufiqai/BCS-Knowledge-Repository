@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BCSKR Dashboard | বাংলাদেশ সিভিল সার্ভিস নলেজ রিপোজিটরি</title>
+<meta name="description" content="Bangladesh Civil Service Knowledge Repository — Executive Dashboard">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#0e2a24;
+  --green:#13524a;
+  --green-deep:#0c3b35;
+  --green-bright:#1a7d6f;
+  --gold:#b4863b;
+  --gold-soft:#d9b876;
+  --paper:#f6f3ec;
+  --paper-2:#efeae0;
+  --card:#ffffff;
+  --line:#dcd6c8;
+  --muted:#6a7a73;
+  --danger:#a8442f;
+  --ok:#2f7d52;
+  --warn:#b07a1e;
+  --shadow:0 1px 2px rgba(12,59,53,.06),0 8px 24px -12px rgba(12,59,53,.18);
+  --shadow-lg:0 20px 60px -20px rgba(12,59,53,.35);
+  --r:14px;
+  --en:'Outfit',sans-serif;
+  --display:'Fraunces',serif;
+  --bn:'Hind Siliguri',sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:var(--en);
+  background:var(--paper);
+  color:var(--ink);
+  line-height:1.55;
+  -webkit-font-smoothing:antialiased;
+  background-image:radial-gradient(circle at 12% -5%,rgba(26,125,111,.07),transparent 38%),radial-gradient(circle at 98% 2%,rgba(180,134,59,.08),transparent 34%);
+  background-attachment:fixed;
+}
+body.lang-bn{font-family:var(--bn)}
+body.lang-bn .display{font-family:var(--bn);font-weight:700}
+
+/* language visibility */
+.bn{display:none}
+body.lang-bn .en{display:none}
+body.lang-bn .bn{display:inline}
+body.lang-bn .bn-block{display:block}
+body.lang-bn span.bn{display:inline}
+
+/* ===== Top bar ===== */
+header.topbar{
+  position:sticky;top:0;z-index:50;
+  background:rgba(12,59,53,.92);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid rgba(217,184,118,.22);
+  color:#f3efe4;
+}
+.topbar-inner{max-width:1280px;margin:0 auto;padding:0 28px;height:70px;display:flex;align-items:center;gap:18px}
+.crest{
+  width:42px;height:42px;border-radius:9px;flex:none;
+  background:linear-gradient(145deg,var(--gold-soft),var(--gold));
+  display:grid;place-items:center;color:var(--green-deep);
+  font-family:var(--display);font-weight:700;font-size:20px;
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.25);
+}
+.brand h1{font-family:var(--display);font-weight:600;font-size:18px;letter-spacing:.2px;line-height:1.1;color:#fff}
+.brand p{font-size:11.5px;color:var(--gold-soft);letter-spacing:.4px;text-transform:uppercase;font-family:var(--en)}
+body.lang-bn .brand p{text-transform:none;letter-spacing:0}
+.spacer{flex:1}
+.lang-toggle{
+  display:flex;border:1px solid rgba(217,184,118,.4);border-radius:999px;overflow:hidden;
+  font-size:13px;font-weight:600;
+}
+.lang-toggle button{
+  background:transparent;color:#cdd6cf;border:none;padding:7px 15px;cursor:pointer;
+  font-family:var(--en);transition:.2s;letter-spacing:.3px;
+}
+.lang-toggle button.active{background:var(--gold);color:var(--green-deep)}
+.gov-tag{font-size:11px;color:#9fb3aa;display:flex;flex-direction:column;text-align:right;line-height:1.3}
+
+/* ===== Layout ===== */
+.shell{max-width:1280px;margin:0 auto;padding:0 28px;display:grid;grid-template-columns:228px 1fr;gap:30px}
+nav.side{position:sticky;top:94px;height:max-content;padding:18px 0}
+.side h6{font-size:11px;text-transform:uppercase;letter-spacing:1.2px;color:var(--muted);margin:18px 12px 8px;font-family:var(--en)}
+body.lang-bn .side h6{text-transform:none;letter-spacing:0}
+.navlink{
+  display:flex;align-items:center;gap:11px;padding:9px 12px;border-radius:10px;
+  color:var(--green-deep);cursor:pointer;font-size:14px;font-weight:500;
+  transition:.16s;border:1px solid transparent;margin-bottom:2px;
+}
+.navlink:hover{background:var(--paper-2)}
+.navlink.active{background:var(--card);border-color:var(--line);box-shadow:var(--shadow);font-weight:600}
+.navlink .ic{width:18px;height:18px;flex:none;opacity:.85}
+.navlink.active .ic{color:var(--green-bright)}
+main{padding:26px 0 80px;min-width:0}
+
+/* ===== Hero ===== */
+.hero{
+  background:linear-gradient(135deg,var(--green-deep),var(--green) 62%,var(--green-bright));
+  color:#f4f1e8;border-radius:20px;padding:34px 36px;position:relative;overflow:hidden;
+  box-shadow:var(--shadow-lg);margin-bottom:26px;
+}
+.hero::after{content:"";position:absolute;inset:0;background-image:radial-gradient(circle at 88% 18%,rgba(217,184,118,.28),transparent 42%);pointer-events:none}
+.hero .vision{font-family:var(--display);font-style:italic;font-size:15px;color:var(--gold-soft);margin-bottom:10px}
+.hero h2{font-family:var(--display);font-weight:600;font-size:30px;line-height:1.15;max-width:680px;position:relative}
+body.lang-bn .hero h2{font-size:27px}
+.hero p.sub{margin-top:12px;max-width:620px;color:#cfe0d9;font-size:14.5px}
+.hero-meta{display:flex;gap:26px;margin-top:22px;flex-wrap:wrap;position:relative}
+.hero-meta div{font-size:12.5px;color:#b9cdc5}
+.hero-meta b{display:block;font-family:var(--display);font-size:22px;color:#fff;font-weight:600}
+
+/* ===== Sections ===== */
+.view{display:none;animation:fade .4s ease}
+.view.active{display:block}
+@keyframes fade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.sec-head{display:flex;align-items:baseline;gap:14px;margin:34px 0 16px}
+.sec-head h3{font-family:var(--display);font-weight:600;font-size:23px;color:var(--green-deep)}
+.sec-head .rule{flex:1;height:1px;background:var(--line)}
+.sec-head .tag{font-size:11px;color:var(--gold);font-weight:600;letter-spacing:1px;text-transform:uppercase}
+body.lang-bn .sec-head .tag{text-transform:none;letter-spacing:0}
+
+/* KPI grid */
+.kpi-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.kpi{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:18px;box-shadow:var(--shadow);position:relative;overflow:hidden}
+.kpi::before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--green-bright)}
+.kpi .lab{font-size:12.5px;color:var(--muted);font-weight:500;min-height:32px}
+.kpi .val{font-family:var(--display);font-weight:700;font-size:30px;color:var(--green-deep);margin-top:6px;line-height:1}
+.kpi .tgt{font-size:11.5px;color:var(--muted);margin-top:7px}
+.kpi .bar{height:6px;background:var(--paper-2);border-radius:999px;margin-top:10px;overflow:hidden}
+.kpi .bar i{display:block;height:100%;background:linear-gradient(90deg,var(--green-bright),var(--gold));border-radius:999px}
+
+.cards{display:grid;gap:16px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:20px 22px;box-shadow:var(--shadow)}
+.grid-2{display:grid;grid-template-columns:1.3fr 1fr;gap:18px}
+.card h4{font-family:var(--display);font-weight:600;font-size:16px;color:var(--green-deep);margin-bottom:4px}
+.card .desc{font-size:13px;color:var(--muted);margin-bottom:14px}
+
+/* progress phases */
+.phase{display:flex;gap:14px;padding:12px 0;border-bottom:1px solid var(--paper-2)}
+.phase:last-child{border:none}
+.phase .dot{width:13px;height:13px;border-radius:50%;flex:none;margin-top:4px;border:2px solid var(--line);background:#fff}
+.phase.done .dot{background:var(--ok);border-color:var(--ok)}
+.phase.active .dot{background:var(--gold);border-color:var(--gold);box-shadow:0 0 0 4px rgba(180,134,59,.18)}
+.phase .pinfo{flex:1}
+.phase .pname{font-weight:600;font-size:14px}
+.phase .pdesc{font-size:12.5px;color:var(--muted)}
+.phase .pdate{font-size:11.5px;color:var(--green-bright);font-weight:600;white-space:nowrap}
+
+/* bars chart */
+.chart-row{display:flex;align-items:center;gap:12px;margin:9px 0;font-size:13px}
+.chart-row .nm{width:128px;color:var(--ink);flex:none;font-weight:500}
+.chart-row .track{flex:1;height:22px;background:var(--paper-2);border-radius:6px;overflow:hidden;position:relative}
+.chart-row .track i{display:block;height:100%;border-radius:6px;background:linear-gradient(90deg,var(--green),var(--green-bright))}
+.chart-row .pct{width:42px;text-align:right;font-weight:600;color:var(--green-deep);flex:none;font-variant-numeric:tabular-nums}
+
+/* component cards */
+.comp-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.comp{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:20px;box-shadow:var(--shadow);cursor:pointer;transition:.2s;position:relative;overflow:hidden}
+.comp:hover{transform:translateY(-3px);box-shadow:var(--shadow-lg);border-color:var(--gold-soft)}
+.comp .num{font-family:var(--display);font-size:13px;font-weight:700;color:var(--gold);background:var(--paper-2);width:34px;height:34px;border-radius:9px;display:grid;place-items:center;margin-bottom:12px}
+.comp h4{font-family:var(--display);font-weight:600;font-size:16.5px;color:var(--green-deep);margin-bottom:7px;line-height:1.2}
+.comp p{font-size:13px;color:var(--muted);margin-bottom:12px}
+.comp ul{list-style:none;display:flex;flex-wrap:wrap;gap:6px}
+.comp ul li{font-size:11.5px;background:var(--paper);border:1px solid var(--line);border-radius:6px;padding:3px 8px;color:var(--green)}
+.comp .stat{position:absolute;top:18px;right:18px;font-size:11px;font-weight:600;color:var(--ok);background:rgba(47,125,82,.1);padding:3px 9px;border-radius:999px}
+
+/* table */
+table{width:100%;border-collapse:collapse;font-size:13px}
+th,td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--paper-2)}
+th{font-size:11.5px;text-transform:uppercase;letter-spacing:.6px;color:var(--muted);font-weight:600;font-family:var(--en)}
+body.lang-bn th{text-transform:none;letter-spacing:0;font-family:var(--bn)}
+td{color:var(--ink)}
+tr:hover td{background:var(--paper)}
+.pill{display:inline-block;font-size:11px;font-weight:600;padding:2px 9px;border-radius:999px}
+.pill.lead{background:rgba(26,125,111,.12);color:var(--green-bright)}
+.pill.support{background:var(--paper-2);color:var(--muted)}
+
+/* funding donut */
+.fund-wrap{display:flex;gap:24px;align-items:center;flex-wrap:wrap}
+.donut{width:170px;height:170px;border-radius:50%;flex:none;position:relative;
+  background:conic-gradient(var(--green-deep) 0 35%,var(--green-bright) 35% 65%,var(--gold) 65% 80%,var(--gold-soft) 80% 90%,var(--muted) 90% 100%)}
+.donut::after{content:"";position:absolute;inset:30px;background:var(--card);border-radius:50%;box-shadow:inset 0 0 0 1px var(--line)}
+.donut .ctr{position:absolute;inset:0;display:grid;place-items:center;text-align:center;z-index:2}
+.donut .ctr b{font-family:var(--display);font-size:15px;color:var(--green-deep);display:block;line-height:1.1}
+.donut .ctr span{font-size:10.5px;color:var(--muted)}
+.legend{flex:1;min-width:220px}
+.legend .lg{display:flex;align-items:center;gap:9px;padding:6px 0;font-size:13px}
+.legend .sw{width:13px;height:13px;border-radius:4px;flex:none}
+.legend .lg .amt{margin-left:auto;font-weight:600;color:var(--green-deep);font-variant-numeric:tabular-nums}
+
+.search-demo{display:flex;gap:10px;margin-top:6px}
+.search-demo input{flex:1;border:1px solid var(--line);border-radius:10px;padding:11px 14px;font-family:inherit;font-size:14px;background:var(--paper);color:var(--ink)}
+.search-demo input:focus{outline:none;border-color:var(--green-bright);box-shadow:0 0 0 3px rgba(26,125,111,.13)}
+.search-demo button{background:var(--green);color:#fff;border:none;border-radius:10px;padding:0 20px;font-family:inherit;font-weight:600;cursor:pointer;font-size:14px}
+.search-demo button:hover{background:var(--green-bright)}
+.search-hint{font-size:12px;color:var(--muted);margin-top:8px}
+.result{margin-top:14px;padding:13px 15px;background:var(--paper);border-left:3px solid var(--gold);border-radius:8px;font-size:13px;display:none}
+.result.show{display:block;animation:fade .3s}
+
+footer{border-top:1px solid var(--line);margin-top:40px;padding:26px 28px;text-align:center;font-size:12.5px;color:var(--muted)}
+footer b{color:var(--green-deep)}
+
+.comp-count{margin-top:13px;padding-top:11px;border-top:1px solid var(--paper-2);font-size:12.5px;font-weight:600;color:var(--green-bright);display:flex;align-items:center;justify-content:space-between}
+.comp-count .arrow{transition:.2s;font-size:15px}
+.comp:hover .comp-count .arrow{transform:translateX(4px)}
+
+/* search results */
+.result{margin-top:14px;padding:0;background:transparent;border:none;border-radius:0;display:none}
+.result.show{display:block;animation:fade .3s}
+.res-head{font-size:12.5px;font-weight:600;color:var(--green-deep);margin-bottom:10px;padding-left:2px}
+.res-item{padding:12px 15px;background:var(--paper);border-left:3px solid var(--gold);border-radius:8px;margin-bottom:8px;transition:.15s}
+.res-item:hover{background:var(--paper-2);transform:translateX(2px)}
+.res-t{font-size:14px;font-weight:600;color:var(--green-deep);margin-bottom:3px}
+.res-m{font-size:12px;color:var(--muted)}
+.res-type{color:var(--gold);font-weight:600}
+.res-comp{display:inline-block;margin-left:6px;font-size:10.5px;background:rgba(26,125,111,.1);color:var(--green-bright);padding:1px 8px;border-radius:999px;font-weight:600}
+.res-empty{padding:16px;background:var(--paper);border-radius:8px;font-size:13px;color:var(--muted);text-align:center}
+
+/* modal */
+.modal-overlay{position:fixed;inset:0;background:rgba(12,40,36,.55);backdrop-filter:blur(4px);z-index:100;display:none;align-items:center;justify-content:center;padding:24px}
+.modal-overlay.show{display:flex;animation:fade .25s}
+.modal-box{background:var(--card);border-radius:18px;max-width:620px;width:100%;max-height:84vh;overflow-y:auto;padding:30px 30px 26px;position:relative;box-shadow:var(--shadow-lg);border:1px solid var(--line);animation:pop .3s cubic-bezier(.2,.8,.3,1)}
+@keyframes pop{from{transform:scale(.94) translateY(12px);opacity:0}to{transform:none;opacity:1}}
+.modal-x{position:absolute;top:18px;right:20px;background:var(--paper-2);border:none;width:34px;height:34px;border-radius:50%;font-size:22px;line-height:1;color:var(--muted);cursor:pointer;transition:.18s}
+.modal-x:hover{background:var(--danger);color:#fff}
+.modal-title{font-family:var(--display);font-weight:600;font-size:21px;color:var(--green-deep);padding-right:40px;line-height:1.2;display:flex;align-items:center;gap:11px}
+body.lang-bn .modal-title{font-family:var(--bn);font-weight:700}
+.mt-num{font-family:var(--display);font-size:15px;color:var(--gold);background:var(--paper-2);width:36px;height:36px;border-radius:9px;display:grid;place-items:center;flex:none}
+.modal-sub{font-size:12.5px;color:var(--muted);margin:6px 0 18px}
+.kp{display:flex;gap:13px;padding:13px 0;border-bottom:1px solid var(--paper-2)}
+.kp:last-child{border:none}
+.kp-ic{width:38px;height:38px;border-radius:10px;flex:none;background:linear-gradient(145deg,var(--green),var(--green-bright));color:#fff;display:grid;place-items:center;font-size:17px;font-family:var(--display)}
+.kp-body{flex:1;min-width:0}
+.kp-t{font-size:14.5px;font-weight:600;color:var(--ink);margin-bottom:3px}
+.kp-m{font-size:12px;color:var(--muted)}
+
+@media(max-width:980px){
+  .shell{grid-template-columns:1fr;gap:0}
+  nav.side{position:static;display:flex;gap:6px;overflow-x:auto;padding:12px 0;border-bottom:1px solid var(--line)}
+  nav.side h6{display:none}
+  .navlink{white-space:nowrap;margin:0}
+  .kpi-grid{grid-template-columns:repeat(2,1fr)}
+  .comp-grid{grid-template-columns:1fr}
+  .grid-2{grid-template-columns:1fr}
+}
+@media(max-width:560px){
+  .topbar-inner{padding:0 16px;gap:10px}
+  .gov-tag{display:none}
+  .shell{padding:0 16px}
+  .hero{padding:24px 20px}
+  .hero h2{font-size:22px}
+  .kpi-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body class="lang-bn">
+
+<!-- ===== TOP BAR ===== -->
+<header class="topbar">
+  <div class="topbar-inner">
+    <div class="crest">ব</div>
+    <div class="brand">
+      <h1><span class="bn">বিসিএসকেআর</span><span class="en">BCSKR</span></h1>
+      <p><span class="bn">সিভিল সার্ভিস নলেজ রিপোজিটরি</span><span class="en">Civil Service Knowledge Repository</span></p>
+    </div>
+    <div class="spacer"></div>
+    <div class="lang-toggle" role="group" aria-label="Language toggle">
+      <button id="btn-bn" class="active" onclick="setLang('bn')">বাংলা</button>
+      <button id="btn-en" onclick="setLang('en')">EN</button>
+    </div>
+    <div class="gov-tag">
+      <span class="bn">মন্ত্রিপরিষদ বিভাগ</span><span class="en">Cabinet Division</span>
+      <span class="bn">গণপ্রজাতন্ত্রী বাংলাদেশ সরকার</span><span class="en">Govt. of Bangladesh</span>
+    </div>
+  </div>
+</header>
+
+<div class="shell">
+  <!-- ===== SIDEBAR ===== -->
+  <nav class="side">
+    <h6><span class="bn">মেনু</span><span class="en">Navigate</span></h6>
+    <div class="navlink active" data-view="overview" onclick="go('overview')">
+      <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="9"/><rect x="14" y="3" width="7" height="5"/><rect x="14" y="12" width="7" height="9"/><rect x="3" y="16" width="7" height="5"/></svg>
+      <span class="bn">এক্সিকিউটিভ ওভারভিউ</span><span class="en">Executive Overview</span>
+    </div>
+    <div class="navlink" data-view="components" onclick="go('components')">
+      <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2 2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+      <span class="bn">ছয় কম্পোনেন্ট</span><span class="en">Six Components</span>
+    </div>
+    <div class="navlink" data-view="governance" onclick="go('governance')">
+      <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18M5 21V8l7-5 7 5v13M9 21v-6h6v6"/></svg>
+      <span class="bn">গভর্নেন্স</span><span class="en">Governance</span>
+    </div>
+    <div class="navlink" data-view="funding" onclick="go('funding')">
+      <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v10M9.5 9.5h3.5a2 2 0 0 1 0 4H9.5"/></svg>
+      <span class="bn">অর্থায়ন</span><span class="en">Financing</span>
+    </div>
+    <div class="navlink" data-view="search" onclick="go('search')">
+      <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+      <span class="bn">এআই স্মার্ট সার্চ</span><span class="en">AI Smart Search</span>
+    </div>
+  </nav>
+
+  <main>
+    <!-- ============ OVERVIEW ============ -->
+    <section class="view active" id="overview">
+      <div class="hero">
+        <div class="vision">“Bangladesh Before All — A Nation Powered by Knowledge”</div>
+        <h2><span class="bn">জ্ঞানভিত্তিক সুশাসন ও প্রমাণভিত্তিক নীতিনির্ধারণের জাতীয় ডিজিটাল ভিত্তি</span><span class="en">The national digital foundation for knowledge-driven governance and evidence-based policymaking</span></h2>
+        <p class="sub"><span class="bn">মন্ত্রিপরিষদ বিভাগের অধীনে একটি AI-চালিত জাতীয় জ্ঞান ব্যবস্থাপনা প্ল্যাটফর্ম — ৩৬ মাসের পর্যায়ভিত্তিক বাস্তবায়ন।</span><span class="en">An AI-powered national knowledge management platform under the Cabinet Division — a phased 36-month rollout.</span></p>
+        <div class="hero-meta">
+          <div><b>৩৬</b><span class="bn">মাসের রোডম্যাপ</span><span class="en">month roadmap</span></div>
+          <div><b>৬</b><span class="bn">মূল কম্পোনেন্ট</span><span class="en">core components</span></div>
+          <div><b>৫</b><span class="bn">উৎসের অর্থায়ন</span><span class="en">funding sources</span></div>
+          <div><b>১৪</b><span class="bn">মাইলস্টোন</span><span class="en">milestones</span></div>
+        </div>
+      </div>
+
+      <div class="sec-head">
+        <h3><span class="bn">মূল কর্মসূচক (KPI)</span><span class="en">Key Performance Indicators</span></h3>
+        <span class="tag"><span class="bn">১ম বছরের অগ্রগতি</span><span class="en">Year-1 Progress</span></span>
+        <span class="rule"></span>
+      </div>
+      <div class="kpi-grid" id="kpiGrid"></div>
+
+      <div class="grid-2" style="margin-top:22px">
+        <div class="card">
+          <h4><span class="bn">বাস্তবায়ন রোডম্যাপ</span><span class="en">Implementation Roadmap</span></h4>
+          <p class="desc"><span class="bn">পাঁচ ধাপে ৩৬ মাসের পর্যায়ভিত্তিক বাস্তবায়ন</span><span class="en">Five phases across a 36-month rollout</span></p>
+          <div id="phaseList"></div>
+        </div>
+        <div class="card">
+          <h4><span class="bn">মন্ত্রণালয়ভিত্তিক deposit compliance</span><span class="en">Ministry Deposit Compliance</span></h4>
+          <p class="desc"><span class="bn">বাধ্যতামূলক জ্ঞান-পণ্য জমাদানের হার</span><span class="en">Mandatory knowledge-deposit submission rate</span></p>
+          <div id="complianceChart"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ COMPONENTS ============ -->
+    <section class="view" id="components">
+      <div class="sec-head">
+        <h3><span class="bn">ছয়টি মূল কম্পোনেন্ট</span><span class="en">Six Core Components</span></h3>
+        <span class="tag"><span class="bn">রিপোজিটরি স্থাপত্য</span><span class="en">Repository Architecture</span></span>
+        <span class="rule"></span>
+      </div>
+      <div class="comp-grid" id="compGrid"></div>
+    </section>
+
+    <!-- ============ GOVERNANCE ============ -->
+    <section class="view" id="governance">
+      <div class="sec-head">
+        <h3><span class="bn">গভর্নেন্স ও আন্তঃমন্ত্রণালয় Lead Matrix</span><span class="en">Governance & Inter-ministry Lead Matrix</span></h3>
+        <span class="rule"></span>
+      </div>
+      <div class="cards">
+        <div class="card">
+          <h4><span class="bn">দুই-স্তর গভর্নেন্স কাঠামো</span><span class="en">Two-tier Governance Structure</span></h4>
+          <p class="desc"><span class="bn">উচ্চপর্যায়ের নীতি তত্ত্বাবধান ও দৈনন্দিন ব্যবস্থাপনা</span><span class="en">High-level policy oversight and day-to-day management</span></p>
+          <table id="govTable"></table>
+        </div>
+        <div class="card">
+          <h4><span class="bn">আন্তঃমন্ত্রণালয় Lead Matrix</span><span class="en">Inter-ministry Lead Matrix</span></h4>
+          <p class="desc"><span class="bn">প্রতিটি উদ্যোগে lead ও connecting সংস্থা</span><span class="en">Lead and connecting agency for each initiative</span></p>
+          <table id="matrixTable"></table>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ FUNDING ============ -->
+    <section class="view" id="funding">
+      <div class="sec-head">
+        <h3><span class="bn">পাঁচ-উৎসভিত্তিক অর্থায়ন মডেল</span><span class="en">Five-Source Financing Model</span></h3>
+        <span class="tag"><span class="bn">বৈচিত্র্যপূর্ণ ও আর্থিকভাবে সাশ্রয়ী</span><span class="en">Diversified & fiscally prudent</span></span>
+        <span class="rule"></span>
+      </div>
+      <div class="card">
+        <div class="fund-wrap">
+          <div class="donut"><div class="ctr"><b>১০০%</b><span class="bn">মিশ্র অর্থায়ন</span><span class="en">mixed funding</span></div></div>
+          <div class="legend" id="fundLegend"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ AI SEARCH ============ -->
+    <section class="view" id="search">
+      <div class="sec-head">
+        <h3><span class="bn">এআই স্মার্ট সার্চ (Bangla NLP)</span><span class="en">AI Smart Search (Bangla NLP)</span></h3>
+        <span class="tag">Demo</span>
+        <span class="rule"></span>
+      </div>
+      <div class="card">
+        <h4><span class="bn">প্রাসঙ্গিক জ্ঞান খুঁজুন</span><span class="en">Find relevant knowledge</span></h4>
+        <p class="desc"><span class="bn">নীতি, কেস স্টাডি, গবেষণা ও প্রশিক্ষণ উপকরণে semantic অনুসন্ধান (ডেমো)</span><span class="en">Semantic search across policy, case studies, research & training (demo)</span></p>
+        <div class="search-demo">
+          <input id="q" placeholder="" oninput="liveSearch()" >
+          <button onclick="runSearch()"><span class="bn">খুঁজুন</span><span class="en">Search</span></button>
+        </div>
+        <p class="search-hint"><span class="bn">উদাহরণ: “gazette”, “census”, “muktopaath”, “innovation”, “ভূমি”, “GRS”, “NIS”</span><span class="en">Try: “gazette”, “census”, “muktopaath”, “innovation”, “land”, “GRS”, “NIS”</span></p>
+        <div class="result" id="result"></div>
+      </div>
+    </section>
+  </main>
+</div>
+
+<!-- ===== COMPONENT DETAIL MODAL ===== -->
+<div class="modal-overlay" id="modal" onclick="if(event.target===this)closeModal()">
+  <div class="modal-box">
+    <button class="modal-x" onclick="closeModal()" aria-label="Close">×</button>
+    <h3 class="modal-title" id="modalTitle"></h3>
+    <p class="modal-sub" id="modalSub"></p>
+    <div class="modal-body" id="modalBody"></div>
+  </div>
+</div>
+
+<footer>
+  <span class="bn"><b>বাংলাদেশ সিভিল সার্ভিস নলেজ রিপোজিটরি (BCSKR)</b> · মন্ত্রিপরিষদ বিভাগ · জুন ২০২৬</span>
+  <span class="en"><b>Bangladesh Civil Service Knowledge Repository (BCSKR)</b> · Cabinet Division · June 2026</span>
+  <br><span style="opacity:.7"><span class="bn">প্রস্তুতকারী: মো: তৌফিকুল ইসলাম, যুগ্মসচিব · ডেমো ড্যাশবোর্ড (নমুনা তথ্য)</span><span class="en">Prepared by Md Taufiqul Islam, Joint Secretary · Demo dashboard (illustrative data)</span></span>
+</footer>
+
+<script>
+/* ====== bilingual numeral helper ====== */
+const bnDigits='০১২৩৪৫৬৭৮৯';
+function toBn(s){return String(s).replace(/[0-9]/g,d=>bnDigits[d])}
+function num(n){return document.body.classList.contains('lang-bn')?toBn(n.toLocaleString('en-US')):n.toLocaleString('en-US')}
+
+/* ====== DATA ====== */
+const KPIS=[
+  {bn:'আপলোডকৃত ডকুমেন্ট',en:'Documents uploaded',val:10000,tgt:100000},
+  {bn:'সক্রিয় কর্মকর্তা ব্যবহারকারী',en:'Active civil-servant users',val:2000,tgt:30000},
+  {bn:'মাসিক এআই সার্চ',en:'AI search / month',val:5000,tgt:100000},
+  {bn:'প্রকাশিত গবেষণাপত্র',en:'Research papers published',val:50,tgt:500},
+  {bn:'ক্যাটালগকৃত কেস স্টাডি',en:'Case studies catalogued',val:100,tgt:1000},
+  {bn:'ই-লার্নিং সম্পন্নকারী',en:'Officers completing e-learning',val:500,tgt:10000},
+  {bn:'সহায়তাপ্রাপ্ত স্টার্ট-আপ',en:'Start-ups supported',val:10,tgt:100},
+  {bn:'KFPO মনোনয়ন (মন্ত্রণালয়)',en:'Ministries with KFPO',val:100,tgt:100,pctOverride:100,suffix:'%'},
+];
+const PHASES=[
+  {bn:'পর্যায় ১: পরিকল্পনা ও নকশা',en:'Phase 1: Planning & Design',d:{bn:'চাহিদা নিরূপণ; DPP অনুমোদন',en:'Needs assessment; DPP approval'},date:'M0–6',s:'done'},
+  {bn:'পর্যায় ২: অবকাঠামো উন্নয়ন',en:'Phase 2: Infrastructure',d:{bn:'ক্লাউড; beta রিপোজিটরি; ৫ পাইলট মন্ত্রণালয়',en:'Cloud; beta repository; 5 pilot ministries'},date:'M6–12',s:'active'},
+  {bn:'পর্যায় ৩: কনটেন্ট ও ডিজিটাইজেশন',en:'Phase 3: Content & Digitization',d:{bn:'মন্ত্রণালয়ভিত্তিক ডিজিটাইজেশন; প্রশিক্ষণ',en:'Ministry-wise digitization; training'},date:'M12–24',s:''},
+  {bn:'পর্যায় ৪: এআই ও অ্যানালিটিক্স',en:'Phase 4: AI & Analytics',d:{bn:'Bangla AI সার্চ; Decision Dashboard',en:'Bangla AI search; Decision Dashboard'},date:'M24–36',s:''},
+  {bn:'পর্যায় ৫: জাতীয় Scale-up',en:'Phase 5: National Scale-up',d:{bn:'সকল মন্ত্রণালয়; নাগরিক পোর্টাল',en:'All-ministry rollout; Citizen Portal'},date:'M36+',s:''},
+];
+const COMPLIANCE=[
+  {bn:'মন্ত্রিপরিষদ বিভাগ',en:'Cabinet Division',v:96},
+  {bn:'ICT বিভাগ',en:'ICT Division',v:88},
+  {bn:'জনপ্রশাসন',en:'Public Admin',v:74},
+  {bn:'অর্থ বিভাগ',en:'Finance',v:69},
+  {bn:'মাঠ প্রশাসন',en:'Field Admin',v:58},
+];
+const COMPONENTS=[
+  {n:1,bn:'নীতি ও আইন রিপোজিটরি',en:'Policy & Legal Repository',pb:'মন্ত্রিসভার সিদ্ধান্ত, আইন ও বিধির কেন্দ্রীয় আর্কাইভ',pe:'Central archive of Cabinet decisions, laws & regulations',tags:{bn:['মন্ত্রিসভা সিদ্ধান্ত','আইন ডেটাবেজ','পরিপত্র'],en:['Cabinet decisions','Legislative DB','Circulars']},stat:'Live'},
+  {n:2,bn:'প্রশাসনিক কেস স্টাডি ব্যাংক',en:'Administrative Case Study Bank',pb:'মাঠ প্রশাসনের best-practice ও উদ্ভাবন',pe:'Field administration best practices & innovations',tags:{bn:['সেবা মডেল','উদ্ভাবন','peer-reviewed'],en:['Service models','Innovation','Peer-reviewed']},stat:'Live'},
+  {n:3,bn:'গবেষণা ও প্রকাশনা আর্কাইভ',en:'Research & Publication Archive',pb:'সরকারি গবেষণা ও প্রকল্প মূল্যায়ন',pe:'Government research & project evaluations',tags:{bn:['গবেষণা প্রতিবেদন','মূল্যায়ন','benchmarking'],en:['Research reports','Evaluations','Benchmarking']},stat:'Beta'},
+  {n:4,bn:'ডিজিটাল লার্নিং প্ল্যাটফর্ম',en:'Digital Learning Platform',pb:'সকল গ্রেডের জন্য e-learning ও webinar',pe:'E-learning & webinars for all grades',tags:{bn:['AI মডিউল','Leadership','Data Analytics'],en:['AI modules','Leadership','Data Analytics']},stat:'Beta'},
+  {n:5,bn:'উদ্ভাবন ও আইডিয়া ল্যাব',en:'Innovation & Idea Lab',pb:'উদ্ভাবন প্রতিযোগিতা ও GovTech Hub',pe:'Innovation competition & GovTech Hub',tags:{bn:['GovTech','প্রতিযোগিতা','crowdsourcing'],en:['GovTech','Competition','Crowdsourcing']},stat:'Pilot'},
+  {n:6,bn:'এআই-চালিত জ্ঞান ব্যবস্থা',en:'AI-Powered Knowledge System',pb:'Bangla NLP সার্চ ও Decision Support',pe:'Bangla NLP search & Decision Support',tags:{bn:['Bangla NLP','Recommendation','Dashboard'],en:['Bangla NLP','Recommendation','Dashboard']},stat:'Dev'},
+];
+const GOV=[
+  {tier:{bn:'Policy Council (সভাপতি: মন্ত্রিপরিষদ সচিব)',en:'Policy Council (Chair: Cabinet Secretary)'},fn:{bn:'কৌশলগত দিকনির্দেশনা; নীতি তত্ত্বাবধান; সমন্বয়; সম্পদ সংস্থান',en:'Strategic direction; policy oversight; coordination; resource mobilization'}},
+  {tier:{bn:'Project Management Office (PMO)',en:'Project Management Office (PMO)'},fn:{bn:'দৈনন্দিন পরিচালনা; ক্রয়; content curation; কারিগরি বাস্তবায়ন',en:'Day-to-day ops; procurement; content curation; technical implementation'}},
+  {tier:{bn:'মন্ত্রণালয় KM Unit (CKO/KFPO)',en:'Ministry KM Unit (CKO/KFPO)'},fn:{bn:'entity-পর্যায়ে বাস্তবায়ন; content জমাদান; compliance',en:'Entity-level implementation; content submission; compliance'}},
+];
+const MATRIX=[
+  {i:{bn:'CSKR প্ল্যাটফর্ম',en:'CSKR Platform'},l:'Cabinet Division',c:'ICT, জনপ্রশাসন'},
+  {i:{bn:'Bangla AI Search',en:'Bangla AI Search'},l:'Cabinet Division',c:'ICT, BCC, a2i'},
+  {i:{bn:'কেস স্টাডি ব্যাংক',en:'Case Study Bank'},l:'Cabinet Division',c:'DC, BPATC'},
+  {i:{bn:'ডিজিটাল লার্নিং',en:'Digital Learning'},l:'BPATC',c:'জনপ্রশাসন, ICT'},
+  {i:{bn:'উদ্ভাবন ল্যাব',en:'Innovation Lab'},l:'Cabinet Division',c:'a2i, SME Foundation'},
+  {i:{bn:'Open Data Portal',en:'Open Data Portal'},l:'Cabinet Division',c:'ICT, BBS'},
+];
+const FUND=[
+  {bn:'বার্ষিক উন্নয়ন কর্মসূচি (ADP)',en:'Annual Development Programme (ADP)',pct:35,c:'var(--green-deep)'},
+  {bn:'উন্নয়ন সহযোগী (UNDP, WB, ADB, EU)',en:'Development Partners (UNDP, WB, ADB, EU)',pct:30,c:'var(--green-bright)'},
+  {bn:'পাবলিক-প্রাইভেট পার্টনারশিপ (PPP)',en:'Public-Private Partnership (PPP)',pct:15,c:'var(--gold)'},
+  {bn:'National Innovation Fund',en:'National Innovation Fund',pct:10,c:'var(--gold-soft)'},
+  {bn:'e-Revenue / Subscription',en:'e-Revenue / Subscription',pct:10,c:'var(--muted)'},
+];
+/* ====== KNOWLEDGE PRODUCTS — sample data modelled on Bangladesh National Portal (bangladesh.gov.bd) categories ====== */
+const KNOWLEDGE={
+1:[ // Policy & Legal Repository
+  {bn:'রুলস অব বিজনেস, ১৯৯৬ (Allocation of Business)',en:'Rules of Business, 1996 (Allocation of Business)',org:{bn:'মন্ত্রিপরিষদ বিভাগ',en:'Cabinet Division'},type:{bn:'আইন/বিধি',en:'Rules'},date:'2024',k:['rules of business','allocation','gazette','আইন','বিধি','মন্ত্রিপরিষদ']},
+  {bn:'মন্ত্রিসভা বৈঠকের সিদ্ধান্ত সারসংক্ষেপ',en:'Cabinet Meeting Decision Summaries',org:{bn:'মন্ত্রিপরিষদ বিভাগ',en:'Cabinet Division'},type:{bn:'সিদ্ধান্ত',en:'Decision'},date:'2026',k:['cabinet','decision','summary','সিদ্ধান্ত','মন্ত্রিসভা']},
+  {bn:'জাতীয় শুদ্ধাচার কৌশল (NIS) কর্মপরিকল্পনা',en:'National Integrity Strategy (NIS) Work Plan',org:{bn:'মন্ত্রিপরিষদ বিভাগ',en:'Cabinet Division'},type:{bn:'কৌশল',en:'Strategy'},date:'2025',k:['nis','integrity','shuddhachar','শুদ্ধাচার','কৌশল']},
+  {bn:'তথ্য অধিকার আইন, ২০০৯ ও বিধিমালা',en:'Right to Information (RTI) Act, 2009 & Rules',org:{bn:'তথ্য কমিশন',en:'Information Commission'},type:{bn:'আইন',en:'Act'},date:'2009',k:['rti','right to information','তথ্য অধিকার','আইন']},
+  {bn:'সরকারি গেজেট ও পরিপত্র সংকলন',en:'Government Gazette & Circulars Compilation',org:{bn:'বিজি প্রেস',en:'BG Press'},type:{bn:'গেজেট',en:'Gazette'},date:'2026',k:['gazette','circular','পরিপত্র','গেজেট']},
+],
+2:[ // Administrative Case Study Bank
+  {bn:'একশপ: গ্রামীণ ই-কমার্স সেবা মডেল (a2i)',en:'Ekshop: Rural E-commerce Service Model (a2i)',org:{bn:'a2i',en:'a2i'},type:{bn:'কেস স্টাডি',en:'Case Study'},date:'2024',k:['ekshop','ecommerce','a2i','একশপ','সেবা']},
+  {bn:'মাঠ প্রশাসনে অভিযোগ প্রতিকার ব্যবস্থা (GRS)',en:'Grievance Redress System (GRS) in Field Administration',org:{bn:'জেলা প্রশাসন',en:'District Administration'},type:{bn:'কেস স্টাডি',en:'Case Study'},date:'2025',k:['grs','grievance','অভিযোগ','প্রতিকার','মাঠ প্রশাসন']},
+  {bn:'ভূমি সেবা ডিজিটালাইজেশন — best practice',en:'Land Service Digitization — best practice',org:{bn:'ভূমি মন্ত্রণালয়',en:'Ministry of Land'},type:{bn:'উদ্ভাবন',en:'Innovation'},date:'2025',k:['land','digitization','ভূমি','best practice','সেবা']},
+  {bn:'জেলা ই-সেবা কেন্দ্র — নাগরিক সেবা মডেল',en:'District e-Service Centre — citizen service model',org:{bn:'জেলা প্রশাসন',en:'District Administration'},type:{bn:'কেস স্টাডি',en:'Case Study'},date:'2024',k:['e-service','citizen','নাগরিক সেবা','জেলা']},
+  {bn:'দুর্যোগ ব্যবস্থাপনায় স্থানীয় উদ্ভাবন',en:'Local Innovation in Disaster Management',org:{bn:'দুর্যোগ ব্যবস্থাপনা অধিদপ্তর',en:'Dept. of Disaster Management'},type:{bn:'উদ্ভাবন',en:'Innovation'},date:'2025',k:['disaster','innovation','দুর্যোগ','উদ্ভাবন']},
+],
+3:[ // Research & Publication Archive
+  {bn:'বাংলাদেশ অর্থনৈতিক সমীক্ষা ২০২৫',en:'Bangladesh Economic Review 2025',org:{bn:'অর্থ বিভাগ',en:'Finance Division'},type:{bn:'সমীক্ষা',en:'Review'},date:'2025',k:['economic review','অর্থনৈতিক সমীক্ষা','finance','গবেষণা']},
+  {bn:'বার্ষিক উন্নয়ন কর্মসূচি (ADP) মূল্যায়ন প্রতিবেদন',en:'Annual Development Programme (ADP) Evaluation Report',org:{bn:'IMED, পরিকল্পনা মন্ত্রণালয়',en:'IMED, Ministry of Planning'},type:{bn:'মূল্যায়ন',en:'Evaluation'},date:'2025',k:['adp','imed','evaluation','মূল্যায়ন','প্রকল্প']},
+  {bn:'জনশুমারি ও গৃহগণনা ২০২২ — প্রতিবেদন',en:'Population & Housing Census 2022 — Report',org:{bn:'BBS',en:'BBS'},type:{bn:'প্রতিবেদন',en:'Report'},date:'2023',k:['census','bbs','জনশুমারি','পরিসংখ্যান']},
+  {bn:'অষ্টম পঞ্চবার্ষিক পরিকল্পনা — পর্যালোচনা',en:'8th Five Year Plan — Review',org:{bn:'পরিকল্পনা কমিশন',en:'Planning Commission'},type:{bn:'পরিকল্পনা',en:'Plan'},date:'2024',k:['five year plan','পঞ্চবার্ষিক','planning','পরিকল্পনা']},
+  {bn:'এসডিজি অগ্রগতি প্রতিবেদন বাংলাদেশ',en:'SDG Progress Report Bangladesh',org:{bn:'SDG সেল, প্রধানমন্ত্রীর কার্যালয়',en:'SDG Cell, PMO'},type:{bn:'প্রতিবেদন',en:'Report'},date:'2025',k:['sdg','progress','এসডিজি','প্রতিবেদন']},
+],
+4:[ // Digital Learning Platform
+  {bn:'মুক্তপাঠ — সরকারি ই-লার্নিং কোর্স',en:'Muktopaath — Govt. e-Learning Courses',org:{bn:'a2i',en:'a2i'},type:{bn:'কোর্স',en:'Course'},date:'2026',k:['muktopaath','elearning','মুক্তপাঠ','কোর্স','প্রশিক্ষণ']},
+  {bn:'বুনিয়াদি প্রশিক্ষণ মডিউল (BPATC)',en:'Foundation Training Module (BPATC)',org:{bn:'BPATC',en:'BPATC'},type:{bn:'মডিউল',en:'Module'},date:'2025',k:['bpatc','foundation','training','বুনিয়াদি','প্রশিক্ষণ']},
+  {bn:'ডেটা অ্যানালিটিক্স ও AI literacy কোর্স',en:'Data Analytics & AI Literacy Course',org:{bn:'BCC',en:'BCC'},type:{bn:'কোর্স',en:'Course'},date:'2026',k:['data analytics','ai','literacy','কোর্স']},
+  {bn:'নেতৃত্ব ও সুশাসন webinar আর্কাইভ',en:'Leadership & Governance Webinar Archive',org:{bn:'BPATC',en:'BPATC'},type:{bn:'ওয়েবিনার',en:'Webinar'},date:'2025',k:['leadership','governance','webinar','নেতৃত্ব','সুশাসন']},
+],
+5:[ // Innovation & Idea Lab
+  {bn:'সরকারি উদ্ভাবনী উদ্যোগ প্রদর্শনী (a2i Innovation)',en:'Government Innovation Showcase (a2i)',org:{bn:'a2i',en:'a2i'},type:{bn:'প্রদর্শনী',en:'Showcase'},date:'2025',k:['innovation','showcase','a2i','উদ্ভাবন','প্রদর্শনী']},
+  {bn:'GovTech সমাধান হাব — স্টার্ট-আপ তালিকা',en:'GovTech Solution Hub — Start-up Catalogue',org:{bn:'ICT বিভাগ',en:'ICT Division'},type:{bn:'হাব',en:'Hub'},date:'2026',k:['govtech','startup','hub','স্টার্ট-আপ','উদ্ভাবন']},
+  {bn:'বার্ষিক প্রশাসনিক উদ্ভাবন পুরস্কার',en:'Annual Administrative Innovation Award',org:{bn:'মন্ত্রিপরিষদ বিভাগ',en:'Cabinet Division'},type:{bn:'পুরস্কার',en:'Award'},date:'2025',k:['innovation award','পুরস্কার','উদ্ভাবন']},
+  {bn:'crowdsourced সমস্যা-সমাধান প্ল্যাটফর্ম',en:'Crowdsourced Problem-Solving Platform',org:{bn:'a2i',en:'a2i'},type:{bn:'প্ল্যাটফর্ম',en:'Platform'},date:'2026',k:['crowdsourcing','problem solving','সমাধান']},
+],
+6:[ // AI-Powered Knowledge System
+  {bn:'বাংলা NLP সেমান্টিক সার্চ — কারিগরি নকশা',en:'Bangla NLP Semantic Search — Technical Design',org:{bn:'BCC',en:'BCC'},type:{bn:'নকশা',en:'Design'},date:'2026',k:['nlp','bangla','semantic search','নকশা']},
+  {bn:'নীতি সুপারিশ ইঞ্জিন (Policy Recommendation)',en:'Policy Recommendation Engine',org:{bn:'মন্ত্রিপরিষদ বিভাগ',en:'Cabinet Division'},type:{bn:'ইঞ্জিন',en:'Engine'},date:'2026',k:['policy','recommendation','engine','নীতি','সুপারিশ']},
+  {bn:'সিদ্ধান্ত সহায়ক ড্যাশবোর্ড (Decision Support)',en:'Decision Support Dashboard',org:{bn:'মন্ত্রিপরিষদ বিভাগ',en:'Cabinet Division'},type:{bn:'ড্যাশবোর্ড',en:'Dashboard'},date:'2026',k:['decision support','dashboard','সিদ্ধান্ত','ড্যাশবোর্ড','analytics']},
+  {bn:'ওপেন গভর্নমেন্ট ডেটা পোর্টাল — API',en:'Open Government Data Portal — API',org:{bn:'ICT বিভাগ',en:'ICT Division'},type:{bn:'API',en:'API'},date:'2026',k:['open data','api','ডেটা','পোর্টাল']},
+],
+};
+/* flatten for global search */
+const DOCS_LEGACY=[
+  {bn:'Heritage Tourism Corridor — কৌশলপত্র',en:'Heritage Tourism Corridor — strategy note',t:'Research Archive',k:['heritage','tourism','corridor']},
+  {bn:'Copyright ও Artist Welfare সংস্কার',en:'Copyright & Artist Welfare reform',t:'Policy & Legal',k:['copyright','artist','welfare','reform']},
+  {bn:'Civil Service Innovation Lab — গাইডলাইন',en:'Civil Service Innovation Lab — guideline',t:'Innovation Lab',k:['innovation','lab','govtech','startup']},
+  {bn:'পাঁচ-উৎস অর্থায়ন কাঠামো',en:'Five-source financing framework',t:'Policy & Legal',k:['funding','financing','adp','ppp','budget']},
+  {bn:'Bangla NLP স্মার্ট সার্চ — কারিগরি নকশা',en:'Bangla NLP smart search — technical design',t:'AI Knowledge System',k:['ai','nlp','search','bangla']},
+];
+
+/* ====== RENDER ====== */
+function bilang(o){const bn=document.body.classList.contains('lang-bn');return bn?o.bn:o.en}
+function render(){
+  // KPI
+  document.getElementById('kpiGrid').innerHTML=KPIS.map(k=>{
+    const pct=k.pctOverride??Math.round(k.val/k.tgt*100);
+    const sfx=k.suffix||'';
+    return `<div class="kpi"><div class="lab">${bilang(k)}</div>
+      <div class="val">${num(k.val)}${sfx}</div>
+      <div class="tgt"><span class="bn">লক্ষ্য (৩য় বছর)</span><span class="en">Target (Yr 3)</span>: ${num(k.tgt)}${sfx}</div>
+      <div class="bar"><i style="width:${Math.min(pct,100)}%"></i></div></div>`;
+  }).join('');
+  // phases
+  document.getElementById('phaseList').innerHTML=PHASES.map(p=>
+    `<div class="phase ${p.s}"><div class="dot"></div><div class="pinfo">
+      <div class="pname">${bilang(p)}</div><div class="pdesc">${bilang(p.d)}</div></div>
+      <div class="pdate">${p.date}</div></div>`).join('');
+  // compliance
+  document.getElementById('complianceChart').innerHTML=COMPLIANCE.map(c=>
+    `<div class="chart-row"><div class="nm">${bilang(c)}</div>
+      <div class="track"><i style="width:${c.v}%"></i></div>
+      <div class="pct">${num(c.v)}%</div></div>`).join('');
+  // components
+  document.getElementById('compGrid').innerHTML=COMPONENTS.map(c=>{
+    const tags=(document.body.classList.contains('lang-bn')?c.tags.bn:c.tags.en).map(t=>`<li>${t}</li>`).join('');
+    const count=(KNOWLEDGE[c.n]||[]).length;
+    const bn=document.body.classList.contains('lang-bn');
+    const cntLabel=bn?`${toBn(count)}টি জ্ঞান-পণ্য`:`${count} knowledge products`;
+    return `<div class="comp" onclick="openComp(${c.n})"><span class="stat">${c.stat}</span><div class="num">${toBnIf(c.n)}</div>
+      <h4>${bn?c.bn:c.en}</h4>
+      <p>${bn?c.pb:c.pe}</p><ul>${tags}</ul>
+      <div class="comp-count">${cntLabel} <span class="arrow">→</span></div></div>`;
+  }).join('');
+  // gov table
+  document.getElementById('govTable').innerHTML=
+    `<tr><th><span class="bn">স্তর</span><span class="en">Tier</span></th><th><span class="bn">কার্যাবলি</span><span class="en">Function</span></th></tr>`+
+    GOV.map(g=>`<tr><td style="font-weight:600">${bilang(g.tier)}</td><td style="color:var(--muted)">${bilang(g.fn)}</td></tr>`).join('');
+  // matrix table
+  document.getElementById('matrixTable').innerHTML=
+    `<tr><th><span class="bn">উদ্যোগ</span><span class="en">Initiative</span></th><th>Lead</th><th><span class="bn">সংযুক্ত</span><span class="en">Connecting</span></th></tr>`+
+    MATRIX.map(m=>`<tr><td>${bilang(m.i)}</td><td><span class="pill lead">${m.l}</span></td><td style="color:var(--muted)">${m.c}</td></tr>`).join('');
+  // funding
+  document.getElementById('fundLegend').innerHTML=FUND.map(f=>
+    `<div class="lg"><span class="sw" style="background:${f.c}"></span>${bilang(f)}<span class="amt">${num(f.pct)}%</span></div>`).join('');
+}
+function toBnIf(n){return document.body.classList.contains('lang-bn')?toBn(n):n}
+
+/* ====== NAV ====== */
+function go(v){
+  document.querySelectorAll('.view').forEach(s=>s.classList.toggle('active',s.id===v));
+  document.querySelectorAll('.navlink').forEach(n=>n.classList.toggle('active',n.dataset.view===v));
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+/* ====== LANG ====== */
+function setLang(l){
+  document.body.classList.toggle('lang-bn',l==='bn');
+  document.documentElement.lang=l;
+  document.getElementById('btn-bn').classList.toggle('active',l==='bn');
+  document.getElementById('btn-en').classList.toggle('active',l==='en');
+  document.getElementById('q').placeholder=l==='bn'?'জ্ঞান, নীতি বা কেস স্টাডি খুঁজুন…':'Search knowledge, policy or case studies…';
+  render();
+}
+/* ====== BUILD SEARCH INDEX from all knowledge products ====== */
+const COMP_NAME={1:{bn:'নীতি ও আইন রিপোজিটরি',en:'Policy & Legal Repository'},2:{bn:'প্রশাসনিক কেস স্টাডি ব্যাংক',en:'Administrative Case Study Bank'},3:{bn:'গবেষণা ও প্রকাশনা আর্কাইভ',en:'Research & Publication Archive'},4:{bn:'ডিজিটাল লার্নিং প্ল্যাটফর্ম',en:'Digital Learning Platform'},5:{bn:'উদ্ভাবন ও আইডিয়া ল্যাব',en:'Innovation & Idea Lab'},6:{bn:'এআই-চালিত জ্ঞান ব্যবস্থা',en:'AI-Powered Knowledge System'}};
+const INDEX=[];
+Object.keys(KNOWLEDGE).forEach(cid=>{
+  KNOWLEDGE[cid].forEach(d=>INDEX.push({...d,comp:+cid,compName:COMP_NAME[cid]}));
+});
+DOCS_LEGACY.forEach(d=>INDEX.push({bn:d.bn,en:d.en,org:{bn:'BCSKR',en:'BCSKR'},type:{bn:d.t,en:d.t},date:'2026',k:d.k,comp:0,compName:{bn:d.t,en:d.t}}));
+
+/* ====== SEARCH (live, bilingual, fuzzy over title+keywords+org) ====== */
+function scoreHit(d,q){
+  const bn=document.body.classList.contains('lang-bn');
+  const title=(bn?d.bn:d.en).toLowerCase(), titleAlt=(bn?d.en:d.bn).toLowerCase();
+  const org=((bn?d.org.bn:d.org.en)||'').toLowerCase();
+  let s=0;
+  if(title.includes(q))s+=5;
+  if(titleAlt.includes(q))s+=3;
+  if(org.includes(q))s+=2;
+  if(d.k.some(k=>k.toLowerCase()===q))s+=4;
+  if(d.k.some(k=>k.toLowerCase().includes(q)||q.includes(k.toLowerCase())))s+=2;
+  return s;
+}
+function runSearch(){
+  const q=document.getElementById('q').value.trim().toLowerCase();
+  const r=document.getElementById('result');
+  const bn=document.body.classList.contains('lang-bn');
+  if(!q){r.classList.remove('show');return}
+  const hits=INDEX.map(d=>({d,s:scoreHit(d,q)})).filter(x=>x.s>0).sort((a,b)=>b.s-a.s).slice(0,8);
+  if(hits.length){
+    r.innerHTML=`<div class="res-head">${bn?toBn(hits.length)+'টি ফলাফল পাওয়া গেছে':hits.length+' result(s) found'}</div>`+
+      hits.map(({d})=>{
+        const badge=d.comp?`<span class="res-comp">${bn?d.compName.bn:d.compName.en}</span>`:`<span class="res-comp">${bn?d.compName.bn:d.compName.en}</span>`;
+        return `<div class="res-item">
+          <div class="res-t">${bn?d.bn:d.en}</div>
+          <div class="res-m">${bn?d.org.bn:d.org.en} · <span class="res-type">${bn?d.type.bn:d.type.en}</span> · ${toBnIf(d.date)} ${badge}</div>
+        </div>`;
+      }).join('');
+  }else{
+    r.innerHTML=`<div class="res-empty">${bn?'কোনো ফলাফল পাওয়া যায়নি। চেষ্টা করুন: “gazette”, “census”, “muktopaath”, “innovation”।':'No results. Try: “gazette”, “census”, “muktopaath”, “innovation”.'}</div>`;
+  }
+  r.classList.add('show');
+}
+function liveSearch(){if(document.getElementById('q').value.trim().length>=2)runSearch();else document.getElementById('result').classList.remove('show');}
+
+/* ====== COMPONENT DETAIL MODAL ====== */
+function openComp(n){
+  const bn=document.body.classList.contains('lang-bn');
+  const list=KNOWLEDGE[n]||[];
+  const cName=bn?COMP_NAME[n].bn:COMP_NAME[n].en;
+  const rows=list.map(d=>`<div class="kp">
+    <div class="kp-ic">${typeIcon(d.type.en)}</div>
+    <div class="kp-body">
+      <div class="kp-t">${bn?d.bn:d.en}</div>
+      <div class="kp-m">${bn?d.org.bn:d.org.en} · <span class="res-type">${bn?d.type.bn:d.type.en}</span> · ${toBnIf(d.date)}</div>
+    </div></div>`).join('');
+  document.getElementById('modalTitle').innerHTML=`<span class="mt-num">${toBnIf(n)}</span> ${cName}`;
+  document.getElementById('modalSub').textContent=bn?`${toBn(list.length)}টি নমুনা জ্ঞান-পণ্য (জাতীয় পোর্টাল অনুসারে)`:`${list.length} sample knowledge products (modelled on the National Portal)`;
+  document.getElementById('modalBody').innerHTML=rows;
+  document.getElementById('modal').classList.add('show');
+}
+function closeModal(){document.getElementById('modal').classList.remove('show')}
+function typeIcon(t){
+  const m={'Act':'§','Rules':'§','Gazette':'§','Decision':'✓','Strategy':'◆','Case Study':'❖','Innovation':'✦','Review':'∿','Evaluation':'∿','Report':'▤','Plan':'▦','Course':'▷','Module':'▷','Webinar':'▶','Showcase':'✦','Hub':'⬡','Award':'★','Platform':'⬡','Design':'⚙','Engine':'⚙','Dashboard':'▦','API':'{}'};
+  return m[t]||'•';
+}
+document.addEventListener('keydown',e=>{if(e.key==='Enter'&&document.activeElement.id==='q')runSearch();if(e.key==='Escape')closeModal()});
+
+/* init */
+setLang('bn');
+</script>
+</body>
+</html>
