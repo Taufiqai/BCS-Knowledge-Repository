@@ -239,6 +239,21 @@ body.lang-bn .modal-title{font-family:var(--bn);font-weight:700}
 .kp-t{font-size:14.5px;font-weight:600;color:var(--ink);margin-bottom:3px}
 .kp-m{font-size:12px;color:var(--muted)}
 
+/* search modes & web engines */
+.mode-toggle{display:inline-flex;border:1px solid var(--line);border-radius:999px;overflow:hidden;margin-bottom:14px;font-size:13px;font-weight:600}
+.mode-toggle button{background:var(--paper);border:none;padding:8px 18px;cursor:pointer;font-family:inherit;color:var(--muted);transition:.2s}
+.mode-toggle button.active{background:var(--green);color:#fff}
+.web-engines{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+.we{background:var(--paper);border:1px solid var(--line);border-radius:9px;padding:8px 16px;font-family:inherit;font-size:13px;font-weight:600;color:var(--green-deep);cursor:pointer;transition:.18s}
+.we:hover{border-color:var(--green-bright);background:var(--paper-2);transform:translateY(-1px)}
+.we.gov{border-color:var(--gold-soft);color:var(--gold)}
+.we.gov:hover{border-color:var(--gold)}
+.export-btn{background:var(--green);color:#fff;border:none;border-radius:10px;padding:11px 22px;font-family:inherit;font-size:14px;font-weight:600;cursor:pointer;transition:.18s}
+.export-btn:hover{background:var(--green-bright);transform:translateY(-1px)}
+.modal-filter{width:100%;border:1px solid var(--line);border-radius:9px;padding:9px 13px;font-family:inherit;font-size:13.5px;background:var(--paper);color:var(--ink);margin-bottom:10px;position:sticky;top:0}
+.modal-filter:focus{outline:none;border-color:var(--green-bright)}
+.an-note{font-size:11.5px;color:var(--muted);margin-top:6px}
+
 @media(max-width:980px){
   .shell{grid-template-columns:1fr;gap:0}
   nav.side{position:static;display:flex;gap:6px;overflow-x:auto;padding:12px 0;border-bottom:1px solid var(--line)}
@@ -304,6 +319,10 @@ body.lang-bn .modal-title{font-family:var(--bn);font-weight:700}
       <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
       <span class="bn">এআই স্মার্ট সার্চ</span><span class="en">AI Smart Search</span>
     </div>
+    <div class="navlink" data-view="analytics" onclick="go('analytics')">
+      <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3v18h18"/><rect x="7" y="12" width="3" height="6"/><rect x="12" y="8" width="3" height="10"/><rect x="17" y="5" width="3" height="13"/></svg>
+      <span class="bn">অ্যানালিটিক্যাল টুলস</span><span class="en">Analytical Tools</span>
+    </div>
   </nav>
 
   <main>
@@ -314,10 +333,10 @@ body.lang-bn .modal-title{font-family:var(--bn);font-weight:700}
         <h2><span class="bn">জ্ঞানভিত্তিক সুশাসন ও প্রমাণভিত্তিক নীতিনির্ধারণের জাতীয় ডিজিটাল ভিত্তি</span><span class="en">The national digital foundation for knowledge-driven governance and evidence-based policymaking</span></h2>
         <p class="sub"><span class="bn">মন্ত্রিপরিষদ বিভাগের অধীনে একটি AI-চালিত জাতীয় জ্ঞান ব্যবস্থাপনা প্ল্যাটফর্ম — ৩৬ মাসের পর্যায়ভিত্তিক বাস্তবায়ন।</span><span class="en">An AI-powered national knowledge management platform under the Cabinet Division — a phased 36-month rollout.</span></p>
         <div class="hero-meta">
-          <div><b>৩৬</b><span class="bn">মাসের রোডম্যাপ</span><span class="en">month roadmap</span></div>
+          <div><b>১২০</b><span class="bn">জ্ঞান-পণ্য</span><span class="en">knowledge products</span></div>
           <div><b>৬</b><span class="bn">মূল কম্পোনেন্ট</span><span class="en">core components</span></div>
           <div><b>৫</b><span class="bn">উৎসের অর্থায়ন</span><span class="en">funding sources</span></div>
-          <div><b>১৪</b><span class="bn">মাইলস্টোন</span><span class="en">milestones</span></div>
+          <div><b>৩৬</b><span class="bn">মাসের রোডম্যাপ</span><span class="en">month roadmap</span></div>
         </div>
       </div>
 
@@ -390,19 +409,69 @@ body.lang-bn .modal-title{font-family:var(--bn);font-weight:700}
     <!-- ============ AI SEARCH ============ -->
     <section class="view" id="search">
       <div class="sec-head">
-        <h3><span class="bn">এআই স্মার্ট সার্চ (Bangla NLP)</span><span class="en">AI Smart Search (Bangla NLP)</span></h3>
-        <span class="tag">Demo</span>
+        <h3><span class="bn">এআই স্মার্ট সার্চ</span><span class="en">AI Smart Search</span></h3>
         <span class="rule"></span>
       </div>
       <div class="card">
-        <h4><span class="bn">প্রাসঙ্গিক জ্ঞান খুঁজুন</span><span class="en">Find relevant knowledge</span></h4>
-        <p class="desc"><span class="bn">নীতি, কেস স্টাডি, গবেষণা ও প্রশিক্ষণ উপকরণে semantic অনুসন্ধান (ডেমো)</span><span class="en">Semantic search across policy, case studies, research & training (demo)</span></p>
+        <div class="mode-toggle" role="group">
+          <button id="mode-repo" class="active" onclick="setMode('repo')"><span class="bn">📚 রিপোজিটরি</span><span class="en">📚 Repository</span></button>
+          <button id="mode-web" onclick="setMode('web')"><span class="bn">🌐 ইন্টারনেট</span><span class="en">🌐 Internet</span></button>
+        </div>
+        <h4 id="searchTitle"><span class="bn">প্রাসঙ্গিক জ্ঞান খুঁজুন</span><span class="en">Find relevant knowledge</span></h4>
+        <p class="desc" id="searchDesc"><span class="bn">১২০টি জ্ঞান-পণ্যে semantic অনুসন্ধান — শিরোনাম, সংস্থা ও কীওয়ার্ডে</span><span class="en">Semantic search across 120 knowledge products — title, organization & keywords</span></p>
         <div class="search-demo">
           <input id="q" placeholder="" oninput="liveSearch()" >
           <button onclick="runSearch()"><span class="bn">খুঁজুন</span><span class="en">Search</span></button>
         </div>
-        <p class="search-hint"><span class="bn">উদাহরণ: “gazette”, “census”, “muktopaath”, “innovation”, “ভূমি”, “GRS”, “NIS”</span><span class="en">Try: “gazette”, “census”, “muktopaath”, “innovation”, “land”, “GRS”, “NIS”</span></p>
+        <p class="search-hint" id="repoHint"><span class="bn">উদাহরণ: “gazette”, “census”, “মুক্তপাঠ”, “ভূমি”, “OCR”, “পেনশন”, “hackathon”</span><span class="en">Try: “gazette”, “census”, “muktopaath”, “land”, “OCR”, “pension”, “hackathon”</span></p>
+        <p class="search-hint" id="webHint" style="display:none"><span class="bn">ইন্টারনেট মোড: query লিখে নিচের যেকোনো সার্চ ইঞ্জিনে এক ক্লিকে অনুসন্ধান করুন — সরকারি সাইট (gov.bd) সীমাবদ্ধ অপশনসহ</span><span class="en">Internet mode: type a query and search any engine in one click — incl. a gov.bd-restricted option</span></p>
+        <div class="web-engines" id="webEngines" style="display:none">
+          <button class="we" onclick="webGo('google')">Google</button>
+          <button class="we" onclick="webGo('bing')">Bing</button>
+          <button class="we" onclick="webGo('ddg')">DuckDuckGo</button>
+          <button class="we gov" onclick="webGo('govbd')"><span class="bn">🏛 শুধু gov.bd</span><span class="en">🏛 gov.bd only</span></button>
+          <button class="we gov" onclick="webGo('scholar')">Google Scholar</button>
+        </div>
         <div class="result" id="result"></div>
+      </div>
+    </section>
+
+    <!-- ============ ANALYTICS ============ -->
+    <section class="view" id="analytics">
+      <div class="sec-head">
+        <h3><span class="bn">অ্যানালিটিক্যাল টুলস</span><span class="en">Analytical Tools</span></h3>
+        <span class="tag"><span class="bn">রিপোজিটরি ইন্টেলিজেন্স</span><span class="en">Repository Intelligence</span></span>
+        <span class="rule"></span>
+      </div>
+      <div class="kpi-grid" id="anKpi" style="margin-bottom:18px"></div>
+      <div class="grid-2">
+        <div class="card">
+          <h4><span class="bn">কম্পোনেন্টভিত্তিক বণ্টন</span><span class="en">Distribution by Component</span></h4>
+          <p class="desc"><span class="bn">প্রতিটি কম্পোনেন্টে জ্ঞান-পণ্যের সংখ্যা ও মোট ব্যবহার</span><span class="en">Products per component and total usage</span></p>
+          <div id="anComp"></div>
+        </div>
+        <div class="card">
+          <h4><span class="bn">প্রকাশকাল অনুযায়ী প্রবণতা</span><span class="en">Trend by Publication Year</span></h4>
+          <p class="desc"><span class="bn">বছরভিত্তিক জ্ঞান-পণ্য সংযোজন</span><span class="en">Knowledge products added per year</span></p>
+          <div id="anYear"></div>
+        </div>
+      </div>
+      <div class="grid-2" style="margin-top:18px">
+        <div class="card">
+          <h4><span class="bn">শীর্ষ অবদানকারী সংস্থা</span><span class="en">Top Contributing Organizations</span></h4>
+          <p class="desc"><span class="bn">জমাকৃত জ্ঞান-পণ্যের সংখ্যা অনুসারে</span><span class="en">By number of deposited products</span></p>
+          <div id="anOrg"></div>
+        </div>
+        <div class="card">
+          <h4><span class="bn">সর্বাধিক ব্যবহৃত জ্ঞান-পণ্য</span><span class="en">Most-used Knowledge Products</span></h4>
+          <p class="desc"><span class="bn">ভিউ অনুসারে শীর্ষ ৮ (নমুনা মেট্রিক্স)</span><span class="en">Top 8 by views (sample metrics)</span></p>
+          <table id="anTop"></table>
+        </div>
+      </div>
+      <div class="card" style="margin-top:18px">
+        <h4><span class="bn">ডেটা এক্সপোর্ট</span><span class="en">Data Export</span></h4>
+        <p class="desc"><span class="bn">সম্পূর্ণ ক্যাটালগ (১২০টি পণ্য, মেট্রিক্সসহ) CSV আকারে নামিয়ে নিন — গবেষণা ও প্রতিবেদনের জন্য</span><span class="en">Download the full catalogue (120 products with metrics) as CSV — for research & reporting</span></p>
+        <button class="export-btn" onclick="exportCSV()"><span class="bn">⬇ CSV ডাউনলোড</span><span class="en">⬇ Download CSV</span></button>
       </div>
     </section>
   </main>
@@ -484,55 +553,9 @@ const FUND=[
   {bn:'e-Revenue / Subscription',en:'e-Revenue / Subscription',pct:10,c:'var(--muted)'},
 ];
 /* ====== KNOWLEDGE PRODUCTS — sample data modelled on Bangladesh National Portal (bangladesh.gov.bd) categories ====== */
-const KNOWLEDGE={
-1:[ // Policy & Legal Repository
-  {bn:'রুলস অব বিজনেস, ১৯৯৬ (Allocation of Business)',en:'Rules of Business, 1996 (Allocation of Business)',org:{bn:'মন্ত্রিপরিষদ বিভাগ',en:'Cabinet Division'},type:{bn:'আইন/বিধি',en:'Rules'},date:'2024',k:['rules of business','allocation','gazette','আইন','বিধি','মন্ত্রিপরিষদ']},
-  {bn:'মন্ত্রিসভা বৈঠকের সিদ্ধান্ত সারসংক্ষেপ',en:'Cabinet Meeting Decision Summaries',org:{bn:'মন্ত্রিপরিষদ বিভাগ',en:'Cabinet Division'},type:{bn:'সিদ্ধান্ত',en:'Decision'},date:'2026',k:['cabinet','decision','summary','সিদ্ধান্ত','মন্ত্রিসভা']},
-  {bn:'জাতীয় শুদ্ধাচার কৌশল (NIS) কর্মপরিকল্পনা',en:'National Integrity Strategy (NIS) Work Plan',org:{bn:'মন্ত্রিপরিষদ বিভাগ',en:'Cabinet Division'},type:{bn:'কৌশল',en:'Strategy'},date:'2025',k:['nis','integrity','shuddhachar','শুদ্ধাচার','কৌশল']},
-  {bn:'তথ্য অধিকার আইন, ২০০৯ ও বিধিমালা',en:'Right to Information (RTI) Act, 2009 & Rules',org:{bn:'তথ্য কমিশন',en:'Information Commission'},type:{bn:'আইন',en:'Act'},date:'2009',k:['rti','right to information','তথ্য অধিকার','আইন']},
-  {bn:'সরকারি গেজেট ও পরিপত্র সংকলন',en:'Government Gazette & Circulars Compilation',org:{bn:'বিজি প্রেস',en:'BG Press'},type:{bn:'গেজেট',en:'Gazette'},date:'2026',k:['gazette','circular','পরিপত্র','গেজেট']},
-],
-2:[ // Administrative Case Study Bank
-  {bn:'একশপ: গ্রামীণ ই-কমার্স সেবা মডেল (a2i)',en:'Ekshop: Rural E-commerce Service Model (a2i)',org:{bn:'a2i',en:'a2i'},type:{bn:'কেস স্টাডি',en:'Case Study'},date:'2024',k:['ekshop','ecommerce','a2i','একশপ','সেবা']},
-  {bn:'মাঠ প্রশাসনে অভিযোগ প্রতিকার ব্যবস্থা (GRS)',en:'Grievance Redress System (GRS) in Field Administration',org:{bn:'জেলা প্রশাসন',en:'District Administration'},type:{bn:'কেস স্টাডি',en:'Case Study'},date:'2025',k:['grs','grievance','অভিযোগ','প্রতিকার','মাঠ প্রশাসন']},
-  {bn:'ভূমি সেবা ডিজিটালাইজেশন — best practice',en:'Land Service Digitization — best practice',org:{bn:'ভূমি মন্ত্রণালয়',en:'Ministry of Land'},type:{bn:'উদ্ভাবন',en:'Innovation'},date:'2025',k:['land','digitization','ভূমি','best practice','সেবা']},
-  {bn:'জেলা ই-সেবা কেন্দ্র — নাগরিক সেবা মডেল',en:'District e-Service Centre — citizen service model',org:{bn:'জেলা প্রশাসন',en:'District Administration'},type:{bn:'কেস স্টাডি',en:'Case Study'},date:'2024',k:['e-service','citizen','নাগরিক সেবা','জেলা']},
-  {bn:'দুর্যোগ ব্যবস্থাপনায় স্থানীয় উদ্ভাবন',en:'Local Innovation in Disaster Management',org:{bn:'দুর্যোগ ব্যবস্থাপনা অধিদপ্তর',en:'Dept. of Disaster Management'},type:{bn:'উদ্ভাবন',en:'Innovation'},date:'2025',k:['disaster','innovation','দুর্যোগ','উদ্ভাবন']},
-],
-3:[ // Research & Publication Archive
-  {bn:'বাংলাদেশ অর্থনৈতিক সমীক্ষা ২০২৫',en:'Bangladesh Economic Review 2025',org:{bn:'অর্থ বিভাগ',en:'Finance Division'},type:{bn:'সমীক্ষা',en:'Review'},date:'2025',k:['economic review','অর্থনৈতিক সমীক্ষা','finance','গবেষণা']},
-  {bn:'বার্ষিক উন্নয়ন কর্মসূচি (ADP) মূল্যায়ন প্রতিবেদন',en:'Annual Development Programme (ADP) Evaluation Report',org:{bn:'IMED, পরিকল্পনা মন্ত্রণালয়',en:'IMED, Ministry of Planning'},type:{bn:'মূল্যায়ন',en:'Evaluation'},date:'2025',k:['adp','imed','evaluation','মূল্যায়ন','প্রকল্প']},
-  {bn:'জনশুমারি ও গৃহগণনা ২০২২ — প্রতিবেদন',en:'Population & Housing Census 2022 — Report',org:{bn:'BBS',en:'BBS'},type:{bn:'প্রতিবেদন',en:'Report'},date:'2023',k:['census','bbs','জনশুমারি','পরিসংখ্যান']},
-  {bn:'অষ্টম পঞ্চবার্ষিক পরিকল্পনা — পর্যালোচনা',en:'8th Five Year Plan — Review',org:{bn:'পরিকল্পনা কমিশন',en:'Planning Commission'},type:{bn:'পরিকল্পনা',en:'Plan'},date:'2024',k:['five year plan','পঞ্চবার্ষিক','planning','পরিকল্পনা']},
-  {bn:'এসডিজি অগ্রগতি প্রতিবেদন বাংলাদেশ',en:'SDG Progress Report Bangladesh',org:{bn:'SDG সেল, প্রধানমন্ত্রীর কার্যালয়',en:'SDG Cell, PMO'},type:{bn:'প্রতিবেদন',en:'Report'},date:'2025',k:['sdg','progress','এসডিজি','প্রতিবেদন']},
-],
-4:[ // Digital Learning Platform
-  {bn:'মুক্তপাঠ — সরকারি ই-লার্নিং কোর্স',en:'Muktopaath — Govt. e-Learning Courses',org:{bn:'a2i',en:'a2i'},type:{bn:'কোর্স',en:'Course'},date:'2026',k:['muktopaath','elearning','মুক্তপাঠ','কোর্স','প্রশিক্ষণ']},
-  {bn:'বুনিয়াদি প্রশিক্ষণ মডিউল (BPATC)',en:'Foundation Training Module (BPATC)',org:{bn:'BPATC',en:'BPATC'},type:{bn:'মডিউল',en:'Module'},date:'2025',k:['bpatc','foundation','training','বুনিয়াদি','প্রশিক্ষণ']},
-  {bn:'ডেটা অ্যানালিটিক্স ও AI literacy কোর্স',en:'Data Analytics & AI Literacy Course',org:{bn:'BCC',en:'BCC'},type:{bn:'কোর্স',en:'Course'},date:'2026',k:['data analytics','ai','literacy','কোর্স']},
-  {bn:'নেতৃত্ব ও সুশাসন webinar আর্কাইভ',en:'Leadership & Governance Webinar Archive',org:{bn:'BPATC',en:'BPATC'},type:{bn:'ওয়েবিনার',en:'Webinar'},date:'2025',k:['leadership','governance','webinar','নেতৃত্ব','সুশাসন']},
-],
-5:[ // Innovation & Idea Lab
-  {bn:'সরকারি উদ্ভাবনী উদ্যোগ প্রদর্শনী (a2i Innovation)',en:'Government Innovation Showcase (a2i)',org:{bn:'a2i',en:'a2i'},type:{bn:'প্রদর্শনী',en:'Showcase'},date:'2025',k:['innovation','showcase','a2i','উদ্ভাবন','প্রদর্শনী']},
-  {bn:'GovTech সমাধান হাব — স্টার্ট-আপ তালিকা',en:'GovTech Solution Hub — Start-up Catalogue',org:{bn:'ICT বিভাগ',en:'ICT Division'},type:{bn:'হাব',en:'Hub'},date:'2026',k:['govtech','startup','hub','স্টার্ট-আপ','উদ্ভাবন']},
-  {bn:'বার্ষিক প্রশাসনিক উদ্ভাবন পুরস্কার',en:'Annual Administrative Innovation Award',org:{bn:'মন্ত্রিপরিষদ বিভাগ',en:'Cabinet Division'},type:{bn:'পুরস্কার',en:'Award'},date:'2025',k:['innovation award','পুরস্কার','উদ্ভাবন']},
-  {bn:'crowdsourced সমস্যা-সমাধান প্ল্যাটফর্ম',en:'Crowdsourced Problem-Solving Platform',org:{bn:'a2i',en:'a2i'},type:{bn:'প্ল্যাটফর্ম',en:'Platform'},date:'2026',k:['crowdsourcing','problem solving','সমাধান']},
-],
-6:[ // AI-Powered Knowledge System
-  {bn:'বাংলা NLP সেমান্টিক সার্চ — কারিগরি নকশা',en:'Bangla NLP Semantic Search — Technical Design',org:{bn:'BCC',en:'BCC'},type:{bn:'নকশা',en:'Design'},date:'2026',k:['nlp','bangla','semantic search','নকশা']},
-  {bn:'নীতি সুপারিশ ইঞ্জিন (Policy Recommendation)',en:'Policy Recommendation Engine',org:{bn:'মন্ত্রিপরিষদ বিভাগ',en:'Cabinet Division'},type:{bn:'ইঞ্জিন',en:'Engine'},date:'2026',k:['policy','recommendation','engine','নীতি','সুপারিশ']},
-  {bn:'সিদ্ধান্ত সহায়ক ড্যাশবোর্ড (Decision Support)',en:'Decision Support Dashboard',org:{bn:'মন্ত্রিপরিষদ বিভাগ',en:'Cabinet Division'},type:{bn:'ড্যাশবোর্ড',en:'Dashboard'},date:'2026',k:['decision support','dashboard','সিদ্ধান্ত','ড্যাশবোর্ড','analytics']},
-  {bn:'ওপেন গভর্নমেন্ট ডেটা পোর্টাল — API',en:'Open Government Data Portal — API',org:{bn:'ICT বিভাগ',en:'ICT Division'},type:{bn:'API',en:'API'},date:'2026',k:['open data','api','ডেটা','পোর্টাল']},
-],
-};
+const KNOWLEDGE={"1":[{"bn":"রুলস অব বিজনেস, ১৯৯৬ (সংশোধিত)","en":"Rules of Business, 1996 (amended)","org":{"bn":"মন্ত্রিপরিষদ বিভাগ","en":"Cabinet Division"},"type":{"bn":"বিধি","en":"Rules"},"date":"2024","k":["rules of business","বিধি","allocation"],"v":2124,"d":152},{"bn":"কার্যবণ্টন (Allocation of Business)","en":"Allocation of Business among Ministries","org":{"bn":"মন্ত্রিপরিষদ বিভাগ","en":"Cabinet Division"},"type":{"bn":"বিধি","en":"Rules"},"date":"2025","k":["allocation","কার্যবণ্টন","ministry"],"v":4806,"d":1053},{"bn":"মন্ত্রিসভা বৈঠকের সিদ্ধান্ত সারসংক্ষেপ (ত্রৈমাসিক)","en":"Cabinet Meeting Decision Summaries (quarterly)","org":{"bn":"মন্ত্রিপরিষদ বিভাগ","en":"Cabinet Division"},"type":{"bn":"সিদ্ধান্ত","en":"Decision"},"date":"2026","k":["cabinet decision","মন্ত্রিসভা","সিদ্ধান্ত"],"v":3957,"d":621},{"bn":"জাতীয় শুদ্ধাচার কৌশল (NIS) কর্মপরিকল্পনা","en":"National Integrity Strategy (NIS) Work Plan","org":{"bn":"মন্ত্রিপরিষদ বিভাগ","en":"Cabinet Division"},"type":{"bn":"কৌশল","en":"Strategy"},"date":"2025","k":["nis","integrity","শুদ্ধাচার"],"v":1979,"d":2821},{"bn":"তথ্য অধিকার আইন, ২০০৯ ও বিধিমালা","en":"Right to Information Act, 2009 & Rules","org":{"bn":"তথ্য কমিশন","en":"Information Commission"},"type":{"bn":"আইন","en":"Act"},"date":"2009","k":["rti","তথ্য অধিকার","আইন"],"v":9235,"d":406},{"bn":"সরকারি কর্মচারী আইন, ২০১৮","en":"Government Service Act, 2018","org":{"bn":"জনপ্রশাসন মন্ত্রণালয়","en":"Ministry of Public Administration"},"type":{"bn":"আইন","en":"Act"},"date":"2018","k":["service act","কর্মচারী আইন"],"v":7212,"d":180},{"bn":"ডিজিটাল নিরাপত্তা ও সাইবার সুরক্ষা বিধিমালা","en":"Cyber Security Rules","org":{"bn":"ICT বিভাগ","en":"ICT Division"},"type":{"bn":"বিধি","en":"Rules"},"date":"2024","k":["cyber","security","সাইবার"],"v":788,"d":433},{"bn":"সরকারি ক্রয় বিধিমালা (PPR), ২০০৮","en":"Public Procurement Rules (PPR), 2008","org":{"bn":"IMED/CPTU","en":"IMED/CPTU"},"type":{"bn":"বিধি","en":"Rules"},"date":"2008","k":["ppr","procurement","ক্রয়"],"v":3882,"d":1002},{"bn":"জাতীয় তথ্য ও যোগাযোগ প্রযুক্তি নীতিমালা","en":"National ICT Policy","org":{"bn":"ICT বিভাগ","en":"ICT Division"},"type":{"bn":"নীতি","en":"Policy"},"date":"2024","k":["ict policy","নীতিমালা"],"v":8579,"d":2515},{"bn":"গ্রিভেন্স রিড্রেস সিস্টেম (GRS) নির্দেশিকা","en":"Grievance Redress System (GRS) Guidelines","org":{"bn":"মন্ত্রিপরিষদ বিভাগ","en":"Cabinet Division"},"type":{"bn":"নির্দেশিকা","en":"Guideline"},"date":"2023","k":["grs","অভিযোগ","guideline"],"v":734,"d":2348},{"bn":"বার্ষিক কর্মসম্পাদন চুক্তি (APA) নির্দেশিকা","en":"Annual Performance Agreement (APA) Guidelines","org":{"bn":"মন্ত্রিপরিষদ বিভাগ","en":"Cabinet Division"},"type":{"bn":"নির্দেশিকা","en":"Guideline"},"date":"2025","k":["apa","কর্মসম্পাদন","performance"],"v":3557,"d":2982},{"bn":"সিটিজেন চার্টার প্রণয়ন নির্দেশিকা","en":"Citizen Charter Formulation Guidelines","org":{"bn":"মন্ত্রিপরিষদ বিভাগ","en":"Cabinet Division"},"type":{"bn":"নির্দেশিকা","en":"Guideline"},"date":"2024","k":["citizen charter","সিটিজেন চার্টার"],"v":9228,"d":1768},{"bn":"সরকারি গেজেট সংকলন (সাপ্তাহিক)","en":"Government Gazette Compilation (weekly)","org":{"bn":"বিজি প্রেস","en":"BG Press"},"type":{"bn":"গেজেট","en":"Gazette"},"date":"2026","k":["gazette","গেজেট"],"v":3911,"d":1889},{"bn":"পরিপত্র ও অফিস আদেশ ডেটাবেজ","en":"Circulars & Office Orders Database","org":{"bn":"মন্ত্রিপরিষদ বিভাগ","en":"Cabinet Division"},"type":{"bn":"পরিপত্র","en":"Circular"},"date":"2026","k":["circular","পরিপত্র","অফিস আদেশ"],"v":4857,"d":76},{"bn":"জেলা প্রশাসক সম্মেলনের সিদ্ধান্তসমূহ","en":"DC Conference Decisions","org":{"bn":"মন্ত্রিপরিষদ বিভাগ","en":"Cabinet Division"},"type":{"bn":"সিদ্ধান্ত","en":"Decision"},"date":"2025","k":["dc conference","জেলা প্রশাসক"],"v":2915,"d":2909},{"bn":"আন্তর্জাতিক চুক্তি ও কনভেনশন রেজিস্টার","en":"International Treaties & Conventions Register","org":{"bn":"পররাষ্ট্র মন্ত্রণালয়","en":"Ministry of Foreign Affairs"},"type":{"bn":"রেজিস্টার","en":"Register"},"date":"2025","k":["treaty","convention","চুক্তি"],"v":7224,"d":1443},{"bn":"জাতীয় সংসদে প্রণীত আইন সূচি","en":"Index of Acts Passed by Parliament","org":{"bn":"লেজিসলেটিভ বিভাগ","en":"Legislative Division"},"type":{"bn":"সূচি","en":"Index"},"date":"2026","k":["acts","আইন","সংসদ"],"v":4852,"d":686},{"bn":"উপজেলা পরিষদ পরিচালনা ম্যানুয়াল","en":"Upazila Parishad Operations Manual","org":{"bn":"স্থানীয় সরকার বিভাগ","en":"Local Government Division"},"type":{"bn":"ম্যানুয়াল","en":"Manual"},"date":"2023","k":["upazila","ম্যানুয়াল","স্থানীয় সরকার"],"v":3827,"d":3177},{"bn":"ই-নথি ব্যবহার নির্দেশিকা","en":"e-Nothi User Guidelines","org":{"bn":"a2i","en":"a2i"},"type":{"bn":"নির্দেশিকা","en":"Guideline"},"date":"2024","k":["e-nothi","ই-নথি","ডিজিটাল"],"v":5814,"d":468},{"bn":"জাতীয় ডেটা গভর্নেন্স ফ্রেমওয়ার্ক (খসড়া)","en":"National Data Governance Framework (draft)","org":{"bn":"ICT বিভাগ","en":"ICT Division"},"type":{"bn":"কাঠামো","en":"Framework"},"date":"2026","k":["data governance","ডেটা","framework"],"v":1819,"d":1606}],"2":[{"bn":"একশপ: গ্রামীণ ই-কমার্স সেবা মডেল","en":"Ekshop: Rural E-commerce Service Model","org":{"bn":"a2i","en":"a2i"},"type":{"bn":"কেস স্টাডি","en":"Case Study"},"date":"2024","k":["ekshop","ecommerce","একশপ"],"v":1884,"d":1520},{"bn":"ভূমি সেবা ডিজিটালাইজেশন — ই-নামজারি","en":"Land Service Digitization — e-Mutation","org":{"bn":"ভূমি মন্ত্রণালয়","en":"Ministry of Land"},"type":{"bn":"কেস স্টাডি","en":"Case Study"},"date":"2025","k":["e-mutation","নামজারি","ভূমি"],"v":5935,"d":2522},{"bn":"৩৩৩ কল সেন্টার: নাগরিক সেবা মডেল","en":"333 Call Centre: Citizen Service Model","org":{"bn":"a2i","en":"a2i"},"type":{"bn":"কেস স্টাডি","en":"Case Study"},"date":"2024","k":["333","call centre","নাগরিক সেবা"],"v":4633,"d":227},{"bn":"জেলা ই-সেবা কেন্দ্র সাফল্য পর্যালোচনা","en":"District e-Service Centre Success Review","org":{"bn":"জেলা প্রশাসন","en":"District Administration"},"type":{"bn":"কেস স্টাডি","en":"Case Study"},"date":"2024","k":["e-service","জেলা","ই-সেবা"],"v":7827,"d":2246},{"bn":"দুর্যোগ পূর্বাভাস ও সতর্কবার্তায় স্থানীয় উদ্ভাবন","en":"Local Innovation in Disaster Early Warning","org":{"bn":"দুর্যোগ ব্যবস্থাপনা অধিদপ্তর","en":"Dept. of Disaster Management"},"type":{"bn":"উদ্ভাবন","en":"Innovation"},"date":"2025","k":["disaster","early warning","দুর্যোগ"],"v":2345,"d":1600},{"bn":"মুজিব কিল্লা ব্যবস্থাপনা — উপকূলীয় মডেল","en":"Cyclone Shelter Management — Coastal Model","org":{"bn":"দুর্যোগ ব্যবস্থাপনা অধিদপ্তর","en":"Dept. of Disaster Management"},"type":{"bn":"কেস স্টাডি","en":"Case Study"},"date":"2023","k":["cyclone shelter","উপকূল"],"v":1591,"d":2311},{"bn":"ওয়ান স্টপ সার্ভিস (OSS) — BIDA মডেল","en":"One Stop Service (OSS) — BIDA Model","org":{"bn":"BIDA","en":"BIDA"},"type":{"bn":"কেস স্টাডি","en":"Case Study"},"date":"2025","k":["oss","one stop","bida"],"v":5103,"d":2624},{"bn":"ই-পর্চা: খতিয়ান অনলাইনে প্রাপ্তি","en":"e-Porcha: Online Land Records","org":{"bn":"ভূমি মন্ত্রণালয়","en":"Ministry of Land"},"type":{"bn":"কেস স্টাডি","en":"Case Study"},"date":"2024","k":["e-porcha","খতিয়ান","land records"],"v":6225,"d":2414},{"bn":"ডিজিটাল সেন্টার উদ্যোক্তা মডেল (UDC)","en":"Digital Centre Entrepreneur Model (UDC)","org":{"bn":"a2i","en":"a2i"},"type":{"bn":"কেস স্টাডি","en":"Case Study"},"date":"2023","k":["udc","digital centre","উদ্যোক্তা"],"v":3450,"d":2935},{"bn":"জন্ম ও মৃত্যু নিবন্ধন ডিজিটালাইজেশন","en":"Birth & Death Registration Digitization","org":{"bn":"স্থানীয় সরকার বিভাগ","en":"Local Government Division"},"type":{"bn":"কেস স্টাডি","en":"Case Study"},"date":"2025","k":["birth registration","জন্ম নিবন্ধন"],"v":1439,"d":237},{"bn":"ই-মিউটেশন বিরোধ হ্রাসে রংপুর অভিজ্ঞতা","en":"Rangpur Experience in Mutation Dispute Reduction","org":{"bn":"জেলা প্রশাসন, রংপুর","en":"District Administration, Rangpur"},"type":{"bn":"কেস স্টাডি","en":"Case Study"},"date":"2025","k":["mutation","রংপুর","বিরোধ"],"v":4033,"d":1235},{"bn":"স্কুল ফিডিং কর্মসূচি — মনিটরিং উদ্ভাবন","en":"School Feeding Programme — Monitoring Innovation","org":{"bn":"প্রাথমিক শিক্ষা অধিদপ্তর","en":"Directorate of Primary Education"},"type":{"bn":"উদ্ভাবন","en":"Innovation"},"date":"2024","k":["school feeding","মনিটরিং"],"v":1607,"d":1003},{"bn":"কৃষকের জানালা: কৃষি পরামর্শ ডিজিটাল টুল","en":"Krishoker Janala: Digital Agri-advice Tool","org":{"bn":"কৃষি সম্প্রসারণ অধিদপ্তর","en":"DAE"},"type":{"bn":"উদ্ভাবন","en":"Innovation"},"date":"2023","k":["krishoker janala","কৃষি","agri"],"v":1954,"d":1606},{"bn":"ভূমিসেবা হটলাইন ১৬১২২ — সেবা বিশ্লেষণ","en":"Land Hotline 16122 — Service Analysis","org":{"bn":"ভূমি মন্ত্রণালয়","en":"Ministry of Land"},"type":{"bn":"কেস স্টাডি","en":"Case Study"},"date":"2025","k":["16122","hotline","ভূমিসেবা"],"v":4854,"d":1907},{"bn":"নারী উদ্যোক্তা সহায়তায় জয়িতা মডেল","en":"Joyeeta Model for Women Entrepreneurs","org":{"bn":"মহিলা ও শিশু বিষয়ক মন্ত্রণালয়","en":"MoWCA"},"type":{"bn":"কেস স্টাডি","en":"Case Study"},"date":"2024","k":["joyeeta","নারী উদ্যোক্তা","women"],"v":6277,"d":716},{"bn":"সুরক্ষা: কোভিড টিকা নিবন্ধন প্ল্যাটফর্ম","en":"Surokkha: COVID Vaccine Registration Platform","org":{"bn":"ICT বিভাগ","en":"ICT Division"},"type":{"bn":"কেস স্টাডি","en":"Case Study"},"date":"2022","k":["surokkha","টিকা","vaccine"],"v":6365,"d":1505},{"bn":"পেনশন সহজীকরণ — ইএফটি মডেল","en":"Pension Simplification — EFT Model","org":{"bn":"অর্থ বিভাগ","en":"Finance Division"},"type":{"bn":"কেস স্টাডি","en":"Case Study"},"date":"2024","k":["pension","eft","পেনশন"],"v":3732,"d":2795},{"bn":"মোবাইল কোর্ট পরিচালনা — মাঠ অভিজ্ঞতা","en":"Mobile Court Operations — Field Experience","org":{"bn":"জেলা প্রশাসন","en":"District Administration"},"type":{"bn":"কেস স্টাডি","en":"Case Study"},"date":"2023","k":["mobile court","মোবাইল কোর্ট"],"v":4674,"d":2924},{"bn":"হাট-বাজার ইজারা ডিজিটালাইজেশন পাইলট","en":"Haat-Bazaar Lease Digitization Pilot","org":{"bn":"স্থানীয় সরকার বিভাগ","en":"Local Government Division"},"type":{"bn":"উদ্ভাবন","en":"Innovation"},"date":"2025","k":["lease","ইজারা","হাট"],"v":1469,"d":2545},{"bn":"সমন্বিত সমাজসেবা ভাতা — G2P মডেল","en":"Integrated Social Allowance — G2P Model","org":{"bn":"সমাজসেবা অধিদপ্তর","en":"Dept. of Social Services"},"type":{"bn":"কেস স্টাডি","en":"Case Study"},"date":"2024","k":["g2p","ভাতা","allowance"],"v":3103,"d":2237}],"3":[{"bn":"বাংলাদেশ অর্থনৈতিক সমীক্ষা ২০২৫","en":"Bangladesh Economic Review 2025","org":{"bn":"অর্থ বিভাগ","en":"Finance Division"},"type":{"bn":"সমীক্ষা","en":"Review"},"date":"2025","k":["economic review","অর্থনৈতিক সমীক্ষা"],"v":4310,"d":719},{"bn":"ADP বাস্তবায়ন মূল্যায়ন প্রতিবেদন","en":"ADP Implementation Evaluation Report","org":{"bn":"IMED","en":"IMED"},"type":{"bn":"মূল্যায়ন","en":"Evaluation"},"date":"2025","k":["adp","imed","মূল্যায়ন"],"v":7873,"d":1604},{"bn":"জনশুমারি ও গৃহগণনা ২০২২ — জাতীয় প্রতিবেদন","en":"Population & Housing Census 2022 — National Report","org":{"bn":"BBS","en":"BBS"},"type":{"bn":"প্রতিবেদন","en":"Report"},"date":"2023","k":["census","জনশুমারি","bbs"],"v":4722,"d":2671},{"bn":"খানা আয়-ব্যয় জরিপ (HIES)","en":"Household Income & Expenditure Survey (HIES)","org":{"bn":"BBS","en":"BBS"},"type":{"bn":"জরিপ","en":"Survey"},"date":"2023","k":["hies","খানা জরিপ","income"],"v":9425,"d":949},{"bn":"শ্রমশক্তি জরিপ (LFS)","en":"Labour Force Survey (LFS)","org":{"bn":"BBS","en":"BBS"},"type":{"bn":"জরিপ","en":"Survey"},"date":"2024","k":["lfs","শ্রমশক্তি","labour"],"v":5613,"d":3197},{"bn":"অষ্টম পঞ্চবার্ষিক পরিকল্পনা — মধ্যমেয়াদি পর্যালোচনা","en":"8th Five Year Plan — Mid-term Review","org":{"bn":"পরিকল্পনা কমিশন","en":"Planning Commission"},"type":{"bn":"পর্যালোচনা","en":"Review"},"date":"2024","k":["five year plan","পঞ্চবার্ষিক"],"v":1216,"d":988},{"bn":"এসডিজি অগ্রগতি প্রতিবেদন","en":"SDG Progress Report","org":{"bn":"SDG সেল","en":"SDG Cell"},"type":{"bn":"প্রতিবেদন","en":"Report"},"date":"2025","k":["sdg","অগ্রগতি"],"v":825,"d":1342},{"bn":"ডেল্টা প্ল্যান ২১০০ — বাস্তবায়ন স্ট্যাটাস","en":"Delta Plan 2100 — Implementation Status","org":{"bn":"পরিকল্পনা কমিশন","en":"Planning Commission"},"type":{"bn":"প্রতিবেদন","en":"Report"},"date":"2025","k":["delta plan","ডেল্টা"],"v":6872,"d":1146},{"bn":"দারিদ্র্য মানচিত্র (Poverty Maps)","en":"Poverty Maps of Bangladesh","org":{"bn":"BBS/WB","en":"BBS/World Bank"},"type":{"bn":"গবেষণা","en":"Research"},"date":"2024","k":["poverty","দারিদ্র্য","map"],"v":1384,"d":914},{"bn":"BIDS গবেষণা সংকলন: কর্মসংস্থান ও দক্ষতা","en":"BIDS Research Compendium: Jobs & Skills","org":{"bn":"BIDS","en":"BIDS"},"type":{"bn":"গবেষণা","en":"Research"},"date":"2025","k":["bids","কর্মসংস্থান","skills"],"v":5455,"d":920},{"bn":"জলবায়ু অভিযোজন ব্যয় পর্যালোচনা (CPEIR)","en":"Climate Public Expenditure Review (CPEIR)","org":{"bn":"অর্থ বিভাগ","en":"Finance Division"},"type":{"bn":"পর্যালোচনা","en":"Review"},"date":"2024","k":["climate","জলবায়ু","cpeir"],"v":8479,"d":1670},{"bn":"মাঠ প্রশাসনে জনবল চাহিদা সমীক্ষা","en":"Field Administration Staffing Needs Study","org":{"bn":"জনপ্রশাসন মন্ত্রণালয়","en":"MoPA"},"type":{"bn":"সমীক্ষা","en":"Study"},"date":"2024","k":["staffing","জনবল","মাঠ প্রশাসন"],"v":7817,"d":635},{"bn":"ই-গভর্নেন্স ম্যাচিউরিটি অ্যাসেসমেন্ট","en":"e-Governance Maturity Assessment","org":{"bn":"ICT বিভাগ","en":"ICT Division"},"type":{"bn":"মূল্যায়ন","en":"Assessment"},"date":"2025","k":["e-governance","maturity","মূল্যায়ন"],"v":4639,"d":621},{"bn":"সরকারি সেবায় নাগরিক সন্তুষ্টি জরিপ","en":"Citizen Satisfaction Survey on Public Services","org":{"bn":"মন্ত্রিপরিষদ বিভাগ","en":"Cabinet Division"},"type":{"bn":"জরিপ","en":"Survey"},"date":"2025","k":["satisfaction","সন্তুষ্টি","জরিপ"],"v":4340,"d":3101},{"bn":"মেগা প্রকল্পের অর্থনৈতিক প্রভাব বিশ্লেষণ","en":"Economic Impact Analysis of Mega Projects","org":{"bn":"পরিকল্পনা বিভাগ","en":"Planning Division"},"type":{"bn":"বিশ্লেষণ","en":"Analysis"},"date":"2025","k":["mega project","প্রভাব","impact"],"v":9497,"d":2257},{"bn":"রেমিট্যান্স প্রবাহ ও প্রবাসী কল্যাণ গবেষণা","en":"Remittance Flows & Expatriate Welfare Research","org":{"bn":"প্রবাসী কল্যাণ মন্ত্রণালয়","en":"MoEWOE"},"type":{"bn":"গবেষণা","en":"Research"},"date":"2024","k":["remittance","রেমিট্যান্স","প্রবাসী"],"v":4604,"d":3109},{"bn":"শিক্ষা খাত পর্যালোচনা (ESR)","en":"Education Sector Review (ESR)","org":{"bn":"শিক্ষা মন্ত্রণালয়","en":"Ministry of Education"},"type":{"bn":"পর্যালোচনা","en":"Review"},"date":"2024","k":["education","শিক্ষা","esr"],"v":7319,"d":2440},{"bn":"স্বাস্থ্য অর্থায়ন কৌশল মূল্যায়ন","en":"Health Financing Strategy Evaluation","org":{"bn":"স্বাস্থ্য সেবা বিভাগ","en":"HSD"},"type":{"bn":"মূল্যায়ন","en":"Evaluation"},"date":"2024","k":["health financing","স্বাস্থ্য"],"v":6843,"d":1532},{"bn":"নগরায়ণ ও পরিবহন গবেষণা সিরিজ","en":"Urbanization & Transport Research Series","org":{"bn":"নগর উন্নয়ন অধিদপ্তর","en":"UDD"},"type":{"bn":"গবেষণা","en":"Research"},"date":"2025","k":["urbanization","নগরায়ণ","transport"],"v":3893,"d":616},{"bn":"সরকারি উদ্ভাবন সূচক benchmarking প্রতিবেদন","en":"Public Innovation Index Benchmarking Report","org":{"bn":"a2i","en":"a2i"},"type":{"bn":"প্রতিবেদন","en":"Report"},"date":"2025","k":["innovation index","benchmarking"],"v":8648,"d":2071}],"4":[{"bn":"মুক্তপাঠ: সরকারি কর্মচারীদের বুনিয়াদি কোর্স","en":"Muktopaath: Foundation Course for Govt. Staff","org":{"bn":"a2i","en":"a2i"},"type":{"bn":"কোর্স","en":"Course"},"date":"2026","k":["muktopaath","মুক্তপাঠ","foundation"],"v":1789,"d":3145},{"bn":"BPATC বুনিয়াদি প্রশিক্ষণ মডিউল","en":"BPATC Foundation Training Module","org":{"bn":"BPATC","en":"BPATC"},"type":{"bn":"মডিউল","en":"Module"},"date":"2025","k":["bpatc","বুনিয়াদি","module"],"v":1071,"d":499},{"bn":"ACAD কোর্স: প্রশাসনিক নেতৃত্ব","en":"ACAD Course: Administrative Leadership","org":{"bn":"BPATC","en":"BPATC"},"type":{"bn":"কোর্স","en":"Course"},"date":"2025","k":["acad","leadership","নেতৃত্ব"],"v":2804,"d":2620},{"bn":"ডেটা অ্যানালিটিক্স ফর পলিসি — সার্টিফিকেট","en":"Data Analytics for Policy — Certificate","org":{"bn":"BCC","en":"BCC"},"type":{"bn":"কোর্স","en":"Course"},"date":"2026","k":["data analytics","পলিসি","certificate"],"v":2921,"d":2837},{"bn":"AI literacy: কৃত্রিম বুদ্ধিমত্তার প্রাথমিক ধারণা","en":"AI Literacy: Introduction to Artificial Intelligence","org":{"bn":"BCC","en":"BCC"},"type":{"bn":"কোর্স","en":"Course"},"date":"2026","k":["ai literacy","কৃত্রিম বুদ্ধিমত্তা"],"v":7216,"d":2492},{"bn":"সাইবার নিরাপত্তা সচেতনতা প্রশিক্ষণ","en":"Cyber Security Awareness Training","org":{"bn":"BGD e-GOV CIRT","en":"BGD e-GOV CIRT"},"type":{"bn":"কোর্স","en":"Course"},"date":"2025","k":["cyber security","সাইবার","awareness"],"v":1340,"d":1626},{"bn":"ই-নথি ব্যবহার — হাতে-কলমে প্রশিক্ষণ","en":"e-Nothi Hands-on Training","org":{"bn":"a2i","en":"a2i"},"type":{"bn":"কোর্স","en":"Course"},"date":"2024","k":["e-nothi","ই-নথি","training"],"v":6552,"d":2490},{"bn":"সরকারি ক্রয় (e-GP) সার্টিফিকেশন কোর্স","en":"Public Procurement (e-GP) Certification","org":{"bn":"CPTU","en":"CPTU"},"type":{"bn":"কোর্স","en":"Course"},"date":"2025","k":["e-gp","procurement","ক্রয়"],"v":7968,"d":2217},{"bn":"APA প্রণয়ন ও মূল্যায়ন কর্মশালা (রেকর্ডিং)","en":"APA Formulation & Evaluation Workshop (recorded)","org":{"bn":"মন্ত্রিপরিষদ বিভাগ","en":"Cabinet Division"},"type":{"bn":"ওয়েবিনার","en":"Webinar"},"date":"2025","k":["apa","workshop","কর্মশালা"],"v":4419,"d":2316},{"bn":"শুদ্ধাচার ও নৈতিকতা ই-লার্নিং","en":"Integrity & Ethics e-Learning","org":{"bn":"মন্ত্রিপরিষদ বিভাগ","en":"Cabinet Division"},"type":{"bn":"কোর্স","en":"Course"},"date":"2024","k":["integrity","নৈতিকতা","শুদ্ধাচার"],"v":488,"d":2836},{"bn":"জেন্ডার সংবেদনশীল প্রশাসন মডিউল","en":"Gender-responsive Administration Module","org":{"bn":"মহিলা ও শিশু বিষয়ক মন্ত্রণালয়","en":"MoWCA"},"type":{"bn":"মডিউল","en":"Module"},"date":"2024","k":["gender","জেন্ডার"],"v":2176,"d":2842},{"bn":"প্রকল্প ব্যবস্থাপনা (PD কোর্স) — IMED","en":"Project Management (PD Course) — IMED","org":{"bn":"IMED","en":"IMED"},"type":{"bn":"কোর্স","en":"Course"},"date":"2025","k":["project management","পিডি","প্রকল্প"],"v":9097,"d":3125},{"bn":"ইনোভেশন ও সার্ভিস ডিজাইন বুটক্যাম্প","en":"Innovation & Service Design Bootcamp","org":{"bn":"a2i","en":"a2i"},"type":{"bn":"কোর্স","en":"Course"},"date":"2025","k":["service design","innovation","বুটক্যাম্প"],"v":4671,"d":3198},{"bn":"পাবলিক ফাইন্যান্স ম্যানেজমেন্ট (PFM) সিরিজ","en":"Public Finance Management (PFM) Series","org":{"bn":"অর্থ বিভাগ","en":"Finance Division"},"type":{"bn":"কোর্স","en":"Course"},"date":"2025","k":["pfm","ফাইন্যান্স","অর্থ"],"v":5873,"d":506},{"bn":"জলবায়ু-সহনশীল পরিকল্পনা ওয়েবিনার","en":"Climate-resilient Planning Webinar","org":{"bn":"পরিকল্পনা কমিশন","en":"Planning Commission"},"type":{"bn":"ওয়েবিনার","en":"Webinar"},"date":"2025","k":["climate","জলবায়ু","webinar"],"v":5108,"d":1830},{"bn":"নাগরিক সেবা যোগাযোগ দক্ষতা","en":"Citizen Service Communication Skills","org":{"bn":"BPATC","en":"BPATC"},"type":{"bn":"কোর্স","en":"Course"},"date":"2024","k":["communication","যোগাযোগ","সেবা"],"v":2891,"d":1908},{"bn":"ডিজিটাল নিরাপত্তায় ব্যক্তিগত ডেটা সুরক্ষা","en":"Personal Data Protection in Digital Security","org":{"bn":"ICT বিভাগ","en":"ICT Division"},"type":{"bn":"কোর্স","en":"Course"},"date":"2026","k":["data protection","ডেটা সুরক্ষা"],"v":353,"d":3007},{"bn":"মাঠ প্রশাসনের জন্য আইনি দক্ষতা সিরিজ","en":"Legal Skills Series for Field Administration","org":{"bn":"আইন মন্ত্রণালয়","en":"Ministry of Law"},"type":{"bn":"কোর্স","en":"Course"},"date":"2024","k":["legal","আইনি","মাঠ"],"v":4615,"d":2100},{"bn":"KM Foundation Module (CSKR বাধ্যতামূলক)","en":"KM Foundation Module (CSKR mandatory)","org":{"bn":"মন্ত্রিপরিষদ বিভাগ","en":"Cabinet Division"},"type":{"bn":"মডিউল","en":"Module"},"date":"2026","k":["km","knowledge management","জ্ঞান"],"v":3227,"d":2129},{"bn":"ওপেন ডেটা ব্যবহার ও API পরিচিতি","en":"Using Open Data & Intro to APIs","org":{"bn":"ICT বিভাগ","en":"ICT Division"},"type":{"bn":"কোর্স","en":"Course"},"date":"2026","k":["open data","api","ওপেন ডেটা"],"v":2043,"d":2611}],"5":[{"bn":"সরকারি উদ্ভাবন প্রদর্শনী ২০২৫ — সংকলন","en":"Government Innovation Showcase 2025 — Compendium","org":{"bn":"a2i","en":"a2i"},"type":{"bn":"প্রদর্শনী","en":"Showcase"},"date":"2025","k":["innovation showcase","প্রদর্শনী"],"v":5189,"d":2667},{"bn":"GovTech Solution Hub — স্টার্ট-আপ ক্যাটালগ","en":"GovTech Solution Hub — Start-up Catalogue","org":{"bn":"ICT বিভাগ","en":"ICT Division"},"type":{"bn":"হাব","en":"Hub"},"date":"2026","k":["govtech","startup","হাব"],"v":8617,"d":2544},{"bn":"বার্ষিক প্রশাসনিক উদ্ভাবন পুরস্কার — বিজয়ী তালিকা","en":"Annual Administrative Innovation Award — Winners","org":{"bn":"মন্ত্রিপরিষদ বিভাগ","en":"Cabinet Division"},"type":{"bn":"পুরস্কার","en":"Award"},"date":"2025","k":["award","পুরস্কার","উদ্ভাবন"],"v":3558,"d":676},{"bn":"crowdsourced সমস্যা-সমাধান চ্যালেঞ্জ প্ল্যাটফর্ম","en":"Crowdsourced Problem-solving Challenge Platform","org":{"bn":"a2i","en":"a2i"},"type":{"bn":"প্ল্যাটফর্ম","en":"Platform"},"date":"2026","k":["crowdsourcing","challenge","সমাধান"],"v":6426,"d":3173},{"bn":"সিভিল সার্ভিস হ্যাকাথন — সমস্যা বিবরণী","en":"Civil Service Hackathon — Problem Statements","org":{"bn":"ICT বিভাগ","en":"ICT Division"},"type":{"bn":"হ্যাকাথন","en":"Hackathon"},"date":"2026","k":["hackathon","হ্যাকাথন"],"v":2946,"d":2259},{"bn":"ইনোভেশন ফান্ড — অনুদান নির্দেশিকা","en":"Innovation Fund — Grant Guidelines","org":{"bn":"a2i","en":"a2i"},"type":{"bn":"নির্দেশিকা","en":"Guideline"},"date":"2025","k":["innovation fund","grant","অনুদান"],"v":8989,"d":52},{"bn":"সার্ভিস প্রসেস সিমপ্লিফিকেশন (SPS) টুলকিট","en":"Service Process Simplification (SPS) Toolkit","org":{"bn":"মন্ত্রিপরিষদ বিভাগ","en":"Cabinet Division"},"type":{"bn":"টুলকিট","en":"Toolkit"},"date":"2024","k":["sps","simplification","সহজীকরণ"],"v":5610,"d":2051},{"bn":"ডিজাইন থিংকিং কেস টেমপ্লেট","en":"Design Thinking Case Templates","org":{"bn":"a2i","en":"a2i"},"type":{"bn":"টেমপ্লেট","en":"Template"},"date":"2024","k":["design thinking","টেমপ্লেট"],"v":619,"d":508},{"bn":"জেলা উদ্ভাবন পরিকল্পনা সংকলন (৬৪ জেলা)","en":"District Innovation Plans Compendium (64 districts)","org":{"bn":"মন্ত্রিপরিষদ বিভাগ","en":"Cabinet Division"},"type":{"bn":"সংকলন","en":"Compendium"},"date":"2025","k":["district innovation","জেলা"],"v":6247,"d":1309},{"bn":"ইনোভেশন টিম গঠন ও পরিচালনা নির্দেশিকা","en":"Innovation Team Formation & Operation Guidelines","org":{"bn":"মন্ত্রিপরিষদ বিভাগ","en":"Cabinet Division"},"type":{"bn":"নির্দেশিকা","en":"Guideline"},"date":"2023","k":["innovation team","টিম"],"v":4223,"d":287},{"bn":"রেপ্লিকেশন গাইড: সফল উদ্ভাবনের সম্প্রসারণ","en":"Replication Guide: Scaling Successful Innovations","org":{"bn":"a2i","en":"a2i"},"type":{"bn":"গাইড","en":"Guide"},"date":"2025","k":["replication","scale","সম্প্রসারণ"],"v":4246,"d":2373},{"bn":"নাগরিক ফিডব্যাক ল্যাব — পদ্ধতি নোট","en":"Citizen Feedback Lab — Method Note","org":{"bn":"a2i","en":"a2i"},"type":{"bn":"নোট","en":"Note"},"date":"2025","k":["feedback","ফিডব্যাক","citizen"],"v":1590,"d":400},{"bn":"ফিউচার অব গভর্নমেন্ট — ফোরসাইট রিপোর্ট","en":"Future of Government — Foresight Report","org":{"bn":"মন্ত্রিপরিষদ বিভাগ","en":"Cabinet Division"},"type":{"bn":"প্রতিবেদন","en":"Report"},"date":"2026","k":["foresight","future","ভবিষ্যৎ"],"v":8262,"d":333},{"bn":"এআই ইউজ-কেস আইডিয়া ব্যাংক (সরকারি খাত)","en":"AI Use-case Idea Bank (public sector)","org":{"bn":"BCC","en":"BCC"},"type":{"bn":"আইডিয়া ব্যাংক","en":"Idea Bank"},"date":"2026","k":["ai use case","আইডিয়া"],"v":9027,"d":3186},{"bn":"ক্ষুদ্র উদ্ভাবন (Micro-innovation) রেজিস্টার","en":"Micro-innovation Register","org":{"bn":"জেলা প্রশাসন","en":"District Administration"},"type":{"bn":"রেজিস্টার","en":"Register"},"date":"2025","k":["micro innovation","ক্ষুদ্র উদ্ভাবন"],"v":2360,"d":575},{"bn":"পাইলট-টু-পলিসি রূপান্তর কাঠামো","en":"Pilot-to-Policy Transition Framework","org":{"bn":"মন্ত্রিপরিষদ বিভাগ","en":"Cabinet Division"},"type":{"bn":"কাঠামো","en":"Framework"},"date":"2026","k":["pilot to policy","রূপান্তর"],"v":8087,"d":2301},{"bn":"স্টার্ট-আপ–সরকার অংশীদারিত্ব মডেল চুক্তি","en":"Start-up–Government Partnership Model Agreements","org":{"bn":"ICT বিভাগ","en":"ICT Division"},"type":{"bn":"চুক্তি","en":"Agreement"},"date":"2026","k":["partnership","স্টার্ট-আপ","চুক্তি"],"v":3005,"d":1135},{"bn":"ইনোভেশন মেন্টর পুল — প্রোফাইল ডিরেক্টরি","en":"Innovation Mentor Pool — Profile Directory","org":{"bn":"a2i","en":"a2i"},"type":{"bn":"ডিরেক্টরি","en":"Directory"},"date":"2025","k":["mentor","মেন্টর"],"v":8945,"d":2534},{"bn":"সোশ্যাল ইনোভেশন চ্যালেঞ্জ — যুব সংস্করণ","en":"Social Innovation Challenge — Youth Edition","org":{"bn":"যুব ও ক্রীড়া মন্ত্রণালয়","en":"MoYS"},"type":{"bn":"চ্যালেঞ্জ","en":"Challenge"},"date":"2026","k":["social innovation","যুব","youth"],"v":7232,"d":917},{"bn":"উদ্ভাবন পরিমাপ সূচক (IMI) — পদ্ধতিপত্র","en":"Innovation Measurement Index (IMI) — Methodology","org":{"bn":"a2i","en":"a2i"},"type":{"bn":"পদ্ধতিপত্র","en":"Methodology"},"date":"2025","k":["imi","measurement","সূচক"],"v":9135,"d":3143}],"6":[{"bn":"Bangla NLP সেমান্টিক সার্চ — কারিগরি নকশা","en":"Bangla NLP Semantic Search — Technical Design","org":{"bn":"BCC","en":"BCC"},"type":{"bn":"নকশা","en":"Design"},"date":"2026","k":["nlp","semantic search","বাংলা"],"v":3595,"d":2970},{"bn":"Policy Recommendation Engine — স্পেসিফিকেশন","en":"Policy Recommendation Engine — Specification","org":{"bn":"মন্ত্রিপরিষদ বিভাগ","en":"Cabinet Division"},"type":{"bn":"স্পেসিফিকেশন","en":"Specification"},"date":"2026","k":["recommendation","নীতি","engine"],"v":5407,"d":1684},{"bn":"Decision Support Dashboard — ব্যবহারকারী ম্যানুয়াল","en":"Decision Support Dashboard — User Manual","org":{"bn":"মন্ত্রিপরিষদ বিভাগ","en":"Cabinet Division"},"type":{"bn":"ম্যানুয়াল","en":"Manual"},"date":"2026","k":["decision support","dashboard","ম্যানুয়াল"],"v":6418,"d":1844},{"bn":"ওপেন গভর্নমেন্ট ডেটা পোর্টাল — API ডক","en":"Open Government Data Portal — API Docs","org":{"bn":"ICT বিভাগ","en":"ICT Division"},"type":{"bn":"API","en":"API"},"date":"2026","k":["open data","api","পোর্টাল"],"v":8779,"d":1899},{"bn":"বাংলা OCR: পুরনো নথি ডিজিটাইজেশন টুল","en":"Bangla OCR: Legacy Document Digitization Tool","org":{"bn":"BCC","en":"BCC"},"type":{"bn":"টুল","en":"Tool"},"date":"2025","k":["ocr","ডিজিটাইজেশন","বাংলা"],"v":2282,"d":1065},{"bn":"স্পিচ-টু-টেক্সট (বাংলা) — সভার কার্যবিবরণী","en":"Bangla Speech-to-Text — Meeting Minutes","org":{"bn":"BCC","en":"BCC"},"type":{"bn":"টুল","en":"Tool"},"date":"2026","k":["speech to text","কার্যবিবরণী"],"v":3981,"d":312},{"bn":"AI চ্যাট সহকারী — সরকারি জ্ঞান Q&A","en":"AI Chat Assistant — Govt. Knowledge Q&A","org":{"bn":"মন্ত্রিপরিষদ বিভাগ","en":"Cabinet Division"},"type":{"bn":"সহকারী","en":"Assistant"},"date":"2026","k":["chat assistant","q&a","চ্যাট"],"v":5839,"d":136},{"bn":"নলেজ গ্রাফ: মন্ত্রণালয়-নীতি-প্রকল্প সংযোগ","en":"Knowledge Graph: Ministry–Policy–Project Links","org":{"bn":"BCC","en":"BCC"},"type":{"bn":"গ্রাফ","en":"Graph"},"date":"2026","k":["knowledge graph","গ্রাফ","সংযোগ"],"v":9375,"d":992},{"bn":"ডকুমেন্ট অটো-ট্যাগিং ও মেটাডেটা ইঞ্জিন","en":"Document Auto-tagging & Metadata Engine","org":{"bn":"BCC","en":"BCC"},"type":{"bn":"ইঞ্জিন","en":"Engine"},"date":"2026","k":["auto tagging","metadata","মেটাডেটা"],"v":3908,"d":79},{"bn":"অনুবাদ সহায়ক: বাংলা⇄ইংরেজি সরকারি পরিভাষা","en":"Translation Aid: Bangla⇄English Govt. Terminology","org":{"bn":"বাংলা একাডেমি/BCC","en":"Bangla Academy/BCC"},"type":{"bn":"টুল","en":"Tool"},"date":"2025","k":["translation","অনুবাদ","পরিভাষা"],"v":1463,"d":2949},{"bn":"ট্রেন্ড অ্যানালাইজার: নীতি-আলোচনার ধারা","en":"Trend Analyzer: Policy Discourse Trends","org":{"bn":"মন্ত্রিপরিষদ বিভাগ","en":"Cabinet Division"},"type":{"bn":"টুল","en":"Tool"},"date":"2026","k":["trend","analyzer","ধারা"],"v":1264,"d":987},{"bn":"সাদৃশ্য শনাক্তকরণ: ডুপ্লিকেট প্রকল্প স্ক্রিনিং","en":"Similarity Detection: Duplicate Project Screening","org":{"bn":"পরিকল্পনা বিভাগ","en":"Planning Division"},"type":{"bn":"টুল","en":"Tool"},"date":"2026","k":["similarity","duplicate","ডুপ্লিকেট"],"v":1404,"d":178},{"bn":"সার-সংক্ষেপক: দীর্ঘ প্রতিবেদনের AI সারাংশ","en":"Summarizer: AI Summaries of Long Reports","org":{"bn":"BCC","en":"BCC"},"type":{"bn":"টুল","en":"Tool"},"date":"2026","k":["summarizer","সারাংশ","summary"],"v":5713,"d":340},{"bn":"সাইটেশন ও উৎস যাচাই সহায়ক","en":"Citation & Source Verification Aid","org":{"bn":"মন্ত্রিপরিষদ বিভাগ","en":"Cabinet Division"},"type":{"bn":"টুল","en":"Tool"},"date":"2026","k":["citation","উৎস","verification"],"v":8723,"d":1024},{"bn":"ফেডারেটেড সার্চ কানেক্টর (মন্ত্রণালয় পোর্টাল)","en":"Federated Search Connector (ministry portals)","org":{"bn":"ICT বিভাগ","en":"ICT Division"},"type":{"bn":"কানেক্টর","en":"Connector"},"date":"2026","k":["federated","connector","সার্চ"],"v":4862,"d":2790},{"bn":"ব্যবহার বিশ্লেষণ ড্যাশবোর্ড — KM মেট্রিক্স","en":"Usage Analytics Dashboard — KM Metrics","org":{"bn":"মন্ত্রিপরিষদ বিভাগ","en":"Cabinet Division"},"type":{"bn":"ড্যাশবোর্ড","en":"Dashboard"},"date":"2026","k":["analytics","usage","মেট্রিক্স"],"v":8253,"d":927},{"bn":"ডেটা অ্যানোনিমাইজেশন টুলকিট","en":"Data Anonymization Toolkit","org":{"bn":"ICT বিভাগ","en":"ICT Division"},"type":{"bn":"টুলকিট","en":"Toolkit"},"date":"2026","k":["anonymization","privacy","গোপনীয়তা"],"v":9134,"d":591},{"bn":"এআই নৈতিকতা ও ঝুঁকি মূল্যায়ন চেকলিস্ট","en":"AI Ethics & Risk Assessment Checklist","org":{"bn":"মন্ত্রিপরিষদ বিভাগ","en":"Cabinet Division"},"type":{"bn":"চেকলিস্ট","en":"Checklist"},"date":"2026","k":["ai ethics","ঝুঁকি","নৈতিকতা"],"v":8044,"d":1045},{"bn":"রিয়েল-টাইম পলিসি অ্যালার্ট সাবস্ক্রিপশন","en":"Real-time Policy Alert Subscription","org":{"bn":"মন্ত্রিপরিষদ বিভাগ","en":"Cabinet Division"},"type":{"bn":"সেবা","en":"Service"},"date":"2026","k":["alert","সাবস্ক্রিপশন","policy"],"v":8049,"d":1717},{"bn":"মডেল কার্ড রেজিস্ট্রি: সরকারি AI মডেল তালিকা","en":"Model Card Registry: Govt. AI Model Inventory","org":{"bn":"BCC","en":"BCC"},"type":{"bn":"রেজিস্ট্রি","en":"Registry"},"date":"2026","k":["model card","registry","এআই"],"v":3419,"d":436}]};
 /* flatten for global search */
-const DOCS_LEGACY=[
-  {bn:'Heritage Tourism Corridor — কৌশলপত্র',en:'Heritage Tourism Corridor — strategy note',t:'Research Archive',k:['heritage','tourism','corridor']},
-  {bn:'Copyright ও Artist Welfare সংস্কার',en:'Copyright & Artist Welfare reform',t:'Policy & Legal',k:['copyright','artist','welfare','reform']},
-  {bn:'Civil Service Innovation Lab — গাইডলাইন',en:'Civil Service Innovation Lab — guideline',t:'Innovation Lab',k:['innovation','lab','govtech','startup']},
-  {bn:'পাঁচ-উৎস অর্থায়ন কাঠামো',en:'Five-source financing framework',t:'Policy & Legal',k:['funding','financing','adp','ppp','budget']},
-  {bn:'Bangla NLP স্মার্ট সার্চ — কারিগরি নকশা',en:'Bangla NLP smart search — technical design',t:'AI Knowledge System',k:['ai','nlp','search','bangla']},
-];
+const DOCS_LEGACY=[];
 
 /* ====== RENDER ====== */
 function bilang(o){const bn=document.body.classList.contains('lang-bn');return bn?o.bn:o.en}
@@ -578,6 +601,7 @@ function render(){
   // funding
   document.getElementById('fundLegend').innerHTML=FUND.map(f=>
     `<div class="lg"><span class="sw" style="background:${f.c}"></span>${bilang(f)}<span class="amt">${num(f.pct)}%</span></div>`).join('');
+  if(document.getElementById('anKpi'))renderAnalytics();
 }
 function toBnIf(n){return document.body.classList.contains('lang-bn')?toBn(n):n}
 
@@ -593,8 +617,8 @@ function setLang(l){
   document.documentElement.lang=l;
   document.getElementById('btn-bn').classList.toggle('active',l==='bn');
   document.getElementById('btn-en').classList.toggle('active',l==='en');
-  document.getElementById('q').placeholder=l==='bn'?'জ্ঞান, নীতি বা কেস স্টাডি খুঁজুন…':'Search knowledge, policy or case studies…';
   render();
+  setMode(typeof MODE!=='undefined'?MODE:'repo');
 }
 /* ====== BUILD SEARCH INDEX from all knowledge products ====== */
 const COMP_NAME={1:{bn:'নীতি ও আইন রিপোজিটরি',en:'Policy & Legal Repository'},2:{bn:'প্রশাসনিক কেস স্টাডি ব্যাংক',en:'Administrative Case Study Bank'},3:{bn:'গবেষণা ও প্রকাশনা আর্কাইভ',en:'Research & Publication Archive'},4:{bn:'ডিজিটাল লার্নিং প্ল্যাটফর্ম',en:'Digital Learning Platform'},5:{bn:'উদ্ভাবন ও আইডিয়া ল্যাব',en:'Innovation & Idea Lab'},6:{bn:'এআই-চালিত জ্ঞান ব্যবস্থা',en:'AI-Powered Knowledge System'}};
@@ -618,6 +642,7 @@ function scoreHit(d,q){
   return s;
 }
 function runSearch(){
+  if(MODE==='web'){webGo('google');return}
   const q=document.getElementById('q').value.trim().toLowerCase();
   const r=document.getElementById('result');
   const bn=document.body.classList.contains('lang-bn');
@@ -637,7 +662,7 @@ function runSearch(){
   }
   r.classList.add('show');
 }
-function liveSearch(){if(document.getElementById('q').value.trim().length>=2)runSearch();else document.getElementById('result').classList.remove('show');}
+function liveSearch(){if(MODE!=='repo'){return}if(document.getElementById('q').value.trim().length>=2)runSearch();else document.getElementById('result').classList.remove('show');}
 
 /* ====== COMPONENT DETAIL MODAL ====== */
 function openComp(n){
@@ -648,14 +673,106 @@ function openComp(n){
     <div class="kp-ic">${typeIcon(d.type.en)}</div>
     <div class="kp-body">
       <div class="kp-t">${bn?d.bn:d.en}</div>
-      <div class="kp-m">${bn?d.org.bn:d.org.en} · <span class="res-type">${bn?d.type.bn:d.type.en}</span> · ${toBnIf(d.date)}</div>
+      <div class="kp-m">${bn?d.org.bn:d.org.en} · <span class="res-type">${bn?d.type.bn:d.type.en}</span> · ${toBnIf(d.date)} · 👁 ${num(d.v)} · ⬇ ${num(d.d)}</div>
     </div></div>`).join('');
   document.getElementById('modalTitle').innerHTML=`<span class="mt-num">${toBnIf(n)}</span> ${cName}`;
-  document.getElementById('modalSub').textContent=bn?`${toBn(list.length)}টি নমুনা জ্ঞান-পণ্য (জাতীয় পোর্টাল অনুসারে)`:`${list.length} sample knowledge products (modelled on the National Portal)`;
-  document.getElementById('modalBody').innerHTML=rows;
+  document.getElementById('modalSub').textContent=bn?`${toBn(list.length)}টি নমুনা জ্ঞান-পণ্য (জাতীয় পোর্টাল bangladesh.gov.bd অনুসারে)`:`${list.length} sample knowledge products (modelled on bangladesh.gov.bd)`;
+  document.getElementById('modalBody').innerHTML=
+    `<input id="modalFilter" class="modal-filter" oninput="filterModal()" placeholder="${bn?'এই তালিকায় খুঁজুন…':'Filter this list…'}">`+rows;
   document.getElementById('modal').classList.add('show');
 }
 function closeModal(){document.getElementById('modal').classList.remove('show')}
+
+/* ====== SEARCH MODE (repository / internet) ====== */
+let MODE='repo';
+function setMode(m){
+  MODE=m;
+  document.getElementById('mode-repo').classList.toggle('active',m==='repo');
+  document.getElementById('mode-web').classList.toggle('active',m==='web');
+  document.getElementById('repoHint').style.display=m==='repo'?'':'none';
+  document.getElementById('webHint').style.display=m==='web'?'':'none';
+  document.getElementById('webEngines').style.display=m==='web'?'flex':'none';
+  document.getElementById('result').classList.remove('show');
+  const bn=document.body.classList.contains('lang-bn');
+  document.getElementById('q').placeholder=m==='repo'
+    ?(bn?'জ্ঞান, নীতি বা কেস স্টাডি খুঁজুন…':'Search knowledge, policy or case studies…')
+    :(bn?'ইন্টারনেটে যা খুঁজতে চান লিখুন…':'Type what you want to search on the internet…');
+}
+function webGo(engine){
+  const q=document.getElementById('q').value.trim();
+  const bn=document.body.classList.contains('lang-bn');
+  if(!q){
+    const r=document.getElementById('result');
+    r.innerHTML=`<div class="res-empty">${bn?'প্রথমে অনুসন্ধানের বিষয়টি লিখুন।':'Please type a query first.'}</div>`;
+    r.classList.add('show');return;
+  }
+  const enc=encodeURIComponent(q);
+  const urls={
+    google:`https://www.google.com/search?q=${enc}`,
+    bing:`https://www.bing.com/search?q=${enc}`,
+    ddg:`https://duckduckgo.com/?q=${enc}`,
+    govbd:`https://www.google.com/search?q=${enc}+site%3Agov.bd`,
+    scholar:`https://scholar.google.com/scholar?q=${enc}`,
+  };
+  window.open(urls[engine],'_blank','noopener');
+}
+
+/* ====== ANALYTICS ====== */
+function renderAnalytics(){
+  const bn=document.body.classList.contains('lang-bn');
+  const all=INDEX.filter(d=>d.comp>0);
+  const totV=all.reduce((a,d)=>a+d.v,0), totD=all.reduce((a,d)=>a+d.d,0);
+  const orgs=new Set(all.map(d=>d.org.en)).size;
+  const ks=[
+    {bn:'মোট জ্ঞান-পণ্য',en:'Total knowledge products',v:all.length},
+    {bn:'মোট ভিউ (নমুনা)',en:'Total views (sample)',v:totV},
+    {bn:'মোট ডাউনলোড (নমুনা)',en:'Total downloads (sample)',v:totD},
+    {bn:'অবদানকারী সংস্থা',en:'Contributing organizations',v:orgs},
+  ];
+  document.getElementById('anKpi').innerHTML=ks.map(k=>
+    `<div class="kpi"><div class="lab">${bn?k.bn:k.en}</div><div class="val">${num(k.v)}</div></div>`).join('');
+  const maxC=Math.max(...Object.keys(COMP_NAME).map(c=>all.filter(d=>d.comp==c).length));
+  document.getElementById('anComp').innerHTML=Object.keys(COMP_NAME).map(c=>{
+    const items=all.filter(d=>d.comp==c);
+    return `<div class="chart-row"><div class="nm">${bn?COMP_NAME[c].bn:COMP_NAME[c].en}</div>
+      <div class="track"><i style="width:${items.length/maxC*100}%"></i></div>
+      <div class="pct">${num(items.length)}</div></div>`;
+  }).join('');
+  const years={};all.forEach(d=>{years[d.date]=(years[d.date]||0)+1});
+  const ys=Object.keys(years).sort();const maxY=Math.max(...Object.values(years));
+  document.getElementById('anYear').innerHTML=ys.map(y=>
+    `<div class="chart-row"><div class="nm">${toBnIf(y)}</div>
+      <div class="track"><i style="width:${years[y]/maxY*100}%"></i></div>
+      <div class="pct">${num(years[y])}</div></div>`).join('');
+  const oc={};all.forEach(d=>{const o=bn?d.org.bn:d.org.en;oc[o]=(oc[o]||0)+1});
+  const topO=Object.entries(oc).sort((a,b)=>b[1]-a[1]).slice(0,7);
+  const maxO=topO[0][1];
+  document.getElementById('anOrg').innerHTML=topO.map(([o,c])=>
+    `<div class="chart-row"><div class="nm" title="${o}">${o}</div>
+      <div class="track"><i style="width:${c/maxO*100}%"></i></div>
+      <div class="pct">${num(c)}</div></div>`).join('');
+  const top=all.slice().sort((a,b)=>b.v-a.v).slice(0,8);
+  document.getElementById('anTop').innerHTML=
+    `<tr><th>${bn?'জ্ঞান-পণ্য':'Product'}</th><th>${bn?'ভিউ':'Views'}</th><th>${bn?'ডাউনলোড':'DL'}</th></tr>`+
+    top.map(d=>`<tr><td>${bn?d.bn:d.en}</td><td style="font-weight:600;color:var(--green-deep)">${num(d.v)}</td><td>${num(d.d)}</td></tr>`).join('');
+}
+function exportCSV(){
+  const all=INDEX.filter(d=>d.comp>0);
+  const rows=[['component','title_bn','title_en','organization','type','year','views','downloads']];
+  all.forEach(d=>rows.push([d.comp,d.bn,d.en,d.org.en,d.type.en,d.date,d.v,d.d]));
+  const csv='\ufeff'+rows.map(r=>r.map(x=>`"${String(x).replace(/"/g,'""')}"`).join(',')).join('\n');
+  const a=document.createElement('a');
+  a.href=URL.createObjectURL(new Blob([csv],{type:'text/csv;charset=utf-8'}));
+  a.download='bcskr_catalogue.csv';a.click();
+}
+
+/* ====== MODAL FILTER ====== */
+function filterModal(){
+  const q=document.getElementById('modalFilter').value.trim().toLowerCase();
+  document.querySelectorAll('#modalBody .kp').forEach(el=>{
+    el.style.display=!q||el.textContent.toLowerCase().includes(q)?'':'none';
+  });
+}
 function typeIcon(t){
   const m={'Act':'§','Rules':'§','Gazette':'§','Decision':'✓','Strategy':'◆','Case Study':'❖','Innovation':'✦','Review':'∿','Evaluation':'∿','Report':'▤','Plan':'▦','Course':'▷','Module':'▷','Webinar':'▶','Showcase':'✦','Hub':'⬡','Award':'★','Platform':'⬡','Design':'⚙','Engine':'⚙','Dashboard':'▦','API':'{}'};
   return m[t]||'•';
