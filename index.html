@@ -254,6 +254,8 @@ body.lang-bn .modal-title{font-family:var(--bn);font-weight:700}
 .modal-filter:focus{outline:none;border-color:var(--green-bright)}
 .an-note{font-size:11.5px;color:var(--muted);margin-top:6px}
 
+.tacit-intro{font-size:14px;line-height:1.7;color:var(--muted)}
+.tacit-intro p{margin:0}
 @media(max-width:980px){
   .shell{grid-template-columns:1fr;gap:0}
   nav.side{position:static;display:flex;gap:6px;overflow-x:auto;padding:12px 0;border-bottom:1px solid var(--line)}
@@ -322,6 +324,10 @@ body.lang-bn .modal-title{font-family:var(--bn);font-weight:700}
     <div class="navlink" data-view="analytics" onclick="go('analytics')">
       <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3v18h18"/><rect x="7" y="12" width="3" height="6"/><rect x="12" y="8" width="3" height="10"/><rect x="17" y="5" width="3" height="13"/></svg>
       <span class="bn">অ্যানালিটিক্যাল টুলস</span><span class="en">Analytical Tools</span>
+    </div>
+    <div class="navlink" data-view="tacit" onclick="go('tacit')">
+      <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2c5.5 0 10 4.5 10 10s-4.5 10-10 10S2 17.5 2 12 6.5 2 12 2z"/><circle cx="12" cy="12" r="3"/><path d="M7 12a5 5 0 0 1 10 0"/></svg>
+      <span class="bn">নিহিত জ্ঞান</span><span class="en">Tacit Knowledge</span>
     </div>
   </nav>
 
@@ -474,6 +480,57 @@ body.lang-bn .modal-title{font-family:var(--bn);font-weight:700}
         <button class="export-btn" onclick="exportCSV()"><span class="bn">⬇ CSV ডাউনলোড</span><span class="en">⬇ Download CSV</span></button>
       </div>
     </section>
+    <!-- ============ TACIT KNOWLEDGE ============ -->
+    <section class="view" id="tacit">
+      <div class="sec-head">
+        <h3><span class="bn">নিহিত জ্ঞান ব্যবস্থাপনা</span><span class="en">Tacit Knowledge Management</span></h3>
+        <span class="tag"><span class="bn">অভিজ্ঞতা • দক্ষতা • সম্পর্ক • সংস্কৃতি</span><span class="en">Experience • Skills • Relationships • Culture</span></span>
+        <span class="rule"></span>
+      </div>
+
+      <div class="tacit-intro card">
+        <p><span class="bn">নিহিত জ্ঞান হল অভিজ্ঞতা, দক্ষতা, সম্পর্ক এবং সাংগঠনিক সংস্কৃতি যা লিখিত নয় কিন্তু সংগঠনের প্রকৃত শক্তি। GEMS.gov.bd এবং bangladesh.gov.bd থেকে অনুপ্রাণিত, এই বিভাগ মেন্টরিং, বিশেষজ্ঞতা, সম্প্রদায় এবং গল্প একীভূত করে।</span><span class="en">Tacit knowledge is experience, skills, relationships and organizational culture that aren't written down but are the organization's true strength. Inspired by GEMS.gov.bd and bangladesh.gov.bd, this section integrates mentoring, expertise, communities and stories.</span></p>
+      </div>
+
+      <div class="kpi-grid" id="tacitKpi" style="margin-bottom:18px"></div>
+
+      <div class="grid-2">
+        <div class="card">
+          <h4><span class="bn">সক্রিয় মেন্টরিং জোড়া</span><span class="en">Active Mentoring Pairs</span></h4>
+          <p class="desc"><span class="bn">দক্ষতা হস্তান্তর ও সম্পর্ক নির্মাণ</span><span class="en">Skill transfer & relationship building</span></p>
+          <div id="tacitMent"></div>
+        </div>
+        <div class="card">
+          <h4><span class="bn">বিশেষজ্ঞ পরামর্শদান</span><span class="en">Expert Advisory</span></h4>
+          <p class="desc"><span class="bn">অভিজ্ঞ কর্মকর্তার জ্ঞান পরিষেবা</span><span class="en">Experienced officers' knowledge services</span></p>
+          <div id="tacitExp"></div>
+        </div>
+      </div>
+
+      <div class="grid-2" style="margin-top:18px">
+        <div class="card">
+          <h4><span class="bn">অনুশীলন সম্প্রদায়</span><span class="en">Communities of Practice</span></h4>
+          <p class="desc"><span class="bn">পেশাদার জ্ঞান নেটওয়ার্ক</span><span class="en">Professional knowledge networks</span></p>
+          <table id="tacitComm"></table>
+        </div>
+        <div class="card">
+          <h4><span class="bn">অভিজ্ঞতা গল্প</span><span class="en">Experience Stories</span></h4>
+          <p class="desc"><span class="bn">নেতৃত্বের পাঠ ও অন্তর্দৃষ্টি</span><span class="en">Leadership lessons & insights</span></p>
+          <div id="tacitStory"></div>
+        </div>
+      </div>
+
+      <div class="card" style="margin-top:18px">
+        <h4><span class="bn">দক্ষতা ম্যাচিং</span><span class="en">Expertise Matching</span></h4>
+        <p class="desc"><span class="bn">প্রয়োজনীয় দক্ষতা খুঁজুন এবং বিশেষজ্ঞের সাথে সংযোগ করুন</span><span class="en">Find needed expertise and connect with specialists</span></p>
+        <div class="search-demo" style="margin-top:12px">
+          <input id="tacitq" placeholder="" oninput="tacitLiveSearch()" >
+          <button onclick="tacitRunSearch()"><span class="bn">খুঁজুন</span><span class="en">Search</span></button>
+        </div>
+        <div class="result" id="tacitresult"></div>
+      </div>
+    </section>
+
   </main>
 </div>
 
@@ -602,6 +659,7 @@ function render(){
   document.getElementById('fundLegend').innerHTML=FUND.map(f=>
     `<div class="lg"><span class="sw" style="background:${f.c}"></span>${bilang(f)}<span class="amt">${num(f.pct)}%</span></div>`).join('');
   if(document.getElementById('anKpi'))renderAnalytics();
+  if(document.getElementById('tacitKpi'))renderTacit();
 }
 function toBnIf(n){return document.body.classList.contains('lang-bn')?toBn(n):n}
 
@@ -609,6 +667,8 @@ function toBnIf(n){return document.body.classList.contains('lang-bn')?toBn(n):n}
 function go(v){
   document.querySelectorAll('.view').forEach(s=>s.classList.toggle('active',s.id===v));
   document.querySelectorAll('.navlink').forEach(n=>n.classList.toggle('active',n.dataset.view===v));
+  if(v==='analytics'&&document.getElementById('anKpi'))renderAnalytics();
+  if(v==='tacit'&&document.getElementById('tacitKpi'))renderTacit();
   window.scrollTo({top:0,behavior:'smooth'});
 }
 /* ====== LANG ====== */
@@ -778,6 +838,79 @@ function typeIcon(t){
   return m[t]||'•';
 }
 document.addEventListener('keydown',e=>{if(e.key==='Enter'&&document.activeElement.id==='q')runSearch();if(e.key==='Escape')closeModal()});
+
+const TACIT_KNOWLEDGE={"mentoring":[{"bn":"জেলা প্রশাসক–সিনিয়র সহকারী কমিশনার মেন্টরিং জোড়া","en":"DC–Senior Assistant Commissioner mentoring pairs","mentor":{"bn":"জেলা প্রশাসক","en":"District Commissioner"},"mentee":{"bn":"সিনিয়র সহকারী কমিশনার","en":"Senior Assistant Commissioner"},"skill":["সিদ্ধান্ত গ্রহণ","নেতৃত্ব","মাঠ প্রশাসন"],"active":45,"progress":78},{"bn":"কর-নীতি কর্মকর্তা মেন্টরিং","en":"Tax Policy Officer mentoring","mentor":{"bn":"অর্থনীতিবিদ","en":"Economist"},"mentee":{"bn":"নতুন নীতি কর্মকর্তা","en":"New policy officer"},"skill":["নীতি নকশা","অর্থনীতি"],"active":32,"progress":65},{"bn":"ডিজিটাল উদ্ভাবন সেবা মেন্টরিং","en":"Digital Innovation Service mentoring","mentor":{"bn":"সিনিয়র টেক লিড","en":"Senior Tech Lead"},"mentee":{"bn":"জুনিয়র ডেভেলপার","en":"Junior developer"},"skill":["প্রযুক্তি","স্টার্টআপ","সেবা ডিজাইন"],"active":28,"progress":82},{"bn":"আইন খসড়া মেন্টরিং","en":"Legal drafting mentorship","mentor":{"bn":"প্রিন্সিপাল সহকারী","en":"Principal Assistant"},"mentee":{"bn":"জুনিয়র আইনজীবী","en":"Junior lawyer"},"skill":["আইন খসড়া","যোগাযোগ"],"active":22,"progress":71},{"bn":"প্রকল্প ব্যবস্থাপনা মেন্টরিং","en":"Project management mentorship","mentor":{"bn":"প্রকল্প পরিচালক","en":"Project director"},"mentee":{"bn":"সহকারী প্রকল্প পরিচালক","en":"Assistant director"},"skill":["প্রকল্প ব্যবস্থাপনা","বাজেট"],"active":38,"progress":74},{"bn":"সাইবার নিরাপত্তা মেন্টরিং","en":"Cybersecurity skills mentoring","mentor":{"bn":"সিনিয়র নিরাপত্তা বিশ্লেষক","en":"Senior security analyst"},"mentee":{"bn":"জুনিয়র প্রকৌশলী","en":"Junior engineer"},"skill":["সাইবার হুমকি","নীতি"],"active":19,"progress":58},{"bn":"সামাজিক সেবা সংবেদনশীলতা মেন্টরিং","en":"Social service sensitivity mentoring","mentor":{"bn":"সামাজিক কর্মী","en":"Social worker"},"mentee":{"bn":"নতুন প্রশাসক","en":"New administrator"},"skill":["সামাজিক সচেতনতা","মানবিক মূল্যবোধ"],"active":41,"progress":85},{"bn":"আর্থিক ব্যবস্থাপনা মেন্টরিং","en":"Financial stewardship mentoring","mentor":{"bn":"আর্থিক নিয়ন্ত্রক","en":"Finance controller"},"mentee":{"bn":"বাজেট প্রশাসক","en":"Budget administrator"},"skill":["বাজেট বিশ্লেষণ","জবাবদিহিতা"],"active":26,"progress":69},{"bn":"পরিবেশ নীতি বাস্তবায়ন মেন্টরিং","en":"Environmental policy mentoring","mentor":{"bn":"পরিবেশ বিশেষজ্ঞ","en":"Environment specialist"},"mentee":{"bn":"নতুন সমন্বয়কারী","en":"New coordinator"},"skill":["পরিবেশ আইন","জলবায়ু কর্ম"],"active":33,"progress":72},{"bn":"মানব সম্পদ রূপান্তর মেন্টরিং","en":"HR transformation mentoring","mentor":{"bn":"HR কৌশলবিদ","en":"HR strategist"},"mentee":{"bn":"HR পেশাদার","en":"HR professional"},"skill":["পরিবর্তন ব্যবস্থাপনা","সংস্কৃতি"],"active":24,"progress":64}],"expertise_registry":[{"bn":"সিনিয়র অর্থনীতিবিদ — জিডিপি মডেলিং","en":"Senior economist — GDP modeling","expert":"দেবপ্রিয় চট্টোপাধ্যায়","expertise":["অর্থনৈতিক মডেল","পূর্বাভাস"],"availability":"সপ্তাহে ১০ ঘণ্টা","projects_advised":12},{"bn":"প্রধান কৃষি বিজ্ঞানী","en":"Chief agronomist","expert":"ড. মোবাশ্বেরা বেগম","expertise":["কৃষি জৈব প্রযুক্তি","জলবায়ু"],"availability":"সাপ্তাহিক","projects_advised":8},{"bn":"সাইবার নিরাপত্তা স্থপতি","en":"Cybersecurity architect","expert":"ইঞ্জিনিয়ার করিম","expertise":["জাতীয় নিরাপত্তা","এনক্রিপশন"],"availability":"অন-ডিমান্ড","projects_advised":15},{"bn":"ই-গভর্নেন্স পরামর্শদাতা","en":"e-Governance consultant","expert":"প্রফেসর রহিম আহমেদ","expertise":["সেবা ডিজাইন","ব্যবহারকারী গবেষণা"],"availability":"মাসিক","projects_advised":22},{"bn":"বাজেট কৌশলবিদ","en":"Budget strategist","expert":"ফিউয়েরূল হক","expertise":["বাজেট পূর্বাভাস","ট্যাক্স নীতি"],"availability":"ত্রৈমাসিক","projects_advised":18},{"bn":"সামাজিক সুরক্ষা নেতা","en":"Social protection leader","expert":"রোবিনা আক্তার","expertise":["প্রোগ্রাম ডিজাইন","লক্ষ্যীকরণ"],"availability":"সাপ্তাহিক","projects_advised":11},{"bn":"জরিপ পদ্ধতিবিদ","en":"Survey methodologist","expert":"প্রফেসর সোফিয়া হোসেন","expertise":["নমুনায়ন","ডেটা গুণমান"],"availability":"প্রকল্প-ভিত্তিক","projects_advised":25},{"bn":"সবুজ অর্থনীতি উদ্ভাবক","en":"Green economy innovator","expert":"সালমা হোসেন","expertise":["সার্কুলার অর্থনীতি","টেকসইতা"],"availability":"ইভেন্ট","projects_advised":9},{"bn":"শিক্ষা সংস্কার নেতা","en":"Education reform leader","expert":"ড. মোহাম্মদ করিম","expertise":["পাঠ্যক্রম","শিক্ষক প্রশিক্ষণ"],"availability":"মাসিক","projects_advised":16},{"bn":"প্রবাসী সম্পদ কৌশলবিদ","en":"Diaspora wealth strategist","expert":"নাজমা আক্তার","expertise":["রেমিট্যান্স","পেশাদার নেটওয়ার্ক"],"availability":"বছরে ১০ ঘণ্টা","projects_advised":6}],"community_of_practice":[{"bn":"নীতিনির্ধারণকারীদের সংলাপ নেটওয়ার্ক","en":"Policy makers' dialogue network","members":87,"frequency":"মাসিক","topics":["প্রমাণ-ভিত্তিক নীতি","সমন্বয়"],"engagement":72},{"bn":"ডিজিটাল উদ্ভাবক সম্প্রদায়","en":"Digital innovators community","members":156,"frequency":"দ্বি-সাপ্তাহিক","topics":["GovTech","স্থানীয় AI"],"engagement":83},{"bn":"সামাজিক সেবা পেশাদার সিনেট","en":"Social service professionals' senate","members":203,"frequency":"সাপ্তাহিক","topics":["সংবেদনশীল সেবা","প্রতিক্রিয়া"],"engagement":68},{"bn":"সবুজ অর্থনীতি ফোরাম","en":"Green economy forum","members":94,"frequency":"ত্রৈমাসিক","topics":["পরিবেশ নীতি","জলবায়ু অর্থ"],"engagement":61},{"bn":"নতুন প্রশাসক শেখার সম্প্রদায়","en":"New administrators' learning community","members":312,"frequency":"সাপ্তাহিক","topics":["প্রশাসন","নৈতিকতা"],"engagement":91}],"storytelling_archive":[{"bn":"একটি ব্যর্থ প্রকল্প থেকে শেখা","en":"Learning from a failed project","teller":"সিনিয়র পরিচালক","topic":"প্রকল্প ব্যর্থতা","lesson":"খাঁটি যোগাযোগ গুরুত্বপূর্ণ","listeners":245,"impact":"৩৫ প্রকল্প ঝুঁকি আপডেট"},{"bn":"মানব-কেন্দ্রিক সেবা উদ্ভাবন","en":"Human-centric service innovation","teller":"জেলা কর্মকর্তা","topic":"স্থানীয় সমাধান","lesson":"তৃণমূল শোনা খুলে দেয়","listeners":189,"impact":"১২ জেলা উদ্ভাবন কর্মসূচি"},{"bn":"যখন প্রযুক্তি বিশ্বাস মিলিত হয়","en":"When technology meets trust","teller":"ডিজিটাল নেতা","topic":"প্রযুক্তি গ্রহণ","lesson":"মানব স্পর্শ প্রয়োজন","listeners":412,"impact":"৮ দেশ e-ID মডেল অধ্যয়ন"},{"bn":"আমার প্রথম মেন্টি সাফল্য","en":"My first mentee's success","teller":"সেবানিবৃত্ত সচিব","topic":"মেন্টরিং উত্তরাধিকার","lesson":"মানুষে বিনিয়োগ গুরুত্বপূর্ণ","listeners":156,"impact":"৫০+ মেন্টরিং জোড়া"},{"bn":"সাংস্কৃতিক পরিবর্তন শুরু করা","en":"Cultural change: where to start","teller":"সংস্কৃতি নেতা","topic":"সাংগঠনিক সংস্কৃতি","lesson":"ছোট বিজয় বিশ্বাস তৈরি করে","listeners":198,"impact":"জাতীয় সংস্কৃতি কৌশল"}]};
+const TACIT_SEARCH_INDEX=[{"bn":"জেলা প্রশাসক–সিনিয়র সহকারী কমিশনার মেন্টরিং জোড়া","en":"DC–Senior Assistant Commissioner mentoring pairs","type":"মেন্টরিং","category":"mentoring","value":45},{"bn":"কর-নীতি কর্মকর্তা মেন্টরিং","en":"Tax Policy Officer mentoring","type":"মেন্টরিং","category":"mentoring","value":32},{"bn":"ডিজিটাল উদ্ভাবন সেবা মেন্টরিং","en":"Digital Innovation Service mentoring","type":"মেন্টরিং","category":"mentoring","value":28},{"bn":"আইন খসড়া মেন্টরিং","en":"Legal drafting mentorship","type":"মেন্টরিং","category":"mentoring","value":22},{"bn":"প্রকল্প ব্যবস্থাপনা মেন্টরিং","en":"Project management mentorship","type":"মেন্টরিং","category":"mentoring","value":38},{"bn":"সাইবার নিরাপত্তা মেন্টরিং","en":"Cybersecurity skills mentoring","type":"মেন্টরিং","category":"mentoring","value":19},{"bn":"সামাজিক সেবা সংবেদনশীলতা মেন্টরিং","en":"Social service sensitivity mentoring","type":"মেন্টরিং","category":"mentoring","value":41},{"bn":"আর্থিক ব্যবস্থাপনা মেন্টরিং","en":"Financial stewardship mentoring","type":"মেন্টরিং","category":"mentoring","value":26},{"bn":"পরিবেশ নীতি বাস্তবায়ন মেন্টরিং","en":"Environmental policy mentoring","type":"মেন্টরিং","category":"mentoring","value":33},{"bn":"মানব সম্পদ রূপান্তর মেন্টরিং","en":"HR transformation mentoring","type":"মেন্টরিং","category":"mentoring","value":24},{"bn":"সিনিয়র অর্থনীতিবিদ — জিডিপি মডেলিং","en":"Senior economist — GDP modeling","type":"বিশেষজ্ঞ","category":"expertise","value":12},{"bn":"প্রধান কৃষি বিজ্ঞানী","en":"Chief agronomist","type":"বিশেষজ্ঞ","category":"expertise","value":8},{"bn":"সাইবার নিরাপত্তা স্থপতি","en":"Cybersecurity architect","type":"বিশেষজ্ঞ","category":"expertise","value":15},{"bn":"ই-গভর্নেন্স পরামর্শদাতা","en":"e-Governance consultant","type":"বিশেষজ্ঞ","category":"expertise","value":22},{"bn":"বাজেট কৌশলবিদ","en":"Budget strategist","type":"বিশেষজ্ঞ","category":"expertise","value":18},{"bn":"সামাজিক সুরক্ষা নেতা","en":"Social protection leader","type":"বিশেষজ্ঞ","category":"expertise","value":11},{"bn":"জরিপ পদ্ধতিবিদ","en":"Survey methodologist","type":"বিশেষজ্ঞ","category":"expertise","value":25},{"bn":"সবুজ অর্থনীতি উদ্ভাবক","en":"Green economy innovator","type":"বিশেষজ্ঞ","category":"expertise","value":9},{"bn":"শিক্ষা সংস্কার নেতা","en":"Education reform leader","type":"বিশেষজ্ঞ","category":"expertise","value":16},{"bn":"প্রবাসী সম্পদ কৌশলবিদ","en":"Diaspora wealth strategist","type":"বিশেষজ্ঞ","category":"expertise","value":6},{"bn":"নীতিনির্ধারণকারীদের সংলাপ নেটওয়ার্ক","en":"Policy makers' dialogue network","type":"সম্প্রদায়","category":"community","value":87},{"bn":"ডিজিটাল উদ্ভাবক সম্প্রদায়","en":"Digital innovators community","type":"সম্প্রদায়","category":"community","value":156},{"bn":"সামাজিক সেবা পেশাদার সিনেট","en":"Social service professionals' senate","type":"সম্প্রদায়","category":"community","value":203},{"bn":"সবুজ অর্থনীতি ফোরাম","en":"Green economy forum","type":"সম্প্রদায়","category":"community","value":94},{"bn":"নতুন প্রশাসক শেখার সম্প্রদায়","en":"New administrators' learning community","type":"সম্প্রদায়","category":"community","value":312},{"bn":"একটি ব্যর্থ প্রকল্প থেকে শেখা","en":"Learning from a failed project","type":"গল্প","category":"storytelling","value":245},{"bn":"মানব-কেন্দ্রিক সেবা উদ্ভাবন","en":"Human-centric service innovation","type":"গল্প","category":"storytelling","value":189},{"bn":"যখন প্রযুক্তি বিশ্বাস মিলিত হয়","en":"When technology meets trust","type":"গল্প","category":"storytelling","value":412},{"bn":"আমার প্রথম মেন্টি সাফল্য","en":"My first mentee's success","type":"গল্প","category":"storytelling","value":156},{"bn":"সাংস্কৃতিক পরিবর্তন শুরু করা","en":"Cultural change: where to start","type":"গল্প","category":"storytelling","value":198}];
+
+/* ====== TACIT KNOWLEDGE FUNCTIONS ====== */
+function renderTacit(){
+  const bn=document.body.classList.contains('lang-bn');
+  const ment=TACIT_KNOWLEDGE['mentoring'], exp=TACIT_KNOWLEDGE['expertise_registry'], 
+    comm=TACIT_KNOWLEDGE['community_of_practice'], stor=TACIT_KNOWLEDGE['storytelling_archive'];
+  
+  // KPI: total items, total engagement (active+projects+members+listeners)
+  const totMent=ment.reduce((a,d)=>a+d.active,0);
+  const totExp=exp.reduce((a,d)=>a+d.projects_advised,0);
+  const totComm=comm.reduce((a,d)=>a+d.members,0);
+  const totStory=stor.reduce((a,d)=>a+d.listeners,0);
+  const ks=[
+    {bn:'সক্রিয় মেন্টরিং সম্পর্ক',en:'Active mentoring relationships',v:ment.length},
+    {bn:'নিবন্ধিত বিশেষজ্ঞ',en:'Registered experts',v:exp.length},
+    {bn:'অনুশীলন সম্প্রদায়',en:'Communities of practice',v:comm.length},
+    {bn:'অভিজ্ঞতা গল্প',en:'Experience stories',v:stor.length},
+  ];
+  document.getElementById('tacitKpi').innerHTML=ks.map(k=>
+    `<div class="kpi"><div class="lab">${bn?k.bn:k.en}</div><div class="val">${num(k.v)}</div></div>`).join('');
+  
+  // Mentoring chart
+  const mentCharts=ment.slice(0,7).map(m=>
+    `<div class="chart-row"><div class="nm">${(bn?m.bn:m.en).slice(0,35)}</div>
+      <div class="track"><i style="width:${m.active/50*100}%"></i></div>
+      <div class="pct">${num(m.active)}</div></div>`).join('');
+  document.getElementById('tacitMent').innerHTML=mentCharts;
+
+  // Expert table
+  const expRows=exp.slice(0,8).map(e=>
+    `<tr><td>${bn?e.bn:e.en}</td><td style="font-weight:600;color:var(--green)">${num(e.projects_advised)}</td></tr>`).join('');
+  document.getElementById('tacitExp').innerHTML=
+    `<table><tr><th>${bn?'বিশেষজ্ঞ':'Expert'}</th><th>${bn?'পরামর্শ':'Advisory'}</th></tr>${expRows}</table>`;
+
+  // Community table
+  const commRows=comm.map(c=>
+    `<tr><td>${bn?c.bn:c.en}</td><td>${num(c.members)}</td><td>${bn?c.frequency:c.frequency}</td></tr>`).join('');
+  document.getElementById('tacitComm').innerHTML=
+    `<tr><th>${bn?'সম্প্রদায়':'Community'}</th><th>${bn?'সদস্য':'Members'}</th><th>${bn?'ফ্রিকোয়েন্সি':'Frequency'}</th></tr>${commRows}`;
+
+  // Story grid
+  const storyGrid=stor.map(s=>
+    `<div class="kp" style="margin-bottom:10px">
+      <div class="kp-ic">📖</div>
+      <div class="kp-body">
+        <div class="kp-t">${bn?s.bn:s.en}</div>
+        <div class="kp-m">${bn?s.teller:s.teller} · 👥 ${num(s.listeners)} ${bn?'শ্রোতা':'listeners'}</div>
+      </div></div>`).join('');
+  document.getElementById('tacitStory').innerHTML=storyGrid;
+}
+
+function tacitLiveSearch(){if(document.getElementById('tacitq').value.trim().length>=2)tacitRunSearch();else document.getElementById('tacitresult').classList.remove('show');}
+
+function tacitRunSearch(){
+  const q=document.getElementById('tacitq').value.trim().toLowerCase();
+  const r=document.getElementById('tacitresult');
+  const bn=document.body.classList.contains('lang-bn');
+  if(!q){r.classList.remove('show');return}
+  const hits=TACIT_SEARCH_INDEX.filter(d=>(bn?d.bn:d.en).toLowerCase().includes(q)||d.category.includes(q));
+  if(hits.length){
+    r.innerHTML=`<div class="res-head">${bn?toBn(hits.length)+'টি ম্যাচ':hits.length+' match(es)'}</div>`+
+      hits.map(h=>`<div class="res-item">
+        <div class="res-t">${bn?h.bn:h.en}</div>
+        <div class="res-m"><span class="res-type">${h.type}</span> · <span style="color:var(--ok);font-weight:600">${num(h.value)}</span></div>
+      </div>`).join('');
+  }else{
+    r.innerHTML=`<div class="res-empty">${bn?'কোনো ম্যাচ পাওয়া যায়নি।':'No matches found.'}</div>`;
+  }
+  r.classList.add('show');
+}
 
 /* init */
 setLang('bn');
