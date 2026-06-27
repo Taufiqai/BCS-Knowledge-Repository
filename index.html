@@ -273,6 +273,43 @@ body.lang-bn .modal-title{font-family:var(--bn);font-weight:700}
   .hero h2{font-size:22px}
   .kpi-grid{grid-template-columns:1fr}
 }
+/* SECI model */
+.seci-card .seci-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin-top:10px}
+.seci-cell{background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:14px;position:relative}
+.seci-k{position:absolute;top:-12px;left:14px;width:26px;height:26px;border-radius:7px;color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:14px}
+.seci-t{font-weight:600;color:var(--green-deep);font-size:13.5px;margin:8px 0 6px}
+.seci-d{font-size:12.5px;color:var(--muted);line-height:1.55}
+/* capture grid */
+.capture-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin-top:8px}
+.cap-item{background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:14px}
+.cap-ic{font-size:22px;margin-bottom:8px}
+.cap-t{font-weight:600;color:var(--green-deep);font-size:14px;margin-bottom:5px}
+.cap-d{font-size:12.5px;color:var(--muted);line-height:1.6}
+/* lifecycle */
+.life-row{display:flex;align-items:flex-start;gap:12px;padding:8px 0;position:relative;flex-wrap:wrap}
+.life-n{flex-shrink:0;width:28px;height:28px;border-radius:50%;background:var(--green);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:14px}
+.life-body{flex:1;min-width:200px}
+.life-t{font-weight:600;color:var(--green-deep);font-size:14px}
+.life-d{font-size:12.5px;color:var(--muted);line-height:1.55}
+.life-arrow{width:100%;text-align:left;padding-left:13px;color:var(--gold);font-size:16px;line-height:1}
+/* AIKS */
+.aiks-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin-top:8px}
+.aiks-item{background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:14px;position:relative}
+.ai-ic{font-size:22px;margin-bottom:6px}
+.ai-t{font-weight:600;color:var(--green-deep);font-size:13.5px;margin-bottom:5px}
+.ai-d{font-size:12px;color:var(--muted);line-height:1.55;margin-bottom:24px}
+.ai-badge{position:absolute;bottom:10px;left:14px;font-size:10.5px;font-weight:600;color:#fff;padding:2px 8px;border-radius:6px}
+/* architecture */
+.arch-row{display:flex;align-items:center;gap:14px;background:var(--paper);border-radius:10px;padding:12px 14px;margin-bottom:8px}
+.arch-n{flex-shrink:0;width:32px;height:32px;border-radius:8px;color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:15px}
+.arch-t{font-weight:600;color:var(--green-deep);font-size:14px}
+.arch-d{font-size:12.5px;color:var(--muted);line-height:1.55}
+/* roadmap */
+.rm-row{display:flex;gap:14px;padding:12px 0;border-bottom:1px solid var(--line)}
+.rm-row:last-child{border-bottom:none}
+.rm-ph{flex-shrink:0;width:90px;font-weight:700;color:var(--gold);font-size:13.5px}
+.rm-t{font-weight:600;color:var(--green-deep);font-size:14px;margin-bottom:4px}
+.rm-d{font-size:12.5px;color:var(--muted);line-height:1.6}
 </style>
 </head>
 <body class="lang-bn">
@@ -328,6 +365,10 @@ body.lang-bn .modal-title{font-family:var(--bn);font-weight:700}
     <div class="navlink" data-view="tacit" onclick="go('tacit')">
       <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2c5.5 0 10 4.5 10 10s-4.5 10-10 10S2 17.5 2 12 6.5 2 12 2z"/><circle cx="12" cy="12" r="3"/><path d="M7 12a5 5 0 0 1 10 0"/></svg>
       <span class="bn">নিহিত জ্ঞান</span><span class="en">Tacit Knowledge</span>
+    </div>
+    <div class="navlink" data-view="aiks" onclick="go('aiks')">
+      <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M9 9h6v6H9z"/><path d="M9 1v3M15 1v3M9 20v3M15 20v3M1 9h3M1 15h3M20 9h3M20 15h3"/></svg>
+      <span class="bn">এআই জ্ঞান ব্যবস্থা</span><span class="en">AI Knowledge System</span>
     </div>
   </nav>
 
@@ -489,7 +530,14 @@ body.lang-bn .modal-title{font-family:var(--bn);font-weight:700}
       </div>
 
       <div class="tacit-intro card">
-        <p><span class="bn">নিহিত জ্ঞান হল অভিজ্ঞতা, দক্ষতা, সম্পর্ক এবং সাংগঠনিক সংস্কৃতি যা লিখিত নয় কিন্তু সংগঠনের প্রকৃত শক্তি। GEMS.gov.bd এবং bangladesh.gov.bd থেকে অনুপ্রাণিত, এই বিভাগ মেন্টরিং, বিশেষজ্ঞতা, সম্প্রদায় এবং গল্প একীভূত করে।</span><span class="en">Tacit knowledge is experience, skills, relationships and organizational culture that aren't written down but are the organization's true strength. Inspired by GEMS.gov.bd and bangladesh.gov.bd, this section integrates mentoring, expertise, communities and stories.</span></p>
+        <p><span class="bn">নিহিত জ্ঞান (Tacit Knowledge) হল অভিজ্ঞতা, দক্ষতা, অন্তর্দৃষ্টি, সম্পর্ক এবং সাংগঠনিক সংস্কৃতি যা সহজে লিখিত রূপে প্রকাশ করা যায় না — কিন্তু এটিই সংগঠনের প্রকৃত শক্তি। একজন অভিজ্ঞ কর্মকর্তা যখন অবসরে যান বা বদলি হন, তাঁর সাথে চলে যায় বছরের পর বছরের প্রজ্ঞা, যোগাযোগের জাল ও সমস্যা সমাধানের কৌশল। GEMS.gov.bd (সরকারি কর্মচারী ব্যবস্থাপনা সিস্টেম) ও bangladesh.gov.bd-র দক্ষতা মানচিত্র থেকে অনুপ্রাণিত হয়ে, এই বিভাগ চারটি প্রমাণিত পদ্ধতিতে নিহিত জ্ঞানকে ধারণ, সংরক্ষণ ও হস্তান্তর করে: মেন্টরিং, বিশেষজ্ঞ পরামর্শ, অনুশীলন সম্প্রদায় ও অভিজ্ঞতার গল্প।</span><span class="en">Tacit knowledge is the experience, skills, intuition, relationships and organizational culture that cannot easily be written down — yet it is the organization's true strength. When an experienced officer retires or transfers, years of wisdom, networks and problem-solving instincts leave with them. Inspired by GEMS.gov.bd (Government Employee Management System) and bangladesh.gov.bd expertise mapping, this section captures, preserves and transfers tacit knowledge through four proven methods: mentoring, expert advisory, communities of practice, and experience stories.</span></p>
+      </div>
+
+      <!-- SECI conversion model -->
+      <div class="card seci-card">
+        <h4><span class="bn">জ্ঞান রূপান্তর চক্র (SECI মডেল)</span><span class="en">Knowledge Conversion Cycle (SECI Model)</span></h4>
+        <p class="desc"><span class="bn">নিহিত ও সুস্পষ্ট জ্ঞানের মধ্যে রূপান্তরের চারটি ধাপ — Nonaka ও Takeuchi-র বিশ্বস্বীকৃত কাঠামো অনুসারে, যা এই বিভাগের ভিত্তি।</span><span class="en">Four modes of conversion between tacit and explicit knowledge — based on the globally recognized Nonaka & Takeuchi framework that underpins this section.</span></p>
+        <div class="seci-grid" id="seciGrid"></div>
       </div>
 
       <div class="kpi-grid" id="tacitKpi" style="margin-bottom:18px"></div>
@@ -528,6 +576,75 @@ body.lang-bn .modal-title{font-family:var(--bn);font-weight:700}
           <button onclick="tacitRunSearch()"><span class="bn">খুঁজুন</span><span class="en">Search</span></button>
         </div>
         <div class="result" id="tacitresult"></div>
+      </div>
+
+      <!-- Capture methods -->
+      <div class="card" style="margin-top:18px">
+        <h4><span class="bn">নিহিত জ্ঞান ধারণের পদ্ধতিসমূহ</span><span class="en">Tacit Knowledge Capture Methods</span></h4>
+        <p class="desc"><span class="bn">কীভাবে অলিখিত প্রজ্ঞাকে ধরে রাখা ও ছড়িয়ে দেওয়া হয়</span><span class="en">How unwritten wisdom is captured and shared</span></p>
+        <div class="capture-grid" id="captureGrid"></div>
+      </div>
+
+      <!-- Lifecycle -->
+      <div class="card" style="margin-top:18px">
+        <h4><span class="bn">নিহিত জ্ঞান ব্যবস্থাপনার জীবনচক্র</span><span class="en">Tacit Knowledge Management Lifecycle</span></h4>
+        <p class="desc"><span class="bn">শনাক্তকরণ থেকে পুনঃব্যবহার পর্যন্ত পাঁচটি ধাপ</span><span class="en">Five stages from identification to reuse</span></p>
+        <div id="tacitLifecycle"></div>
+      </div>
+    </section>
+
+    <!-- ============ AI-POWERED KNOWLEDGE SYSTEM ============ -->
+    <section class="view" id="aiks">
+      <div class="sec-head">
+        <h3><span class="bn">এআই-চালিত জ্ঞান ব্যবস্থাপনা</span><span class="en">AI-Powered Knowledge System</span></h3>
+        <span class="tag"><span class="bn">বাংলা NLP • সিদ্ধান্ত সহায়তা • স্বয়ংক্রিয়তা</span><span class="en">Bangla NLP • Decision Support • Automation</span></span>
+        <span class="rule"></span>
+      </div>
+
+      <div class="tacit-intro card">
+        <p><span class="bn">এআই-চালিত জ্ঞান ব্যবস্থা হল BCSKR-এর বুদ্ধিবৃত্তিক স্তর — যা ১২০+ সুস্পষ্ট জ্ঞান-পণ্য ও নিহিত জ্ঞানভান্ডারকে কার্যকর অন্তর্দৃষ্টিতে রূপান্তর করে। বাংলা ভাষায় সেমান্টিক সার্চ, নীতি সুপারিশ ইঞ্জিন, সিদ্ধান্ত সহায়তা ড্যাশবোর্ড ও স্বয়ংক্রিয় সার-সংক্ষেপ — এই সক্ষমতাগুলো প্রমাণভিত্তিক ও দ্রুত সরকারি সিদ্ধান্ত গ্রহণকে সম্ভব করে। সার্বভৌম বাংলা AI সক্ষমতা গড়ে তোলা এর কৌশলগত লক্ষ্য।</span><span class="en">The AI-Powered Knowledge System is BCSKR's intelligence layer — turning 120+ explicit knowledge products and the tacit knowledge base into actionable insight. Bangla semantic search, a policy recommendation engine, a decision-support dashboard and automatic summarization enable evidence-based, rapid government decision-making. Building sovereign Bangla AI capability is its strategic goal.</span></p>
+      </div>
+
+      <div class="kpi-grid" id="aiksKpi" style="margin-bottom:18px"></div>
+
+      <!-- Capabilities -->
+      <div class="card">
+        <h4><span class="bn">মূল সক্ষমতাসমূহ</span><span class="en">Core Capabilities</span></h4>
+        <p class="desc"><span class="bn">২০টি এআই টুল ও মডিউল — প্রতিটির পরিপক্বতা স্তরসহ</span><span class="en">20 AI tools & modules — each with maturity level</span></p>
+        <div class="aiks-grid" id="aiksCaps"></div>
+      </div>
+
+      <!-- Architecture -->
+      <div class="card">
+        <h4><span class="bn">কারিগরি স্থাপত্য (৪ স্তর)</span><span class="en">Technical Architecture (4 layers)</span></h4>
+        <p class="desc"><span class="bn">ডেটা থেকে ব্যবহারকারী পর্যন্ত — কীভাবে সিস্টেমটি গঠিত</span><span class="en">From data to user — how the system is built</span></p>
+        <div id="aiksArch"></div>
+      </div>
+
+      <!-- Bangla NLP focus + maturity chart -->
+      <div class="grid-2">
+        <div class="card">
+          <h4><span class="bn">বাংলা NLP — কেন গুরুত্বপূর্ণ</span><span class="en">Bangla NLP — Why it matters</span></h4>
+          <div id="aiksNlp"></div>
+        </div>
+        <div class="card">
+          <h4><span class="bn">সক্ষমতার পরিপক্বতা</span><span class="en">Capability Maturity</span></h4>
+          <p class="desc"><span class="bn">পরিকল্পনা → পাইলট → উৎপাদন</span><span class="en">Planned → Pilot → Production</span></p>
+          <div id="aiksMaturity"></div>
+        </div>
+      </div>
+
+      <!-- Governance & ethics -->
+      <div class="card">
+        <h4><span class="bn">এআই নৈতিকতা ও সুশাসন</span><span class="en">AI Ethics & Governance</span></h4>
+        <p class="desc"><span class="bn">দায়িত্বশীল, স্বচ্ছ ও নিরীক্ষাযোগ্য সরকারি AI</span><span class="en">Responsible, transparent and auditable government AI</span></p>
+        <div id="aiksEthics"></div>
+      </div>
+
+      <!-- Roadmap -->
+      <div class="card">
+        <h4><span class="bn">বাস্তবায়ন রোডম্যাপ</span><span class="en">Implementation Roadmap</span></h4>
+        <div id="aiksRoadmap"></div>
       </div>
     </section>
 
@@ -660,6 +777,7 @@ function render(){
     `<div class="lg"><span class="sw" style="background:${f.c}"></span>${bilang(f)}<span class="amt">${num(f.pct)}%</span></div>`).join('');
   if(document.getElementById('anKpi'))renderAnalytics();
   if(document.getElementById('tacitKpi'))renderTacit();
+  if(document.getElementById('aiksKpi'))renderAIKS();
 }
 function toBnIf(n){return document.body.classList.contains('lang-bn')?toBn(n):n}
 
@@ -669,6 +787,7 @@ function go(v){
   document.querySelectorAll('.navlink').forEach(n=>n.classList.toggle('active',n.dataset.view===v));
   if(v==='analytics'&&document.getElementById('anKpi'))renderAnalytics();
   if(v==='tacit'&&document.getElementById('tacitKpi'))renderTacit();
+  if(v==='aiks'&&document.getElementById('aiksKpi'))renderAIKS();
   window.scrollTo({top:0,behavior:'smooth'});
 }
 /* ====== LANG ====== */
@@ -890,6 +1009,60 @@ function renderTacit(){
         <div class="kp-m">${bn?s.teller:s.teller} · 👥 ${num(s.listeners)} ${bn?'শ্রোতা':'listeners'}</div>
       </div></div>`).join('');
   document.getElementById('tacitStory').innerHTML=storyGrid;
+
+  // SECI model
+  const seci=bn?[
+    {k:'S',t:'সামাজিকীকরণ (Socialization)',d:'নিহিত → নিহিত। মেন্টরিং, ছায়া-অনুসরণ ও সরাসরি অভিজ্ঞতা ভাগাভাগির মাধ্যমে।',c:'#1a7d6f'},
+    {k:'E',t:'বাহ্যিকীকরণ (Externalization)',d:'নিহিত → সুস্পষ্ট। অভিজ্ঞতার গল্প, কেস স্টাডি ও সাক্ষাৎকারে লিপিবদ্ধ করে।',c:'#b4863b'},
+    {k:'C',t:'সংযুক্তকরণ (Combination)',d:'সুস্পষ্ট → সুস্পষ্ট। বিভিন্ন নথি ও ডেটা একত্রে বিশ্লেষণ ও সংকলন করে।',c:'#13524a'},
+    {k:'I',t:'অভ্যন্তরীণকরণ (Internalization)',d:'সুস্পষ্ট → নিহিত। প্রশিক্ষণ ও অনুশীলনের মাধ্যমে ব্যক্তিগত দক্ষতায় রূপান্তর।',c:'#0c3b35'},
+  ]:[
+    {k:'S',t:'Socialization',d:'Tacit → Tacit. Through mentoring, shadowing and sharing direct experience.',c:'#1a7d6f'},
+    {k:'E',t:'Externalization',d:'Tacit → Explicit. Capturing through experience stories, case studies and interviews.',c:'#b4863b'},
+    {k:'C',t:'Combination',d:'Explicit → Explicit. Analyzing and compiling documents and data together.',c:'#13524a'},
+    {k:'I',t:'Internalization',d:'Explicit → Tacit. Converting to personal skill through training and practice.',c:'#0c3b35'},
+  ];
+  document.getElementById('seciGrid').innerHTML=seci.map(s=>
+    `<div class="seci-cell" style="border-top:3px solid ${s.c}">
+      <div class="seci-k" style="background:${s.c}">${s.k}</div>
+      <div class="seci-t">${s.t}</div>
+      <div class="seci-d">${s.d}</div></div>`).join('');
+
+  // Capture methods
+  const cap=bn?[
+    {ic:'👥',t:'মেন্টরিং ও ছায়া-অনুসরণ',d:'সিনিয়র কর্মকর্তার সাথে জুনিয়রকে জোড়া দিয়ে সরাসরি প্রজ্ঞা হস্তান্তর।'},
+    {ic:'🎙️',t:'প্রস্থান সাক্ষাৎকার',d:'অবসর/বদলির আগে অভিজ্ঞ কর্মকর্তার মূল শিক্ষা ও যোগাযোগ-জাল রেকর্ড করা।'},
+    {ic:'📹',t:'ভিডিও/অডিও গল্প',d:'বাস্তব ঘটনা, সাফল্য ও ব্যর্থতার পাঠ ভিডিওতে ধারণ — ভবিষ্যৎ প্রজন্মের জন্য।'},
+    {ic:'🗂️',t:'কেস স্টাডি লিখন',d:'জটিল সমস্যা সমাধানের প্রক্রিয়াকে কাঠামোবদ্ধ কেস স্টাডিতে রূপান্তর।'},
+    {ic:'💬',t:'অনুশীলন সম্প্রদায়',d:'একই বিষয়ে কর্মরতদের নিয়মিত আলোচনা — সমস্যা ও সমাধান ভাগাভাগি।'},
+    {ic:'🧭',t:'বিশেষজ্ঞ ডিরেক্টরি',d:'কে কী জানেন তার মানচিত্র — দ্রুত সঠিক পরামর্শদাতা খুঁজে পেতে।'},
+  ]:[
+    {ic:'👥',t:'Mentoring & shadowing',d:'Pairing juniors with senior officers for direct wisdom transfer.'},
+    {ic:'🎙️',t:'Exit interviews',d:'Recording key lessons and networks of experienced officers before retirement/transfer.'},
+    {ic:'📹',t:'Video/audio stories',d:'Capturing real events, success and failure lessons on video for future generations.'},
+    {ic:'🗂️',t:'Case study writing',d:'Turning complex problem-solving into structured case studies.'},
+    {ic:'💬',t:'Communities of practice',d:'Regular discussion among peers in a field — sharing problems and solutions.'},
+    {ic:'🧭',t:'Expert directory',d:'A map of who knows what — to quickly find the right advisor.'},
+  ];
+  document.getElementById('captureGrid').innerHTML=cap.map(c=>
+    `<div class="cap-item"><div class="cap-ic">${c.ic}</div><div class="cap-t">${c.t}</div><div class="cap-d">${c.d}</div></div>`).join('');
+
+  // Lifecycle
+  const life=bn?[
+    {t:'শনাক্তকরণ',d:'কোন জ্ঞান গুরুত্বপূর্ণ ও ঝুঁকিতে (যেমন অবসরমুখী কর্মকর্তা) তা চিহ্নিত করা।'},
+    {t:'ধারণ',d:'সাক্ষাৎকার, গল্প, মেন্টরিং বা কেস স্টাডির মাধ্যমে জ্ঞান সংগ্রহ।'},
+    {t:'সংগঠন',d:'মেটাডেটা, ট্যাগ ও শ্রেণিবিন্যাসসহ সংরক্ষণযোগ্য রূপে সাজানো।'},
+    {t:'ভাগাভাগি',d:'সম্প্রদায়, ডিরেক্টরি ও সার্চের মাধ্যমে প্রয়োজনীয় ব্যক্তির কাছে পৌঁছানো।'},
+    {t:'পুনঃব্যবহার',d:'নতুন সিদ্ধান্ত, প্রশিক্ষণ ও সমস্যা সমাধানে প্রয়োগ — চক্র পুনরাবৃত্ত।'},
+  ]:[
+    {t:'Identify',d:'Determine which knowledge is critical and at risk (e.g. retiring officers).'},
+    {t:'Capture',d:'Collect knowledge via interviews, stories, mentoring or case studies.'},
+    {t:'Organize',d:'Arrange into a preservable form with metadata, tags and classification.'},
+    {t:'Share',d:'Reach the right people through communities, directory and search.'},
+    {t:'Reuse',d:'Apply to new decisions, training and problem-solving — cycle repeats.'},
+  ];
+  document.getElementById('tacitLifecycle').innerHTML=life.map((l,i)=>
+    `<div class="life-row"><div class="life-n">${bn?toBn(i+1):i+1}</div><div class="life-body"><div class="life-t">${l.t}</div><div class="life-d">${l.d}</div></div>${i<life.length-1?'<div class="life-arrow">↓</div>':''}</div>`).join('');
 }
 
 function tacitLiveSearch(){if(document.getElementById('tacitq').value.trim().length>=2)tacitRunSearch();else document.getElementById('tacitresult').classList.remove('show');}
@@ -910,6 +1083,151 @@ function tacitRunSearch(){
     r.innerHTML=`<div class="res-empty">${bn?'কোনো ম্যাচ পাওয়া যায়নি।':'No matches found.'}</div>`;
   }
   r.classList.add('show');
+}
+
+/* ====== AI-POWERED KNOWLEDGE SYSTEM ====== */
+function renderAIKS(){
+  const bn=document.body.classList.contains('lang-bn');
+
+  // KPIs
+  const ks=[
+    {bn:'এআই টুল ও মডিউল',en:'AI tools & modules',v:20},
+    {bn:'বাংলা NLP মডেল',en:'Bangla NLP models',v:6},
+    {bn:'মাসিক প্রশ্ন (লক্ষ্য)',en:'Monthly queries (target)',v:100000},
+    {bn:'সংযুক্ত ডেটা উৎস',en:'Connected data sources',v:48},
+  ];
+  document.getElementById('aiksKpi').innerHTML=ks.map(k=>
+    `<div class="kpi"><div class="lab">${bn?k.bn:k.en}</div><div class="val">${num(k.v)}</div></div>`).join('');
+
+  // Capabilities (20) with maturity
+  const caps=bn?[
+    {ic:'🔍',t:'বাংলা সেমান্টিক সার্চ',d:'অর্থভিত্তিক অনুসন্ধান, কেবল শব্দ মেলানো নয়।',m:'production'},
+    {ic:'🧠',t:'নীতি সুপারিশ ইঞ্জিন',d:'প্রাসঙ্গিক নীতি ও নজির স্বয়ংক্রিয় সুপারিশ।',m:'pilot'},
+    {ic:'📊',t:'সিদ্ধান্ত সহায়তা ড্যাশবোর্ড',d:'ডেটা ও জ্ঞান একত্রে সিদ্ধান্ত গ্রহণে।',m:'pilot'},
+    {ic:'📝',t:'স্বয়ংক্রিয় সার-সংক্ষেপ',d:'দীর্ঘ প্রতিবেদনের দ্রুত AI সারাংশ।',m:'production'},
+    {ic:'🏷️',t:'অটো-ট্যাগিং ও মেটাডেটা',d:'নথি স্বয়ংক্রিয় শ্রেণিবিন্যাস।',m:'production'},
+    {ic:'🌐',t:'বাংলা⇄ইংরেজি অনুবাদ',d:'সরকারি পরিভাষাসহ নির্ভুল অনুবাদ।',m:'pilot'},
+    {ic:'🗣️',t:'বাংলা স্পিচ-টু-টেক্সট',d:'সভার কার্যবিবরণী স্বয়ংক্রিয় লিপিবদ্ধ।',m:'pilot'},
+    {ic:'📄',t:'বাংলা OCR',d:'পুরনো মুদ্রিত নথি ডিজিটাইজেশন।',m:'production'},
+    {ic:'💬',t:'এআই চ্যাট সহকারী',d:'সরকারি জ্ঞানভিত্তিক প্রশ্নোত্তর।',m:'pilot'},
+    {ic:'🕸️',t:'নলেজ গ্রাফ',d:'মন্ত্রণালয়–নীতি–প্রকল্প সংযোগ মানচিত্র।',m:'pilot'},
+    {ic:'🔗',t:'সাদৃশ্য শনাক্তকরণ',d:'ডুপ্লিকেট প্রকল্প/নথি স্ক্রিনিং।',m:'pilot'},
+    {ic:'📈',t:'ট্রেন্ড অ্যানালাইজার',d:'নীতি-আলোচনার ধারা বিশ্লেষণ।',m:'planned'},
+    {ic:'✅',t:'উৎস যাচাই সহায়ক',d:'তথ্যসূত্র ও সাইটেশন যাচাই।',m:'planned'},
+    {ic:'✍️',t:'স্মার্ট খসড়া সহায়ক',d:'নীতি ও চিঠি লিখনে AI সহায়তা।',m:'planned'},
+    {ic:'🔔',t:'রিয়েল-টাইম অ্যালার্ট',d:'প্রাসঙ্গিক নীতি পরিবর্তনে নোটিফিকেশন।',m:'planned'},
+    {ic:'📋',t:'মডেল কার্ড রেজিস্ট্রি',d:'সরকারি AI মডেলের নিরীক্ষাযোগ্য তালিকা।',m:'pilot'},
+    {ic:'🔒',t:'ডেটা অ্যানোনিমাইজেশন',d:'গোপনীয়তা রক্ষায় সংবেদনশীল তথ্য মাস্কিং।',m:'pilot'},
+    {ic:'🎯',t:'ব্যবহার বিশ্লেষণ',d:'KM মেট্রিক্স ও ব্যবহার ড্যাশবোর্ড।',m:'production'},
+    {ic:'⚖️',t:'পক্ষপাত পরীক্ষা',d:'AI আউটপুটে পক্ষপাত শনাক্ত ও হ্রাস।',m:'planned'},
+    {ic:'🔌',t:'ওপেন ডেটা API',d:'GovTech ও গবেষকদের জন্য উন্মুক্ত প্রবেশ।',m:'pilot'},
+  ]:[
+    {ic:'🔍',t:'Bangla semantic search',d:'Meaning-based search, not just keyword matching.',m:'production'},
+    {ic:'🧠',t:'Policy recommendation engine',d:'Auto-suggests relevant policies and precedents.',m:'pilot'},
+    {ic:'📊',t:'Decision support dashboard',d:'Combines data and knowledge for decisions.',m:'pilot'},
+    {ic:'📝',t:'Automatic summarization',d:'Fast AI summaries of long reports.',m:'production'},
+    {ic:'🏷️',t:'Auto-tagging & metadata',d:'Automatic document classification.',m:'production'},
+    {ic:'🌐',t:'Bangla⇄English translation',d:'Accurate translation with govt terminology.',m:'pilot'},
+    {ic:'🗣️',t:'Bangla speech-to-text',d:'Auto-transcribe meeting minutes.',m:'pilot'},
+    {ic:'📄',t:'Bangla OCR',d:'Digitize old printed documents.',m:'production'},
+    {ic:'💬',t:'AI chat assistant',d:'Q&A grounded in government knowledge.',m:'pilot'},
+    {ic:'🕸️',t:'Knowledge graph',d:'Ministry–policy–project link map.',m:'pilot'},
+    {ic:'🔗',t:'Similarity detection',d:'Duplicate project/document screening.',m:'pilot'},
+    {ic:'📈',t:'Trend analyzer',d:'Analyze policy discourse trends.',m:'planned'},
+    {ic:'✅',t:'Source verification aid',d:'Verify references and citations.',m:'planned'},
+    {ic:'✍️',t:'Smart drafting aid',d:'AI help for policy and letter writing.',m:'planned'},
+    {ic:'🔔',t:'Real-time alerts',d:'Notifications on relevant policy changes.',m:'planned'},
+    {ic:'📋',t:'Model card registry',d:'Auditable inventory of govt AI models.',m:'pilot'},
+    {ic:'🔒',t:'Data anonymization',d:'Mask sensitive data to protect privacy.',m:'pilot'},
+    {ic:'🎯',t:'Usage analytics',d:'KM metrics and usage dashboard.',m:'production'},
+    {ic:'⚖️',t:'Bias testing',d:'Detect and reduce bias in AI output.',m:'planned'},
+    {ic:'🔌',t:'Open data API',d:'Open access for GovTech and researchers.',m:'pilot'},
+  ];
+  const mLabel={production:bn?'উৎপাদন':'Production',pilot:bn?'পাইলট':'Pilot',planned:bn?'পরিকল্পনা':'Planned'};
+  const mColor={production:'#2f7d52',pilot:'#b4863b',planned:'#6a7a73'};
+  document.getElementById('aiksCaps').innerHTML=caps.map(c=>
+    `<div class="aiks-item"><div class="ai-ic">${c.ic}</div><div class="ai-t">${c.t}</div><div class="ai-d">${c.d}</div><span class="ai-badge" style="background:${mColor[c.m]}">${mLabel[c.m]}</span></div>`).join('');
+
+  // Architecture (4 layers)
+  const arch=bn?[
+    {n:'৪',t:'উপস্থাপন স্তর (Presentation)',d:'ওয়েব ড্যাশবোর্ড, চ্যাট সহকারী, মোবাইল অ্যাপ, API — যেখানে ব্যবহারকারী জ্ঞানে প্রবেশ করেন।',c:'#1a7d6f'},
+    {n:'৩',t:'বুদ্ধিমত্তা স্তর (Intelligence)',d:'বাংলা NLP মডেল, সেমান্টিক সার্চ, সুপারিশ ইঞ্জিন, সার-সংক্ষেপক — মূল AI প্রক্রিয়াকরণ।',c:'#b4863b'},
+    {n:'২',t:'জ্ঞান স্তর (Knowledge)',d:'নলেজ গ্রাফ, ভেক্টর ইনডেক্স, মেটাডেটা স্কিমা, অন্টোলজি — জ্ঞানের কাঠামোবদ্ধ রূপ।',c:'#13524a'},
+    {n:'১',t:'ডেটা স্তর (Data)',d:'১২০+ জ্ঞান-পণ্য, নিহিত জ্ঞানভান্ডার, মন্ত্রণালয় পোর্টাল, ওপেন ডেটা — মূল উৎস।',c:'#0c3b35'},
+  ]:[
+    {n:'4',t:'Presentation Layer',d:'Web dashboard, chat assistant, mobile app, API — where users access knowledge.',c:'#1a7d6f'},
+    {n:'3',t:'Intelligence Layer',d:'Bangla NLP models, semantic search, recommendation engine, summarizer — core AI processing.',c:'#b4863b'},
+    {n:'2',t:'Knowledge Layer',d:'Knowledge graph, vector index, metadata schema, ontology — structured form of knowledge.',c:'#13524a'},
+    {n:'1',t:'Data Layer',d:'120+ knowledge products, tacit base, ministry portals, open data — the source.',c:'#0c3b35'},
+  ];
+  document.getElementById('aiksArch').innerHTML=arch.map(a=>
+    `<div class="arch-row" style="border-left:4px solid ${a.c}">
+      <div class="arch-n" style="background:${a.c}">${a.n}</div>
+      <div class="arch-body"><div class="arch-t">${a.t}</div><div class="arch-d">${a.d}</div></div></div>`).join('');
+
+  // Bangla NLP focus
+  const nlp=bn?[
+    'বাংলা বিশ্বের ৭ম বৃহত্তম ভাষা — অথচ AI সম্পদে অনগ্রসর; সার্বভৌম সক্ষমতা কৌশলগত প্রয়োজন।',
+    'সরকারি নথির বেশিরভাগই বাংলায় — ইংরেজি-কেন্দ্রিক টুল এখানে ব্যর্থ হয়।',
+    'বাংলা morphology জটিল (সন্ধি, সমাস, কারক) — বিশেষায়িত মডেল ছাড়া নির্ভুলতা কম।',
+    'সাক্ষরতা ও ইংরেজির বাধা দূর করতে বাংলা ভয়েস ও সহজ ভাষা ইন্টারফেস অপরিহার্য।',
+    'স্থানীয় ডেটায় প্রশিক্ষিত মডেল তথ্য-সার্বভৌমত্ব ও গোপনীয়তা রক্ষা করে।',
+  ]:[
+    'Bangla is the world\u2019s 7th largest language — yet under-resourced in AI; sovereign capability is a strategic need.',
+    'Most government documents are in Bangla — English-centric tools fail here.',
+    'Bangla morphology is complex (sandhi, compounds, cases) — accuracy is low without specialized models.',
+    'Bangla voice and plain-language interfaces are essential to remove literacy and English barriers.',
+    'Models trained on local data protect data sovereignty and privacy.',
+  ];
+  document.getElementById('aiksNlp').innerHTML=nlp.map(n=>
+    `<div class="dp-row"><span class="dp-ic">🇧🇩</span><span>${n}</span></div>`).join('');
+
+  // Maturity chart
+  const counts={production:0,pilot:0,planned:0};
+  caps.forEach(c=>counts[c.m]++);
+  const total=caps.length;
+  const mat=[
+    {k:'production',v:counts.production,c:'#2f7d52'},
+    {k:'pilot',v:counts.pilot,c:'#b4863b'},
+    {k:'planned',v:counts.planned,c:'#6a7a73'},
+  ];
+  document.getElementById('aiksMaturity').innerHTML=mat.map(m=>
+    `<div class="chart-row"><div class="nm">${mLabel[m.k]}</div>
+      <div class="track"><i style="width:${m.v/total*100}%;background:${m.c}"></i></div>
+      <div class="pct">${num(m.v)}</div></div>`).join('');
+
+  // Ethics
+  const eth=bn?[
+    {ic:'🔍',t:'স্বচ্ছতা',d:'প্রতিটি AI সুপারিশের উৎস ও যুক্তি প্রদর্শন — কেন এই ফলাফল।'},
+    {ic:'⚖️',t:'পক্ষপাতহীনতা',d:'নিয়মিত পক্ষপাত নিরীক্ষা ও সংশোধন; বৈষম্যহীন সিদ্ধান্ত।'},
+    {ic:'🔒',t:'গোপনীয়তা',d:'সংবেদনশীল তথ্য মাস্কিং, RBAC ও ডেটা শ্রেণিবিন্যাস।'},
+    {ic:'👤',t:'মানব তত্ত্বাবধান',d:'AI পরামর্শ দেয়, সিদ্ধান্ত নেন মানুষ — human-in-the-loop।'},
+    {ic:'📋',t:'নিরীক্ষাযোগ্যতা',d:'মডেল কার্ড ও লগ — প্রতিটি সিদ্ধান্ত পরবর্তীতে যাচাইযোগ্য।'},
+    {ic:'🏛️',t:'জবাবদিহিতা',d:'স্পষ্ট মালিকানা ও দায়িত্ব; ভুলের প্রতিকার ব্যবস্থা।'},
+  ]:[
+    {ic:'🔍',t:'Transparency',d:'Show source and reasoning for every AI recommendation — why this result.'},
+    {ic:'⚖️',t:'Fairness',d:'Regular bias audits and correction; non-discriminatory decisions.'},
+    {ic:'🔒',t:'Privacy',d:'Sensitive data masking, RBAC and data classification.'},
+    {ic:'👤',t:'Human oversight',d:'AI advises, humans decide — human-in-the-loop.'},
+    {ic:'📋',t:'Auditability',d:'Model cards and logs — every decision verifiable later.'},
+    {ic:'🏛️',t:'Accountability',d:'Clear ownership and responsibility; redress for errors.'},
+  ];
+  document.getElementById('aiksEthics').innerHTML=
+    `<div class="capture-grid">`+eth.map(e=>
+    `<div class="cap-item"><div class="cap-ic">${e.ic}</div><div class="cap-t">${e.t}</div><div class="cap-d">${e.d}</div></div>`).join('')+`</div>`;
+
+  // Roadmap
+  const rm=bn?[
+    {ph:'১ম বছর',t:'ভিত্তি স্থাপন',d:'বাংলা সেমান্টিক সার্চ, OCR, সার-সংক্ষেপক, অটো-ট্যাগিং উৎপাদনে; সুপারিশ ইঞ্জিন ও চ্যাট সহকারী পাইলট। লক্ষ্য: ৫,০০০ মাসিক প্রশ্ন।'},
+    {ph:'২য় বছর',t:'সম্প্রসারণ',d:'সিদ্ধান্ত সহায়তা ড্যাশবোর্ড, নলেজ গ্রাফ ও ওপেন ডেটা API পূর্ণ স্থাপন; স্পিচ-টু-টেক্সট ও অনুবাদ উৎপাদনে। লক্ষ্য: ৩০,০০০ মাসিক প্রশ্ন।'},
+    {ph:'৩য়–৪র্থ বছর',t:'পরিপক্বতা',d:'উন্নত বাংলা NLP, ট্রেন্ড অ্যানালাইজার, পক্ষপাত পরীক্ষা; মন্ত্রিসভা ও আন্তঃমন্ত্রণালয় সিদ্ধান্তে সংযুক্তি। লক্ষ্য: ১,০০,০০০ মাসিক প্রশ্ন।'},
+  ]:[
+    {ph:'Year 1',t:'Foundation',d:'Bangla semantic search, OCR, summarizer, auto-tagging to production; recommendation engine and chat assistant in pilot. Target: 5,000 monthly queries.'},
+    {ph:'Year 2',t:'Expansion',d:'Decision-support dashboard, knowledge graph and open data API fully deployed; speech-to-text and translation to production. Target: 30,000 monthly queries.'},
+    {ph:'Years 3–4',t:'Maturity',d:'Advanced Bangla NLP, trend analyzer, bias testing; integration into cabinet and inter-ministerial decisions. Target: 100,000 monthly queries.'},
+  ];
+  document.getElementById('aiksRoadmap').innerHTML=rm.map((r,i)=>
+    `<div class="rm-row"><div class="rm-ph">${r.ph}</div><div class="rm-body"><div class="rm-t">${r.t}</div><div class="rm-d">${r.d}</div></div></div>`).join('');
 }
 
 /* init */
