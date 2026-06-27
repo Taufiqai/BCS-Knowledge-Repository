@@ -310,6 +310,52 @@ body.lang-bn .modal-title{font-family:var(--bn);font-weight:700}
 .rm-ph{flex-shrink:0;width:90px;font-weight:700;color:var(--gold);font-size:13.5px}
 .rm-t{font-weight:600;color:var(--green-deep);font-size:14px;margin-bottom:4px}
 .rm-d{font-size:12.5px;color:var(--muted);line-height:1.6}
+/* NLP infographic */
+.nlp-info{display:grid;grid-template-columns:repeat(auto-fit,minmax(110px,1fr));gap:12px;margin:6px 0 14px}
+.nlp-card{background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:14px 10px;text-align:center;display:flex;flex-direction:column;align-items:center;gap:6px}
+.nlp-ic{width:38px;height:38px;color:var(--green-bright)}
+.nlp-ic svg{width:100%;height:100%}
+.nlp-ic:empty{display:none}
+.nlp-big{font-size:22px;font-weight:700;color:var(--green-deep);font-family:var(--en);line-height:1}
+.nlp-lab{font-size:11.5px;color:var(--muted);line-height:1.4}
+.nlp-flow{display:flex;align-items:center;justify-content:center;gap:8px;flex-wrap:wrap;background:var(--green-deep);color:#fff;border-radius:10px;padding:11px 14px;font-size:13px;font-weight:600}
+.nlp-flow .nlp-arr{color:var(--gold-soft);font-size:16px}
+/* course viewer */
+.kp-course-btn{margin-top:8px;background:var(--green);color:#fff;border:none;border-radius:8px;padding:6px 14px;font-family:inherit;font-size:12.5px;font-weight:600;cursor:pointer}
+.kp-course-btn:hover{background:var(--green-bright)}
+.kp-live{display:inline-block;background:var(--gold);color:#fff;font-size:9px;font-weight:700;border-radius:5px;padding:2px 7px;vertical-align:middle;letter-spacing:.4px}
+.course-modal-box{max-width:680px}
+.course-head{margin-bottom:14px}
+.course-meta-row{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:10px}
+.cm-pill{background:var(--paper-2);border:1px solid var(--line);border-radius:99px;padding:4px 12px;font-size:12px;color:var(--green-deep);font-weight:500}
+.course-intro{font-size:13.5px;line-height:1.7;color:var(--ink)}
+.course-sec{margin:16px 0}
+.course-sec h5{font-size:14px;color:var(--green-deep);margin-bottom:8px}
+.course-ul{margin:0;padding-left:20px}
+.course-ul li{font-size:13px;line-height:1.7;margin-bottom:3px}
+.course-mod{border:1px solid var(--line);border-radius:10px;margin-bottom:8px;overflow:hidden}
+.cmod-h{display:flex;align-items:center;gap:10px;padding:11px 13px;cursor:pointer;background:var(--paper)}
+.cmod-h:hover{background:var(--paper-2)}
+.cmod-n{flex-shrink:0;width:24px;height:24px;border-radius:50%;background:var(--green);color:#fff;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700}
+.cmod-t{flex:1;font-size:13.5px;font-weight:600;color:var(--green-deep)}
+.cmod-min{font-size:11.5px;color:var(--muted)}
+.cmod-arr{color:var(--muted);transition:transform .2s}
+.course-mod.open .cmod-arr{transform:rotate(180deg)}
+.cmod-lessons{max-height:0;overflow:hidden;transition:max-height .25s;margin:0;padding:0 13px 0 40px;list-style:none}
+.course-mod.open .cmod-lessons{max-height:300px;padding-top:6px;padding-bottom:12px}
+.cmod-lessons li{font-size:12.5px;color:var(--ink);line-height:1.7;padding:3px 0;border-bottom:1px solid var(--paper-2)}
+.cmod-lessons li:before{content:"▸ ";color:var(--gold)}
+.quiz-q{margin-bottom:14px}
+.quiz-qt{font-size:13px;font-weight:600;margin-bottom:7px}
+.quiz-opt{display:block;width:100%;text-align:left;background:var(--paper);border:1px solid var(--line);border-radius:8px;padding:9px 12px;margin-bottom:6px;font-family:inherit;font-size:12.5px;color:var(--ink);cursor:pointer;transition:.15s}
+.quiz-opt:hover:not(:disabled){border-color:var(--green-bright)}
+.quiz-opt:disabled{cursor:default}
+.quiz-opt.right{background:#eaf6ef;border-color:var(--ok);color:var(--ok);font-weight:600}
+.quiz-opt.right:before{content:"✓ "}
+.quiz-opt.wrong{background:#fdf0ec;border-color:var(--danger);color:var(--danger)}
+.quiz-opt.wrong:before{content:"✗ "}
+.course-cert{width:100%;background:var(--gold);color:#fff;border:none;border-radius:10px;padding:12px;font-family:inherit;font-size:14px;font-weight:600;cursor:pointer;margin-top:8px}
+.course-cert:hover{background:var(--gold-soft)}
 /* AI tool demo */
 .ai-try{display:block;margin-top:6px;font-size:11px;font-weight:600;color:var(--green-bright)}
 .demo-modal-box{max-width:640px}
@@ -378,7 +424,7 @@ body.lang-bn .modal-title{font-family:var(--bn);font-weight:700}
 <!-- ===== TOP BAR ===== -->
 <header class="topbar">
   <div class="topbar-inner">
-    <div class="crest">ব</div>
+    <div class="crest"><span class="bn">ব</span><span class="en">B</span></div>
     <div class="brand">
       <h1><span class="bn">বিসিএসকেআর</span><span class="en">BCSKR</span></h1>
       <p><span class="bn">সিভিল সার্ভিস নলেজ রিপোজিটরি</span><span class="en">Civil Service Knowledge Repository</span></p>
@@ -441,10 +487,10 @@ body.lang-bn .modal-title{font-family:var(--bn);font-weight:700}
         <h2><span class="bn">জ্ঞানভিত্তিক সুশাসন ও প্রমাণভিত্তিক নীতিনির্ধারণের জাতীয় ডিজিটাল ভিত্তি</span><span class="en">The national digital foundation for knowledge-driven governance and evidence-based policymaking</span></h2>
         <p class="sub"><span class="bn">মন্ত্রিপরিষদ বিভাগের অধীনে একটি AI-চালিত জাতীয় জ্ঞান ব্যবস্থাপনা প্ল্যাটফর্ম — ৩৬ মাসের পর্যায়ভিত্তিক বাস্তবায়ন।</span><span class="en">An AI-powered national knowledge management platform under the Cabinet Division — a phased 36-month rollout.</span></p>
         <div class="hero-meta">
-          <div><b>১২০</b><span class="bn">জ্ঞান-পণ্য</span><span class="en">knowledge products</span></div>
-          <div><b>৬</b><span class="bn">মূল কম্পোনেন্ট</span><span class="en">core components</span></div>
-          <div><b>৫</b><span class="bn">উৎসের অর্থায়ন</span><span class="en">funding sources</span></div>
-          <div><b>৩৬</b><span class="bn">মাসের রোডম্যাপ</span><span class="en">month roadmap</span></div>
+          <div><b><span class="bn">১২০</span><span class="en">120</span></b><span class="bn">জ্ঞান-পণ্য</span><span class="en">knowledge products</span></div>
+          <div><b><span class="bn">৬</span><span class="en">6</span></b><span class="bn">মূল কম্পোনেন্ট</span><span class="en">core components</span></div>
+          <div><b><span class="bn">৫</span><span class="en">5</span></b><span class="bn">উৎসের অর্থায়ন</span><span class="en">funding sources</span></div>
+          <div><b><span class="bn">৩৬</span><span class="en">36</span></b><span class="bn">মাসের রোডম্যাপ</span><span class="en">month roadmap</span></div>
         </div>
       </div>
 
@@ -722,6 +768,15 @@ body.lang-bn .modal-title{font-family:var(--bn);font-weight:700}
   </div>
 </div>
 
+<!-- ===== COURSE VIEWER MODAL ===== -->
+<div class="modal-overlay" id="courseModal" onclick="if(event.target===this)closeCourse()">
+  <div class="modal-box course-modal-box">
+    <button class="modal-x" onclick="closeCourse()" aria-label="Close">×</button>
+    <h3 class="modal-title" id="courseTitle"></h3>
+    <div class="modal-body" id="courseBody"></div>
+  </div>
+</div>
+
 <!-- ===== AI TOOL DEMO MODAL ===== -->
 <div class="modal-overlay" id="demoModal" onclick="if(event.target===this)closeDemo()">
   <div class="modal-box demo-modal-box">
@@ -786,12 +841,12 @@ const GOV=[
   {tier:{bn:'মন্ত্রণালয় KM Unit (CKO/KFPO)',en:'Ministry KM Unit (CKO/KFPO)'},fn:{bn:'entity-পর্যায়ে বাস্তবায়ন; content জমাদান; compliance',en:'Entity-level implementation; content submission; compliance'}},
 ];
 const MATRIX=[
-  {i:{bn:'CSKR প্ল্যাটফর্ম',en:'CSKR Platform'},l:'Cabinet Division',c:'ICT, জনপ্রশাসন'},
-  {i:{bn:'Bangla AI Search',en:'Bangla AI Search'},l:'Cabinet Division',c:'ICT, BCC, a2i'},
-  {i:{bn:'কেস স্টাডি ব্যাংক',en:'Case Study Bank'},l:'Cabinet Division',c:'DC, BPATC'},
-  {i:{bn:'ডিজিটাল লার্নিং',en:'Digital Learning'},l:'BPATC',c:'জনপ্রশাসন, ICT'},
-  {i:{bn:'উদ্ভাবন ল্যাব',en:'Innovation Lab'},l:'Cabinet Division',c:'a2i, SME Foundation'},
-  {i:{bn:'Open Data Portal',en:'Open Data Portal'},l:'Cabinet Division',c:'ICT, BBS'},
+  {i:{bn:'CSKR প্ল্যাটফর্ম',en:'CSKR Platform'},l:'Cabinet Division',c:{bn:'ICT, জনপ্রশাসন',en:'ICT, Public Admin'}},
+  {i:{bn:'Bangla AI Search',en:'Bangla AI Search'},l:'Cabinet Division',c:{bn:'ICT, BCC, a2i',en:'ICT, BCC, a2i'}},
+  {i:{bn:'কেস স্টাডি ব্যাংক',en:'Case Study Bank'},l:'Cabinet Division',c:{bn:'DC, BPATC',en:'DC, BPATC'}},
+  {i:{bn:'ডিজিটাল লার্নিং',en:'Digital Learning'},l:'BPATC',c:{bn:'জনপ্রশাসন, ICT',en:'Public Admin, ICT'}},
+  {i:{bn:'উদ্ভাবন ল্যাব',en:'Innovation Lab'},l:'Cabinet Division',c:{bn:'a2i, SME Foundation',en:'a2i, SME Foundation'}},
+  {i:{bn:'Open Data Portal',en:'Open Data Portal'},l:'Cabinet Division',c:{bn:'ICT, BBS',en:'ICT, BBS'}},
 ];
 const FUND=[
   {bn:'বার্ষিক উন্নয়ন কর্মসূচি (ADP)',en:'Annual Development Programme (ADP)',pct:35,c:'var(--green-deep)'},
@@ -845,7 +900,7 @@ function render(){
   // matrix table
   document.getElementById('matrixTable').innerHTML=
     `<tr><th><span class="bn">উদ্যোগ</span><span class="en">Initiative</span></th><th>Lead</th><th><span class="bn">সংযুক্ত</span><span class="en">Connecting</span></th></tr>`+
-    MATRIX.map(m=>`<tr><td>${bilang(m.i)}</td><td><span class="pill lead">${m.l}</span></td><td style="color:var(--muted)">${m.c}</td></tr>`).join('');
+    MATRIX.map(m=>`<tr><td>${bilang(m.i)}</td><td><span class="pill lead">${m.l}</span></td><td style="color:var(--muted)">${bilang(m.c)}</td></tr>`).join('');
   // funding
   document.getElementById('fundLegend').innerHTML=FUND.map(f=>
     `<div class="lg"><span class="sw" style="background:${f.c}"></span>${bilang(f)}<span class="amt">${num(f.pct)}%</span></div>`).join('');
@@ -922,12 +977,18 @@ function openComp(n){
   const bn=document.body.classList.contains('lang-bn');
   const list=KNOWLEDGE[n]||[];
   const cName=bn?COMP_NAME[n].bn:COMP_NAME[n].en;
-  const rows=list.map(d=>`<div class="kp">
+  const courseMap={'KM Foundation Module (CSKR mandatory)':'km_foundation','Using Open Data & Intro to APIs':'open_data_api'};
+  const rows=list.map(d=>{
+    const cid=courseMap[d.en];
+    const btn=cid?`<button class="kp-course-btn" onclick="event.stopPropagation();openCourse('${cid}')">${bn?'কোর্স খুলুন ▸':'Open course ▸'}</button>`:'';
+    return `<div class="kp">
     <div class="kp-ic">${typeIcon(d.type.en)}</div>
     <div class="kp-body">
-      <div class="kp-t">${bn?d.bn:d.en}</div>
+      <div class="kp-t">${bn?d.bn:d.en}${cid?` <span class="kp-live">${bn?'লাইভ কোর্স':'LIVE COURSE'}</span>`:''}</div>
       <div class="kp-m">${bn?d.org.bn:d.org.en} · <span class="res-type">${bn?d.type.bn:d.type.en}</span> · ${toBnIf(d.date)} · 👁 ${num(d.v)} · ⬇ ${num(d.d)}</div>
-    </div></div>`).join('');
+      ${btn}
+    </div></div>`;
+  }).join('');
   document.getElementById('modalTitle').innerHTML=`<span class="mt-num">${toBnIf(n)}</span> ${cName}`;
   document.getElementById('modalSub').textContent=bn?`${toBn(list.length)}টি নমুনা জ্ঞান-পণ্য (জাতীয় পোর্টাল bangladesh.gov.bd অনুসারে)`:`${list.length} sample knowledge products (modelled on bangladesh.gov.bd)`;
   document.getElementById('modalBody').innerHTML=
@@ -1030,9 +1091,9 @@ function typeIcon(t){
   const m={'Act':'§','Rules':'§','Gazette':'§','Decision':'✓','Strategy':'◆','Case Study':'❖','Innovation':'✦','Review':'∿','Evaluation':'∿','Report':'▤','Plan':'▦','Course':'▷','Module':'▷','Webinar':'▶','Showcase':'✦','Hub':'⬡','Award':'★','Platform':'⬡','Design':'⚙','Engine':'⚙','Dashboard':'▦','API':'{}'};
   return m[t]||'•';
 }
-document.addEventListener('keydown',e=>{if(e.key==='Enter'&&document.activeElement.id==='q')runSearch();if(e.key==='Escape'){closeModal();closeDemo();}});
+document.addEventListener('keydown',e=>{if(e.key==='Enter'&&document.activeElement.id==='q')runSearch();if(e.key==='Escape'){closeModal();closeDemo();closeCourse();}});
 
-const TACIT_KNOWLEDGE={"mentoring":[{"bn":"জেলা প্রশাসক–সিনিয়র সহকারী কমিশনার মেন্টরিং জোড়া","en":"DC–Senior Assistant Commissioner mentoring pairs","mentor":{"bn":"জেলা প্রশাসক","en":"District Commissioner"},"mentee":{"bn":"সিনিয়র সহকারী কমিশনার","en":"Senior Assistant Commissioner"},"skill":["সিদ্ধান্ত গ্রহণ","নেতৃত্ব","মাঠ প্রশাসন"],"active":45,"progress":78},{"bn":"কর-নীতি কর্মকর্তা মেন্টরিং","en":"Tax Policy Officer mentoring","mentor":{"bn":"অর্থনীতিবিদ","en":"Economist"},"mentee":{"bn":"নতুন নীতি কর্মকর্তা","en":"New policy officer"},"skill":["নীতি নকশা","অর্থনীতি"],"active":32,"progress":65},{"bn":"ডিজিটাল উদ্ভাবন সেবা মেন্টরিং","en":"Digital Innovation Service mentoring","mentor":{"bn":"সিনিয়র টেক লিড","en":"Senior Tech Lead"},"mentee":{"bn":"জুনিয়র ডেভেলপার","en":"Junior developer"},"skill":["প্রযুক্তি","স্টার্টআপ","সেবা ডিজাইন"],"active":28,"progress":82},{"bn":"আইন খসড়া মেন্টরিং","en":"Legal drafting mentorship","mentor":{"bn":"প্রিন্সিপাল সহকারী","en":"Principal Assistant"},"mentee":{"bn":"জুনিয়র আইনজীবী","en":"Junior lawyer"},"skill":["আইন খসড়া","যোগাযোগ"],"active":22,"progress":71},{"bn":"প্রকল্প ব্যবস্থাপনা মেন্টরিং","en":"Project management mentorship","mentor":{"bn":"প্রকল্প পরিচালক","en":"Project director"},"mentee":{"bn":"সহকারী প্রকল্প পরিচালক","en":"Assistant director"},"skill":["প্রকল্প ব্যবস্থাপনা","বাজেট"],"active":38,"progress":74},{"bn":"সাইবার নিরাপত্তা মেন্টরিং","en":"Cybersecurity skills mentoring","mentor":{"bn":"সিনিয়র নিরাপত্তা বিশ্লেষক","en":"Senior security analyst"},"mentee":{"bn":"জুনিয়র প্রকৌশলী","en":"Junior engineer"},"skill":["সাইবার হুমকি","নীতি"],"active":19,"progress":58},{"bn":"সামাজিক সেবা সংবেদনশীলতা মেন্টরিং","en":"Social service sensitivity mentoring","mentor":{"bn":"সামাজিক কর্মী","en":"Social worker"},"mentee":{"bn":"নতুন প্রশাসক","en":"New administrator"},"skill":["সামাজিক সচেতনতা","মানবিক মূল্যবোধ"],"active":41,"progress":85},{"bn":"আর্থিক ব্যবস্থাপনা মেন্টরিং","en":"Financial stewardship mentoring","mentor":{"bn":"আর্থিক নিয়ন্ত্রক","en":"Finance controller"},"mentee":{"bn":"বাজেট প্রশাসক","en":"Budget administrator"},"skill":["বাজেট বিশ্লেষণ","জবাবদিহিতা"],"active":26,"progress":69},{"bn":"পরিবেশ নীতি বাস্তবায়ন মেন্টরিং","en":"Environmental policy mentoring","mentor":{"bn":"পরিবেশ বিশেষজ্ঞ","en":"Environment specialist"},"mentee":{"bn":"নতুন সমন্বয়কারী","en":"New coordinator"},"skill":["পরিবেশ আইন","জলবায়ু কর্ম"],"active":33,"progress":72},{"bn":"মানব সম্পদ রূপান্তর মেন্টরিং","en":"HR transformation mentoring","mentor":{"bn":"HR কৌশলবিদ","en":"HR strategist"},"mentee":{"bn":"HR পেশাদার","en":"HR professional"},"skill":["পরিবর্তন ব্যবস্থাপনা","সংস্কৃতি"],"active":24,"progress":64}],"expertise_registry":[{"bn":"সিনিয়র অর্থনীতিবিদ — জিডিপি মডেলিং","en":"Senior economist — GDP modeling","expert":"দেবপ্রিয় চট্টোপাধ্যায়","expertise":["অর্থনৈতিক মডেল","পূর্বাভাস"],"availability":"সপ্তাহে ১০ ঘণ্টা","projects_advised":12},{"bn":"প্রধান কৃষি বিজ্ঞানী","en":"Chief agronomist","expert":"ড. মোবাশ্বেরা বেগম","expertise":["কৃষি জৈব প্রযুক্তি","জলবায়ু"],"availability":"সাপ্তাহিক","projects_advised":8},{"bn":"সাইবার নিরাপত্তা স্থপতি","en":"Cybersecurity architect","expert":"ইঞ্জিনিয়ার করিম","expertise":["জাতীয় নিরাপত্তা","এনক্রিপশন"],"availability":"অন-ডিমান্ড","projects_advised":15},{"bn":"ই-গভর্নেন্স পরামর্শদাতা","en":"e-Governance consultant","expert":"প্রফেসর রহিম আহমেদ","expertise":["সেবা ডিজাইন","ব্যবহারকারী গবেষণা"],"availability":"মাসিক","projects_advised":22},{"bn":"বাজেট কৌশলবিদ","en":"Budget strategist","expert":"ফিউয়েরূল হক","expertise":["বাজেট পূর্বাভাস","ট্যাক্স নীতি"],"availability":"ত্রৈমাসিক","projects_advised":18},{"bn":"সামাজিক সুরক্ষা নেতা","en":"Social protection leader","expert":"রোবিনা আক্তার","expertise":["প্রোগ্রাম ডিজাইন","লক্ষ্যীকরণ"],"availability":"সাপ্তাহিক","projects_advised":11},{"bn":"জরিপ পদ্ধতিবিদ","en":"Survey methodologist","expert":"প্রফেসর সোফিয়া হোসেন","expertise":["নমুনায়ন","ডেটা গুণমান"],"availability":"প্রকল্প-ভিত্তিক","projects_advised":25},{"bn":"সবুজ অর্থনীতি উদ্ভাবক","en":"Green economy innovator","expert":"সালমা হোসেন","expertise":["সার্কুলার অর্থনীতি","টেকসইতা"],"availability":"ইভেন্ট","projects_advised":9},{"bn":"শিক্ষা সংস্কার নেতা","en":"Education reform leader","expert":"ড. মোহাম্মদ করিম","expertise":["পাঠ্যক্রম","শিক্ষক প্রশিক্ষণ"],"availability":"মাসিক","projects_advised":16},{"bn":"প্রবাসী সম্পদ কৌশলবিদ","en":"Diaspora wealth strategist","expert":"নাজমা আক্তার","expertise":["রেমিট্যান্স","পেশাদার নেটওয়ার্ক"],"availability":"বছরে ১০ ঘণ্টা","projects_advised":6}],"community_of_practice":[{"bn":"নীতিনির্ধারণকারীদের সংলাপ নেটওয়ার্ক","en":"Policy makers' dialogue network","members":87,"frequency":"মাসিক","topics":["প্রমাণ-ভিত্তিক নীতি","সমন্বয়"],"engagement":72},{"bn":"ডিজিটাল উদ্ভাবক সম্প্রদায়","en":"Digital innovators community","members":156,"frequency":"দ্বি-সাপ্তাহিক","topics":["GovTech","স্থানীয় AI"],"engagement":83},{"bn":"সামাজিক সেবা পেশাদার সিনেট","en":"Social service professionals' senate","members":203,"frequency":"সাপ্তাহিক","topics":["সংবেদনশীল সেবা","প্রতিক্রিয়া"],"engagement":68},{"bn":"সবুজ অর্থনীতি ফোরাম","en":"Green economy forum","members":94,"frequency":"ত্রৈমাসিক","topics":["পরিবেশ নীতি","জলবায়ু অর্থ"],"engagement":61},{"bn":"নতুন প্রশাসক শেখার সম্প্রদায়","en":"New administrators' learning community","members":312,"frequency":"সাপ্তাহিক","topics":["প্রশাসন","নৈতিকতা"],"engagement":91}],"storytelling_archive":[{"bn":"একটি ব্যর্থ প্রকল্প থেকে শেখা","en":"Learning from a failed project","teller":"সিনিয়র পরিচালক","topic":"প্রকল্প ব্যর্থতা","lesson":"খাঁটি যোগাযোগ গুরুত্বপূর্ণ","listeners":245,"impact":"৩৫ প্রকল্প ঝুঁকি আপডেট"},{"bn":"মানব-কেন্দ্রিক সেবা উদ্ভাবন","en":"Human-centric service innovation","teller":"জেলা কর্মকর্তা","topic":"স্থানীয় সমাধান","lesson":"তৃণমূল শোনা খুলে দেয়","listeners":189,"impact":"১২ জেলা উদ্ভাবন কর্মসূচি"},{"bn":"যখন প্রযুক্তি বিশ্বাস মিলিত হয়","en":"When technology meets trust","teller":"ডিজিটাল নেতা","topic":"প্রযুক্তি গ্রহণ","lesson":"মানব স্পর্শ প্রয়োজন","listeners":412,"impact":"৮ দেশ e-ID মডেল অধ্যয়ন"},{"bn":"আমার প্রথম মেন্টি সাফল্য","en":"My first mentee's success","teller":"সেবানিবৃত্ত সচিব","topic":"মেন্টরিং উত্তরাধিকার","lesson":"মানুষে বিনিয়োগ গুরুত্বপূর্ণ","listeners":156,"impact":"৫০+ মেন্টরিং জোড়া"},{"bn":"সাংস্কৃতিক পরিবর্তন শুরু করা","en":"Cultural change: where to start","teller":"সংস্কৃতি নেতা","topic":"সাংগঠনিক সংস্কৃতি","lesson":"ছোট বিজয় বিশ্বাস তৈরি করে","listeners":198,"impact":"জাতীয় সংস্কৃতি কৌশল"}]};
+const TACIT_KNOWLEDGE={"mentoring":[{"bn":"জেলা প্রশাসক–সিনিয়র সহকারী কমিশনার মেন্টরিং জোড়া","en":"DC–Senior Assistant Commissioner mentoring pairs","mentor":{"bn":"জেলা প্রশাসক","en":"District Commissioner"},"mentee":{"bn":"সিনিয়র সহকারী কমিশনার","en":"Senior Assistant Commissioner"},"skill":["সিদ্ধান্ত গ্রহণ","নেতৃত্ব","মাঠ প্রশাসন"],"active":45,"progress":78},{"bn":"কর-নীতি কর্মকর্তা মেন্টরিং","en":"Tax Policy Officer mentoring","mentor":{"bn":"অর্থনীতিবিদ","en":"Economist"},"mentee":{"bn":"নতুন নীতি কর্মকর্তা","en":"New policy officer"},"skill":["নীতি নকশা","অর্থনীতি"],"active":32,"progress":65},{"bn":"ডিজিটাল উদ্ভাবন সেবা মেন্টরিং","en":"Digital Innovation Service mentoring","mentor":{"bn":"সিনিয়র টেক লিড","en":"Senior Tech Lead"},"mentee":{"bn":"জুনিয়র ডেভেলপার","en":"Junior developer"},"skill":["প্রযুক্তি","স্টার্টআপ","সেবা ডিজাইন"],"active":28,"progress":82},{"bn":"আইন খসড়া মেন্টরিং","en":"Legal drafting mentorship","mentor":{"bn":"প্রিন্সিপাল সহকারী","en":"Principal Assistant"},"mentee":{"bn":"জুনিয়র আইনজীবী","en":"Junior lawyer"},"skill":["আইন খসড়া","যোগাযোগ"],"active":22,"progress":71},{"bn":"প্রকল্প ব্যবস্থাপনা মেন্টরিং","en":"Project management mentorship","mentor":{"bn":"প্রকল্প পরিচালক","en":"Project director"},"mentee":{"bn":"সহকারী প্রকল্প পরিচালক","en":"Assistant director"},"skill":["প্রকল্প ব্যবস্থাপনা","বাজেট"],"active":38,"progress":74},{"bn":"সাইবার নিরাপত্তা মেন্টরিং","en":"Cybersecurity skills mentoring","mentor":{"bn":"সিনিয়র নিরাপত্তা বিশ্লেষক","en":"Senior security analyst"},"mentee":{"bn":"জুনিয়র প্রকৌশলী","en":"Junior engineer"},"skill":["সাইবার হুমকি","নীতি"],"active":19,"progress":58},{"bn":"সামাজিক সেবা সংবেদনশীলতা মেন্টরিং","en":"Social service sensitivity mentoring","mentor":{"bn":"সামাজিক কর্মী","en":"Social worker"},"mentee":{"bn":"নতুন প্রশাসক","en":"New administrator"},"skill":["সামাজিক সচেতনতা","মানবিক মূল্যবোধ"],"active":41,"progress":85},{"bn":"আর্থিক ব্যবস্থাপনা মেন্টরিং","en":"Financial stewardship mentoring","mentor":{"bn":"আর্থিক নিয়ন্ত্রক","en":"Finance controller"},"mentee":{"bn":"বাজেট প্রশাসক","en":"Budget administrator"},"skill":["বাজেট বিশ্লেষণ","জবাবদিহিতা"],"active":26,"progress":69},{"bn":"পরিবেশ নীতি বাস্তবায়ন মেন্টরিং","en":"Environmental policy mentoring","mentor":{"bn":"পরিবেশ বিশেষজ্ঞ","en":"Environment specialist"},"mentee":{"bn":"নতুন সমন্বয়কারী","en":"New coordinator"},"skill":["পরিবেশ আইন","জলবায়ু কর্ম"],"active":33,"progress":72},{"bn":"মানব সম্পদ রূপান্তর মেন্টরিং","en":"HR transformation mentoring","mentor":{"bn":"HR কৌশলবিদ","en":"HR strategist"},"mentee":{"bn":"HR পেশাদার","en":"HR professional"},"skill":["পরিবর্তন ব্যবস্থাপনা","সংস্কৃতি"],"active":24,"progress":64}],"expertise_registry":[{"bn":"সিনিয়র অর্থনীতিবিদ — জিডিপি মডেলিং","en":"Senior economist — GDP modeling","expert":{"bn":"দেবপ্রিয় চট্টোপাধ্যায়","en":"Debapriya Bhattacharya"},"expertise":["অর্থনৈতিক মডেল","পূর্বাভাস"],"availability":{"bn":"সপ্তাহে ১০ ঘণ্টা","en":"10 hrs/week"},"projects_advised":12},{"bn":"প্রধান কৃষি বিজ্ঞানী","en":"Chief agronomist","expert":{"bn":"ড. মোবাশ্বেরা বেগম","en":"Dr. Mobashwera Begum"},"expertise":["কৃষি জৈব প্রযুক্তি","জলবায়ু"],"availability":{"bn":"সাপ্তাহিক","en":"Weekly"},"projects_advised":8},{"bn":"সাইবার নিরাপত্তা স্থপতি","en":"Cybersecurity architect","expert":{"bn":"ইঞ্জিনিয়ার করিম","en":"Engineer Karim"},"expertise":["জাতীয় নিরাপত্তা","এনক্রিপশন"],"availability":{"bn":"অন-ডিমান্ড","en":"On-demand"},"projects_advised":15},{"bn":"ই-গভর্নেন্স পরামর্শদাতা","en":"e-Governance consultant","expert":{"bn":"প্রফেসর রহিম আহমেদ","en":"Prof. Rahim Ahmed"},"expertise":["সেবা ডিজাইন","ব্যবহারকারী গবেষণা"],"availability":{"bn":"মাসিক","en":"Monthly"},"projects_advised":22},{"bn":"বাজেট কৌশলবিদ","en":"Budget strategist","expert":{"bn":"ফিউয়েরূল হক","en":"Fyuerul Haque"},"expertise":["বাজেট পূর্বাভাস","ট্যাক্স নীতি"],"availability":{"bn":"ত্রৈমাসিক","en":"Quarterly"},"projects_advised":18},{"bn":"সামাজিক সুরক্ষা নেতা","en":"Social protection leader","expert":{"bn":"রোবিনা আক্তার","en":"Robina Akter"},"expertise":["প্রোগ্রাম ডিজাইন","লক্ষ্যীকরণ"],"availability":{"bn":"সাপ্তাহিক","en":"Weekly"},"projects_advised":11},{"bn":"জরিপ পদ্ধতিবিদ","en":"Survey methodologist","expert":{"bn":"প্রফেসর সোফিয়া হোসেন","en":"Prof. Sofia Hossain"},"expertise":["নমুনায়ন","ডেটা গুণমান"],"availability":{"bn":"প্রকল্প-ভিত্তিক","en":"Project-based"},"projects_advised":25},{"bn":"সবুজ অর্থনীতি উদ্ভাবক","en":"Green economy innovator","expert":{"bn":"সালমা হোসেন","en":"Salma Hossain"},"expertise":["সার্কুলার অর্থনীতি","টেকসইতা"],"availability":{"bn":"ইভেন্ট","en":"Events"},"projects_advised":9},{"bn":"শিক্ষা সংস্কার নেতা","en":"Education reform leader","expert":{"bn":"ড. মোহাম্মদ করিম","en":"Dr. Mohammad Karim"},"expertise":["পাঠ্যক্রম","শিক্ষক প্রশিক্ষণ"],"availability":{"bn":"মাসিক","en":"Monthly"},"projects_advised":16},{"bn":"প্রবাসী সম্পদ কৌশলবিদ","en":"Diaspora wealth strategist","expert":{"bn":"নাজমা আক্তার","en":"Nazma Akter"},"expertise":["রেমিট্যান্স","পেশাদার নেটওয়ার্ক"],"availability":{"bn":"বছরে ১০ ঘণ্টা","en":"10 hrs/year"},"projects_advised":6}],"community_of_practice":[{"bn":"নীতিনির্ধারণকারীদের সংলাপ নেটওয়ার্ক","en":"Policy makers' dialogue network","members":87,"frequency":{"bn":"মাসিক","en":"Monthly"},"topics":["প্রমাণ-ভিত্তিক নীতি","সমন্বয়"],"engagement":72},{"bn":"ডিজিটাল উদ্ভাবক সম্প্রদায়","en":"Digital innovators community","members":156,"frequency":{"bn":"দ্বি-সাপ্তাহিক","en":"Bi-weekly"},"topics":["GovTech","স্থানীয় AI"],"engagement":83},{"bn":"সামাজিক সেবা পেশাদার সিনেট","en":"Social service professionals' senate","members":203,"frequency":{"bn":"সাপ্তাহিক","en":"Weekly"},"topics":["সংবেদনশীল সেবা","প্রতিক্রিয়া"],"engagement":68},{"bn":"সবুজ অর্থনীতি ফোরাম","en":"Green economy forum","members":94,"frequency":{"bn":"ত্রৈমাসিক","en":"Quarterly"},"topics":["পরিবেশ নীতি","জলবায়ু অর্থ"],"engagement":61},{"bn":"নতুন প্রশাসক শেখার সম্প্রদায়","en":"New administrators' learning community","members":312,"frequency":{"bn":"সাপ্তাহিক","en":"Weekly"},"topics":["প্রশাসন","নৈতিকতা"],"engagement":91}],"storytelling_archive":[{"bn":"একটি ব্যর্থ প্রকল্প থেকে শেখা","en":"Learning from a failed project","teller":{"bn":"সিনিয়র পরিচালক","en":"Senior Director"},"topic":"প্রকল্প ব্যর্থতা","lesson":"খাঁটি যোগাযোগ গুরুত্বপূর্ণ","listeners":245,"impact":{"bn":"৩৫ প্রকল্প ঝুঁকি আপডেট","en":"35 projects updated risk"}},{"bn":"মানব-কেন্দ্রিক সেবা উদ্ভাবন","en":"Human-centric service innovation","teller":{"bn":"জেলা কর্মকর্তা","en":"District Officer"},"topic":"স্থানীয় সমাধান","lesson":"তৃণমূল শোনা খুলে দেয়","listeners":189,"impact":{"bn":"১২ জেলা উদ্ভাবন কর্মসূচি","en":"12 districts ran innovation programs"}},{"bn":"যখন প্রযুক্তি বিশ্বাস মিলিত হয়","en":"When technology meets trust","teller":{"bn":"ডিজিটাল নেতা","en":"Digital Leader"},"topic":"প্রযুক্তি গ্রহণ","lesson":"মানব স্পর্শ প্রয়োজন","listeners":412,"impact":{"bn":"৮ দেশ e-ID মডেল অধ্যয়ন","en":"8 countries studied the e-ID model"}},{"bn":"আমার প্রথম মেন্টি সাফল্য","en":"My first mentee's success","teller":{"bn":"সেবানিবৃত্ত সচিব","en":"Retired Secretary"},"topic":"মেন্টরিং উত্তরাধিকার","lesson":"মানুষে বিনিয়োগ গুরুত্বপূর্ণ","listeners":156,"impact":{"bn":"৫০+ মেন্টরিং জোড়া","en":"50+ mentoring pairs formed"}},{"bn":"সাংস্কৃতিক পরিবর্তন শুরু করা","en":"Cultural change: where to start","teller":{"bn":"সংস্কৃতি নেতা","en":"Culture Dept. Leader"},"topic":"সাংগঠনিক সংস্কৃতি","lesson":"ছোট বিজয় বিশ্বাস তৈরি করে","listeners":198,"impact":{"bn":"জাতীয় সংস্কৃতি কৌশল","en":"National culture strategy adopted"}}]};
 const TACIT_SEARCH_INDEX=[{"bn":"জেলা প্রশাসক–সিনিয়র সহকারী কমিশনার মেন্টরিং জোড়া","en":"DC–Senior Assistant Commissioner mentoring pairs","type":"মেন্টরিং","category":"mentoring","value":45},{"bn":"কর-নীতি কর্মকর্তা মেন্টরিং","en":"Tax Policy Officer mentoring","type":"মেন্টরিং","category":"mentoring","value":32},{"bn":"ডিজিটাল উদ্ভাবন সেবা মেন্টরিং","en":"Digital Innovation Service mentoring","type":"মেন্টরিং","category":"mentoring","value":28},{"bn":"আইন খসড়া মেন্টরিং","en":"Legal drafting mentorship","type":"মেন্টরিং","category":"mentoring","value":22},{"bn":"প্রকল্প ব্যবস্থাপনা মেন্টরিং","en":"Project management mentorship","type":"মেন্টরিং","category":"mentoring","value":38},{"bn":"সাইবার নিরাপত্তা মেন্টরিং","en":"Cybersecurity skills mentoring","type":"মেন্টরিং","category":"mentoring","value":19},{"bn":"সামাজিক সেবা সংবেদনশীলতা মেন্টরিং","en":"Social service sensitivity mentoring","type":"মেন্টরিং","category":"mentoring","value":41},{"bn":"আর্থিক ব্যবস্থাপনা মেন্টরিং","en":"Financial stewardship mentoring","type":"মেন্টরিং","category":"mentoring","value":26},{"bn":"পরিবেশ নীতি বাস্তবায়ন মেন্টরিং","en":"Environmental policy mentoring","type":"মেন্টরিং","category":"mentoring","value":33},{"bn":"মানব সম্পদ রূপান্তর মেন্টরিং","en":"HR transformation mentoring","type":"মেন্টরিং","category":"mentoring","value":24},{"bn":"সিনিয়র অর্থনীতিবিদ — জিডিপি মডেলিং","en":"Senior economist — GDP modeling","type":"বিশেষজ্ঞ","category":"expertise","value":12},{"bn":"প্রধান কৃষি বিজ্ঞানী","en":"Chief agronomist","type":"বিশেষজ্ঞ","category":"expertise","value":8},{"bn":"সাইবার নিরাপত্তা স্থপতি","en":"Cybersecurity architect","type":"বিশেষজ্ঞ","category":"expertise","value":15},{"bn":"ই-গভর্নেন্স পরামর্শদাতা","en":"e-Governance consultant","type":"বিশেষজ্ঞ","category":"expertise","value":22},{"bn":"বাজেট কৌশলবিদ","en":"Budget strategist","type":"বিশেষজ্ঞ","category":"expertise","value":18},{"bn":"সামাজিক সুরক্ষা নেতা","en":"Social protection leader","type":"বিশেষজ্ঞ","category":"expertise","value":11},{"bn":"জরিপ পদ্ধতিবিদ","en":"Survey methodologist","type":"বিশেষজ্ঞ","category":"expertise","value":25},{"bn":"সবুজ অর্থনীতি উদ্ভাবক","en":"Green economy innovator","type":"বিশেষজ্ঞ","category":"expertise","value":9},{"bn":"শিক্ষা সংস্কার নেতা","en":"Education reform leader","type":"বিশেষজ্ঞ","category":"expertise","value":16},{"bn":"প্রবাসী সম্পদ কৌশলবিদ","en":"Diaspora wealth strategist","type":"বিশেষজ্ঞ","category":"expertise","value":6},{"bn":"নীতিনির্ধারণকারীদের সংলাপ নেটওয়ার্ক","en":"Policy makers' dialogue network","type":"সম্প্রদায়","category":"community","value":87},{"bn":"ডিজিটাল উদ্ভাবক সম্প্রদায়","en":"Digital innovators community","type":"সম্প্রদায়","category":"community","value":156},{"bn":"সামাজিক সেবা পেশাদার সিনেট","en":"Social service professionals' senate","type":"সম্প্রদায়","category":"community","value":203},{"bn":"সবুজ অর্থনীতি ফোরাম","en":"Green economy forum","type":"সম্প্রদায়","category":"community","value":94},{"bn":"নতুন প্রশাসক শেখার সম্প্রদায়","en":"New administrators' learning community","type":"সম্প্রদায়","category":"community","value":312},{"bn":"একটি ব্যর্থ প্রকল্প থেকে শেখা","en":"Learning from a failed project","type":"গল্প","category":"storytelling","value":245},{"bn":"মানব-কেন্দ্রিক সেবা উদ্ভাবন","en":"Human-centric service innovation","type":"গল্প","category":"storytelling","value":189},{"bn":"যখন প্রযুক্তি বিশ্বাস মিলিত হয়","en":"When technology meets trust","type":"গল্প","category":"storytelling","value":412},{"bn":"আমার প্রথম মেন্টি সাফল্য","en":"My first mentee's success","type":"গল্প","category":"storytelling","value":156},{"bn":"সাংস্কৃতিক পরিবর্তন শুরু করা","en":"Cultural change: where to start","type":"গল্প","category":"storytelling","value":198}];
 
 /* ====== TACIT KNOWLEDGE FUNCTIONS ====== */
@@ -1070,7 +1131,7 @@ function renderTacit(){
 
   // Community table
   const commRows=comm.map(c=>
-    `<tr><td>${bn?c.bn:c.en}</td><td>${num(c.members)}</td><td>${bn?c.frequency:c.frequency}</td></tr>`).join('');
+    `<tr><td>${bn?c.bn:c.en}</td><td>${num(c.members)}</td><td>${bn?c.frequency.bn:c.frequency.en}</td></tr>`).join('');
   document.getElementById('tacitComm').innerHTML=
     `<tr><th>${bn?'সম্প্রদায়':'Community'}</th><th>${bn?'সদস্য':'Members'}</th><th>${bn?'ফ্রিকোয়েন্সি':'Frequency'}</th></tr>${commRows}`;
 
@@ -1080,7 +1141,7 @@ function renderTacit(){
       <div class="kp-ic">📖</div>
       <div class="kp-body">
         <div class="kp-t">${bn?s.bn:s.en}</div>
-        <div class="kp-m">${bn?s.teller:s.teller} · 👥 ${num(s.listeners)} ${bn?'শ্রোতা':'listeners'}</div>
+        <div class="kp-m">${bn?s.teller.bn:s.teller.en} · 👥 ${num(s.listeners)} ${bn?'শ্রোতা':'listeners'}</div>
       </div></div>`).join('');
   document.getElementById('tacitStory').innerHTML=storyGrid;
 
@@ -1239,22 +1300,35 @@ function renderAIKS(){
       <div class="arch-n" style="background:${a.c}">${a.n}</div>
       <div class="arch-body"><div class="arch-t">${a.t}</div><div class="arch-d">${a.d}</div></div></div>`).join('');
 
-  // Bangla NLP focus
-  const nlp=bn?[
-    'বাংলা বিশ্বের ৭ম বৃহত্তম ভাষা — অথচ AI সম্পদে অনগ্রসর; সার্বভৌম সক্ষমতা কৌশলগত প্রয়োজন।',
-    'সরকারি নথির বেশিরভাগই বাংলায় — ইংরেজি-কেন্দ্রিক টুল এখানে ব্যর্থ হয়।',
-    'বাংলা morphology জটিল (সন্ধি, সমাস, কারক) — বিশেষায়িত মডেল ছাড়া নির্ভুলতা কম।',
-    'সাক্ষরতা ও ইংরেজির বাধা দূর করতে বাংলা ভয়েস ও সহজ ভাষা ইন্টারফেস অপরিহার্য।',
-    'স্থানীয় ডেটায় প্রশিক্ষিত মডেল তথ্য-সার্বভৌমত্ব ও গোপনীয়তা রক্ষা করে।',
-  ]:[
-    'Bangla is the world\u2019s 7th largest language — yet under-resourced in AI; sovereign capability is a strategic need.',
-    'Most government documents are in Bangla — English-centric tools fail here.',
-    'Bangla morphology is complex (sandhi, compounds, cases) — accuracy is low without specialized models.',
-    'Bangla voice and plain-language interfaces are essential to remove literacy and English barriers.',
-    'Models trained on local data protect data sovereignty and privacy.',
+  // Bangla NLP focus — VISUAL infographic (no prose explanation)
+  const nlpItems = bn ? [
+    {big:'৭ম', lab:'বৃহত্তম ভাষা', svg:'globe'},
+    {big:'৯০%+', lab:'সরকারি নথি বাংলায়', svg:'doc'},
+    {big:'জটিল', lab:'রূপতত্ত্ব (সন্ধি/সমাস)', svg:'gears'},
+    {big:'🎤', lab:'ভয়েস = সাক্ষরতা সেতু', svg:'voice'},
+    {big:'🔒', lab:'তথ্য-সার্বভৌমত্ব', svg:'shield'},
+  ] : [
+    {big:'7th', lab:'largest language', svg:'globe'},
+    {big:'90%+', lab:'govt docs in Bangla', svg:'doc'},
+    {big:'complex', lab:'morphology', svg:'gears'},
+    {big:'🎤', lab:'voice = literacy bridge', svg:'voice'},
+    {big:'🔒', lab:'data sovereignty', svg:'shield'},
   ];
-  document.getElementById('aiksNlp').innerHTML=nlp.map(n=>
-    `<div class="dp-row"><span class="dp-ic">🇧🇩</span><span>${n}</span></div>`).join('');
+  const svgIcon=(k)=>{
+    const I={
+      globe:'<circle cx="20" cy="20" r="15"/><path d="M5 20h30M20 5c5 5 5 25 0 30M20 5c-5 5-5 25 0 30"/>',
+      doc:'<rect x="9" y="6" width="22" height="28" rx="2"/><path d="M14 14h12M14 20h12M14 26h8"/>',
+      gears:'<circle cx="16" cy="18" r="6"/><circle cx="27" cy="26" r="4"/><path d="M16 8v4M16 24v4M6 18h4M22 18h0"/>',
+      voice:'<rect x="15" y="6" width="10" height="18" rx="5"/><path d="M10 20a10 10 0 0 0 20 0M20 30v4M14 34h12"/>',
+      shield:'<path d="M20 5l13 5v8c0 9-6 14-13 17-7-3-13-8-13-17v-8z"/><path d="M14 19l4 4 8-8"/>',
+    };
+    return `<svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">${I[k]||''}</svg>`;
+  };
+  document.getElementById('aiksNlp').innerHTML =
+    '<div class="nlp-info">'+nlpItems.map(n=>
+      `<div class="nlp-card"><div class="nlp-ic">${n.svg&&!/^[\u{1F000}-\u{1FFFF}🔒🎤]/u.test(n.big)?svgIcon(n.svg):''}</div><div class="nlp-big">${n.big}</div><div class="nlp-lab">${n.lab}</div></div>`
+    ).join('')+'</div>'+
+    `<div class="nlp-flow"><span>${bn?'বাংলা ভাষা':'Bangla input'}</span><span class="nlp-arr">→</span><span>${bn?'বিশেষায়িত মডেল':'specialized model'}</span><span class="nlp-arr">→</span><span>${bn?'সবার জন্য সেবা':'access for all'}</span></div>`;
 
   // Maturity chart
   const counts={production:0,pilot:0,planned:0};
@@ -1657,6 +1731,88 @@ function runDemoTool(){
   setTimeout(()=>{ out.innerHTML=d.run(q,bn); }, 450);
 }
 let CURRENT_DEMO=null;
+
+/* ====== COURSES (full content) ====== */
+const COURSES = {
+  km_foundation: {
+    title:{bn:'KM Foundation Module (CSKR বাধ্যতামূলক)', en:'KM Foundation Module (CSKR mandatory)'},
+    org:{bn:'মন্ত্রিপরিষদ বিভাগ', en:'Cabinet Division'},
+    dur:{bn:'৪ ঘণ্টা · ৪ মডিউল', en:'4 hours · 4 modules'},
+    level:{bn:'সকল গ্রেড · বাধ্যতামূলক', en:'All grades · Mandatory'},
+    intro:{bn:'এই বাধ্যতামূলক কোর্সটি প্রতিটি সরকারি কর্মকর্তাকে জ্ঞান ব্যবস্থাপনা (KM) ও CSKR প্ল্যাটফর্ম কার্যকরভাবে ব্যবহারে প্রস্তুত করে — জ্ঞান জমা, খোঁজা, ভাগ করা ও পুনঃব্যবহার।', en:'This mandatory course prepares every government officer to use Knowledge Management (KM) and the CSKR platform effectively — depositing, finding, sharing and reusing knowledge.'},
+    outcomes:{bn:['সুস্পষ্ট ও নিহিত জ্ঞানের পার্থক্য বুঝবেন','CSKR-এ জ্ঞান-পণ্য জমা ও সঠিক ট্যাগিং করতে পারবেন','সেমান্টিক সার্চ ও AI টুল ব্যবহার করতে পারবেন','প্রস্থানের আগে জ্ঞান হস্তান্তরের দায়িত্ব বুঝবেন'], en:['Distinguish explicit vs tacit knowledge','Deposit and correctly tag knowledge products in CSKR','Use semantic search and AI tools','Understand knowledge-handover duties before exit']},
+    modules:[
+      {t:{bn:'মডিউল ১: জ্ঞান ব্যবস্থাপনার ভিত্তি', en:'Module 1: Foundations of KM'}, mins:45,
+       lessons:{bn:['জ্ঞান কী ও কেন গুরুত্বপূর্ণ','সুস্পষ্ট বনাম নিহিত জ্ঞান','SECI রূপান্তর চক্র','প্রাতিষ্ঠানিক স্মৃতি ও জ্ঞান-ক্ষতি'], en:['What knowledge is and why it matters','Explicit vs tacit knowledge','The SECI conversion cycle','Institutional memory and knowledge loss']}},
+      {t:{bn:'মডিউল ২: CSKR প্ল্যাটফর্ম পরিচিতি', en:'Module 2: The CSKR Platform'}, mins:60,
+       lessons:{bn:['ছয়টি কম্পোনেন্ট ও নেভিগেশন','জ্ঞান-পণ্য জমা দেওয়া','মেটাডেটা ও সঠিক ট্যাগিং','অনুসন্ধান ও ফিল্টার'], en:['Six components and navigation','Depositing a knowledge product','Metadata and correct tagging','Search and filtering']}},
+      {t:{bn:'মডিউল ৩: AI টুল ব্যবহার', en:'Module 3: Using AI Tools'}, mins:60,
+       lessons:{bn:['সেমান্টিক সার্চ কার্যকরভাবে','AI সার-সংক্ষেপ ও সুপারিশ','চ্যাট সহকারীকে প্রশ্ন করা','উৎস যাচাই ও দায়িত্বশীল ব্যবহার'], en:['Effective semantic search','AI summaries and recommendations','Asking the chat assistant','Source verification and responsible use']}},
+      {t:{bn:'মডিউল ৪: জ্ঞান ভাগ ও হস্তান্তর', en:'Module 4: Sharing & Handover'}, mins:55,
+       lessons:{bn:['বাধ্যতামূলক জ্ঞান-জমা নীতি','মেন্টরিং ও অভিজ্ঞতার গল্প','প্রস্থান সাক্ষাৎকার','অনুশীলন সম্প্রদায়ে অংশগ্রহণ'], en:['Mandatory knowledge-deposit policy','Mentoring and experience stories','Exit interviews','Participating in communities of practice']}},
+    ],
+    quiz:[
+      {q:{bn:'নিহিত জ্ঞান কোনটি?', en:'Which is tacit knowledge?'}, opts:{bn:['একটি লিখিত পরিপত্র','একজন কর্মকর্তার অভিজ্ঞতাভিত্তিক বিচারবোধ','একটি গেজেট','একটি ফর্ম'], en:['A written circular','An officer\u2019s experience-based judgment','A gazette','A form']}, a:1},
+      {q:{bn:'CSKR-এ জ্ঞান জমার আগে কী জরুরি?', en:'What is essential before depositing in CSKR?'}, opts:{bn:['সঠিক মেটাডেটা ও ট্যাগ','রঙিন ছবি','দীর্ঘ ভূমিকা','স্বাক্ষর'], en:['Correct metadata and tags','Colorful images','A long preface','A signature']}, a:0},
+      {q:{bn:'SECI-এর কোন ধাপে নিহিত→সুস্পষ্ট হয়?', en:'Which SECI mode is tacit→explicit?'}, opts:{bn:['সামাজিকীকরণ','বাহ্যিকীকরণ','সংযুক্তকরণ','অভ্যন্তরীণকরণ'], en:['Socialization','Externalization','Combination','Internalization']}, a:1},
+    ],
+  },
+  open_data_api: {
+    title:{bn:'ওপেন ডেটা ব্যবহার ও API পরিচিতি', en:'Using Open Data & Intro to APIs'},
+    org:{bn:'আইসিটি বিভাগ', en:'ICT Division'},
+    dur:{bn:'৩ ঘণ্টা · ৪ মডিউল', en:'3 hours · 4 modules'},
+    level:{bn:'মধ্যম · ঐচ্ছিক', en:'Intermediate · Elective'},
+    intro:{bn:'এই কোর্সটি কর্মকর্তা, গবেষক ও GovTech উদ্যোক্তাদের শেখায় কীভাবে সরকারি উন্মুক্ত ডেটা খুঁজতে, লাইসেন্স বুঝতে এবং API দিয়ে ডেটা সংগ্রহ ও ব্যবহার করতে হয়।', en:'This course teaches officers, researchers and GovTech entrepreneurs how to find government open data, understand licensing, and fetch & use data via APIs.'},
+    outcomes:{bn:['ওপেন ডেটা ও এর সুফল ব্যাখ্যা করতে পারবেন','উন্মুক্ত লাইসেন্স ও ব্যবহার-শর্ত বুঝবেন','API কী ও কীভাবে কাজ করে বুঝবেন','একটি বাস্তব API কল করে ডেটা আনতে পারবেন'], en:['Explain open data and its benefits','Understand open licences and terms of use','Understand what an API is and how it works','Make a real API call to fetch data']},
+    modules:[
+      {t:{bn:'মডিউল ১: ওপেন ডেটা কী', en:'Module 1: What is Open Data'}, mins:40,
+       lessons:{bn:['ওপেন ডেটার সংজ্ঞা ও নীতি','সরকারি ডেটার উদাহরণ (BBS, পোর্টাল)','সুফল: স্বচ্ছতা, উদ্ভাবন, কর্মসংস্থান','ব্যক্তিগত তথ্য ও গোপনীয়তা সীমা'], en:['Definition and principles of open data','Examples of govt data (BBS, portals)','Benefits: transparency, innovation, jobs','Personal data and privacy limits']}},
+      {t:{bn:'মডিউল ২: লাইসেন্স ও শর্ত', en:'Module 2: Licences & Terms'}, mins:35,
+       lessons:{bn:['Bangladesh Open Govt Licence','অ্যাট্রিবিউশন ও পুনঃব্যবহার','কী করা যাবে, কী যাবে না','উৎস উদ্ধৃতির নিয়ম'], en:['Bangladesh Open Govt Licence','Attribution and reuse','What is and isn\u2019t allowed','Citation rules']}},
+      {t:{bn:'মডিউল ৩: API পরিচিতি', en:'Module 3: Intro to APIs'}, mins:55,
+       lessons:{bn:['API কী — সহজ ব্যাখ্যা','এন্ডপয়েন্ট, রিকোয়েস্ট, রেসপন্স','JSON ফরম্যাট পড়া','অথেন্টিকেশন ও টোকেন'], en:['What an API is — simply explained','Endpoints, requests, responses','Reading JSON format','Authentication and tokens']}},
+      {t:{bn:'মডিউল ৪: বাস্তব অনুশীলন', en:'Module 4: Hands-on Practice'}, mins:50,
+       lessons:{bn:['BCSKR ওপেন ডেটা API ব্যবহার','একটি ডেটাসেট আনা ও দেখা','রেট-লিমিট ও সেরা অনুশীলন','একটি ছোট প্রকল্পে প্রয়োগ'], en:['Using the BCSKR Open Data API','Fetching and viewing a dataset','Rate limits and best practices','Applying it in a small project']}},
+    ],
+    quiz:[
+      {q:{bn:'ওপেন ডেটার মূল সুফল কী?', en:'A key benefit of open data is?'}, opts:{bn:['গোপনীয়তা বৃদ্ধি','স্বচ্ছতা ও উদ্ভাবন','কম স্বচ্ছতা','বেশি কাগজপত্র'], en:['More secrecy','Transparency and innovation','Less transparency','More paperwork']}, a:1},
+      {q:{bn:'API রেসপন্স সাধারণত কোন ফরম্যাটে আসে?', en:'API responses commonly come in which format?'}, opts:{bn:['JSON','MP3','JPEG','DOCX'], en:['JSON','MP3','JPEG','DOCX']}, a:0},
+      {q:{bn:'উন্মুক্ত ডেটা ব্যবহারে কী বাধ্যতামূলক?', en:'What is required when using open data?'}, opts:{bn:['উৎস উল্লেখ (attribution)','কিছুই নয়','অর্থ প্রদান','অনুমতিপত্র ক্রয়'], en:['Attribution of source','Nothing','Payment','Buying a permit']}, a:0},
+    ],
+  },
+};
+
+function openCourse(id){
+  const bn=document.body.classList.contains('lang-bn');
+  const c=COURSES[id]; if(!c)return;
+  const T=o=>bn?o.bn:o.en;
+  let html=`<div class="course-head">
+    <div class="course-meta-row"><span class="cm-pill">📚 ${T(c.org)}</span><span class="cm-pill">⏱ ${T(c.dur)}</span><span class="cm-pill">🎓 ${T(c.level)}</span></div>
+    <p class="course-intro">${T(c.intro)}</p></div>`;
+  html+=`<div class="course-sec"><h5>${bn?'✅ শিখন-ফল':'✅ Learning outcomes'}</h5><ul class="course-ul">${(bn?c.outcomes.bn:c.outcomes.en).map(o=>`<li>${o}</li>`).join('')}</ul></div>`;
+  html+=`<div class="course-sec"><h5>${bn?'📖 মডিউলসমূহ':'📖 Modules'}</h5>`;
+  c.modules.forEach((m,i)=>{
+    html+=`<div class="course-mod"><div class="cmod-h" onclick="this.parentElement.classList.toggle('open')"><span class="cmod-n">${bn?toBn(i+1):i+1}</span><span class="cmod-t">${T(m.t)}</span><span class="cmod-min">${bn?toBn(m.mins):m.mins} ${bn?'মি':'min'}</span><span class="cmod-arr">▾</span></div><ul class="cmod-lessons">${(bn?m.lessons.bn:m.lessons.en).map(l=>`<li>${l}</li>`).join('')}</ul></div>`;
+  });
+  html+=`</div>`;
+  // quiz
+  html+=`<div class="course-sec"><h5>${bn?'📝 জ্ঞান যাচাই (কুইজ)':'📝 Knowledge check (quiz)'}</h5><div id="quizBox">`;
+  c.quiz.forEach((q,qi)=>{
+    html+=`<div class="quiz-q"><div class="quiz-qt">${bn?toBn(qi+1):qi+1}. ${T(q)}</div>${(bn?q.opts.bn:q.opts.en).map((o,oi)=>`<button class="quiz-opt" onclick="quizAns(this,${oi===q.a})">${o}</button>`).join('')}</div>`;
+  });
+  html+=`</div></div>`;
+  html+=`<button class="course-cert" onclick="alert('${bn?'অভিনন্দন! কোর্স সম্পন্ন হলে CSKR সার্টিফিকেট ইস্যু হবে।':'Congratulations! A CSKR certificate is issued on completion.'}')">${bn?'🎓 কোর্স সম্পন্ন করুন':'🎓 Complete course'}</button>`;
+  document.getElementById('courseTitle').textContent=T(c.title);
+  document.getElementById('courseBody').innerHTML=html;
+  document.getElementById('courseModal').classList.add('show');
+}
+function closeCourse(){document.getElementById('courseModal').classList.remove('show');}
+function quizAns(btn,correct){
+  const sib=btn.parentElement.querySelectorAll('.quiz-opt');
+  sib.forEach(b=>b.disabled=true);
+  btn.classList.add(correct?'right':'wrong');
+  if(!correct){ sib.forEach((b,i)=>{}); }
+}
 
 /* init */
 setLang('bn');
