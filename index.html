@@ -310,6 +310,67 @@ body.lang-bn .modal-title{font-family:var(--bn);font-weight:700}
 .rm-ph{flex-shrink:0;width:90px;font-weight:700;color:var(--gold);font-size:13.5px}
 .rm-t{font-weight:600;color:var(--green-deep);font-size:14px;margin-bottom:4px}
 .rm-d{font-size:12.5px;color:var(--muted);line-height:1.6}
+/* AI tool demo */
+.ai-try{display:block;margin-top:6px;font-size:11px;font-weight:600;color:var(--green-bright)}
+.demo-modal-box{max-width:640px}
+.demo-sample-hint{font-size:12px;color:var(--green);background:var(--paper-2);border:1px dashed var(--line);border-radius:8px;padding:7px 11px;margin:6px 0 10px;cursor:pointer}
+.demo-sample-hint:hover{border-color:var(--green-bright)}
+.demo-tool-input{width:100%;border:1px solid var(--line);border-radius:10px;padding:11px;font-family:inherit;font-size:13.5px;background:var(--paper);color:var(--ink);resize:vertical;line-height:1.6}
+.demo-tool-input:focus{outline:none;border-color:var(--green-bright)}
+.demo-run{margin-top:10px;background:var(--green);color:#fff;border:none;border-radius:10px;padding:9px 22px;font-family:inherit;font-size:13.5px;font-weight:600;cursor:pointer}
+.demo-run:hover{background:var(--green-bright)}
+.demo-tool-out{margin-top:14px}
+.demo-tool-out .d-note{font-size:12.5px;color:var(--muted);background:var(--paper-2);border-radius:8px;padding:9px 12px;margin-bottom:10px;line-height:1.55}
+.d-hit{background:var(--paper);border:1px solid var(--line);border-radius:9px;padding:10px 12px;margin-bottom:8px}
+.d-hit-t{font-size:13.5px;font-weight:600;color:var(--green-deep);margin-bottom:5px}
+.d-hit-r{font-size:11.5px;color:var(--muted);margin-top:4px}
+.d-bar{position:relative;height:8px;background:var(--paper-2);border-radius:99px;overflow:hidden;display:flex;align-items:center}
+.d-bar i{position:absolute;left:0;top:0;height:100%;background:var(--green-bright);border-radius:99px}
+.d-bar span{position:absolute;right:6px;font-size:9.5px;font-weight:700;color:var(--ink);z-index:1}
+.d-rec{display:flex;gap:10px;background:var(--paper);border:1px solid var(--line);border-radius:9px;padding:10px 12px;margin-bottom:8px;align-items:flex-start}
+.d-rec-ic{font-size:18px;flex-shrink:0}
+.d-rec-t{font-size:12px;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.3px}
+.d-rec-v{font-size:13.5px;color:var(--ink);margin-top:2px;line-height:1.5}
+.d-opt{background:var(--paper);border:1px solid var(--line);border-radius:9px;padding:10px 12px;margin-bottom:8px}
+.d-opt.best{border-color:var(--green-bright);background:#f0f7f4}
+.d-opt-h{display:flex;justify-content:space-between;margin-bottom:6px}
+.d-opt-n{font-weight:600;color:var(--green-deep);font-size:13.5px}
+.d-opt-s{font-size:12px;font-weight:600;color:var(--ok)}
+.d-opt-d{font-size:11.5px;color:var(--muted);margin-top:5px}
+.d-list{margin:0;padding-left:20px}
+.d-list li{font-size:13.5px;line-height:1.7;margin-bottom:4px}
+.d-tags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:10px}
+.d-tag{background:var(--green);color:#fff;border-radius:99px;padding:4px 11px;font-size:12px;font-weight:500}
+.d-meta{width:100%;border-collapse:collapse;font-size:13px}
+.d-meta td{padding:6px 8px;border-bottom:1px solid var(--line)}
+.d-meta td:first-child{color:var(--muted);width:40%}
+.d-io{margin-bottom:10px}
+.d-io-lab{font-size:11.5px;font-weight:600;color:var(--muted);margin-bottom:4px}
+.d-out-box{background:var(--paper);border:1px solid var(--line);border-left:3px solid var(--green-bright);border-radius:9px;padding:12px;font-size:13.5px;line-height:1.7}
+.d-trans{font-size:13px;padding:7px 0;border-bottom:1px solid var(--line);line-height:1.5}
+.d-trans-t{display:inline-block;font-size:10.5px;color:var(--gold);font-weight:700;width:38px}
+.d-action{margin-top:10px;background:#f0f7f4;border:1px solid var(--green-bright);border-radius:8px;padding:10px 12px;font-size:13px;color:var(--green-deep);line-height:1.55}
+.d-chat-q{background:var(--green);color:#fff;border-radius:12px 12px 12px 3px;padding:10px 13px;font-size:13.5px;display:inline-block;margin-bottom:10px;max-width:85%}
+.d-chat-a{background:var(--paper);border:1px solid var(--line);border-radius:3px 12px 12px 12px;padding:11px 13px;font-size:13.5px;line-height:1.65}
+.d-src{margin-top:8px;font-size:11.5px;color:var(--muted)}
+.d-src span{display:inline-block;background:var(--paper-2);border-radius:6px;padding:2px 8px;margin:2px 4px 2px 0}
+.d-graph{text-align:center;padding:10px 0}
+.d-graph-center{display:inline-block;background:var(--green);color:#fff;font-weight:600;border-radius:99px;padding:8px 20px;font-size:14px;margin-bottom:12px}
+.d-graph-nodes{display:flex;flex-wrap:wrap;gap:8px;justify-content:center}
+.d-graph-node{background:var(--paper);border:1px solid var(--green-bright);border-radius:9px;padding:8px 12px;font-size:12.5px;color:var(--green-deep);position:relative}
+.d-graph-r{display:block;font-size:9.5px;color:var(--gold);font-weight:700;text-transform:uppercase}
+.d-warn{background:#fdf3ef;border:1px solid var(--danger);border-radius:8px;padding:10px 12px;font-size:12.5px;color:var(--danger);margin-bottom:10px;line-height:1.5}
+.d-verify{display:inline-block;border-radius:8px;padding:6px 14px;font-size:13px;font-weight:600;margin-bottom:10px}
+.d-verify.ok{background:#f0f7f4;color:var(--ok);border:1px solid var(--ok)}
+.d-alert{display:flex;align-items:center;gap:10px;background:var(--paper);border:1px solid var(--line);border-radius:9px;padding:9px 12px;margin-bottom:7px}
+.d-alert-d{font-size:11px;color:var(--muted);width:78px;flex-shrink:0}
+.d-alert-t{font-size:13px;flex:1}
+.d-alert-n{background:var(--gold);color:#fff;font-size:9.5px;font-weight:700;border-radius:5px;padding:2px 7px}
+.d-code{background:#0c3b35;color:#d9f0e8;border-radius:9px;padding:13px;font-family:monospace;font-size:11.5px;line-height:1.6;white-space:pre-wrap;overflow-x:auto}
+.d-ocr{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.d-ocr-img{background:var(--paper-2);border:1px dashed var(--line);border-radius:9px;padding:18px 14px;font-size:12px;color:var(--muted)}
+.d-ocr-arrow{font-size:20px;color:var(--gold)}
+.d-ocr .d-out-box{flex:1;min-width:180px}
 </style>
 </head>
 <body class="lang-bn">
@@ -661,6 +722,19 @@ body.lang-bn .modal-title{font-family:var(--bn);font-weight:700}
   </div>
 </div>
 
+<!-- ===== AI TOOL DEMO MODAL ===== -->
+<div class="modal-overlay" id="demoModal" onclick="if(event.target===this)closeDemo()">
+  <div class="modal-box demo-modal-box">
+    <button class="modal-x" onclick="closeDemo()" aria-label="Close">×</button>
+    <h3 class="modal-title" id="demoTitle"></h3>
+    <p class="modal-sub" id="demoDesc"></p>
+    <div class="demo-sample-hint" id="demoSample" onclick="useDemoSample()" title="Click to use"></div>
+    <textarea id="demoInput" class="demo-tool-input" rows="2"></textarea>
+    <button class="demo-run" onclick="runDemoTool()"><span class="bn">▸ চালান</span><span class="en">▸ Run</span></button>
+    <div class="demo-tool-out" id="demoOut"></div>
+  </div>
+</div>
+
 <footer>
   <span class="bn"><b>বাংলাদেশ সিভিল সার্ভিস নলেজ রিপোজিটরি (BCSKR)</b> · মন্ত্রিপরিষদ বিভাগ · জুন ২০২৬</span>
   <span class="en"><b>Bangladesh Civil Service Knowledge Repository (BCSKR)</b> · Cabinet Division · June 2026</span>
@@ -956,7 +1030,7 @@ function typeIcon(t){
   const m={'Act':'§','Rules':'§','Gazette':'§','Decision':'✓','Strategy':'◆','Case Study':'❖','Innovation':'✦','Review':'∿','Evaluation':'∿','Report':'▤','Plan':'▦','Course':'▷','Module':'▷','Webinar':'▶','Showcase':'✦','Hub':'⬡','Award':'★','Platform':'⬡','Design':'⚙','Engine':'⚙','Dashboard':'▦','API':'{}'};
   return m[t]||'•';
 }
-document.addEventListener('keydown',e=>{if(e.key==='Enter'&&document.activeElement.id==='q')runSearch();if(e.key==='Escape')closeModal()});
+document.addEventListener('keydown',e=>{if(e.key==='Enter'&&document.activeElement.id==='q')runSearch();if(e.key==='Escape'){closeModal();closeDemo();}});
 
 const TACIT_KNOWLEDGE={"mentoring":[{"bn":"জেলা প্রশাসক–সিনিয়র সহকারী কমিশনার মেন্টরিং জোড়া","en":"DC–Senior Assistant Commissioner mentoring pairs","mentor":{"bn":"জেলা প্রশাসক","en":"District Commissioner"},"mentee":{"bn":"সিনিয়র সহকারী কমিশনার","en":"Senior Assistant Commissioner"},"skill":["সিদ্ধান্ত গ্রহণ","নেতৃত্ব","মাঠ প্রশাসন"],"active":45,"progress":78},{"bn":"কর-নীতি কর্মকর্তা মেন্টরিং","en":"Tax Policy Officer mentoring","mentor":{"bn":"অর্থনীতিবিদ","en":"Economist"},"mentee":{"bn":"নতুন নীতি কর্মকর্তা","en":"New policy officer"},"skill":["নীতি নকশা","অর্থনীতি"],"active":32,"progress":65},{"bn":"ডিজিটাল উদ্ভাবন সেবা মেন্টরিং","en":"Digital Innovation Service mentoring","mentor":{"bn":"সিনিয়র টেক লিড","en":"Senior Tech Lead"},"mentee":{"bn":"জুনিয়র ডেভেলপার","en":"Junior developer"},"skill":["প্রযুক্তি","স্টার্টআপ","সেবা ডিজাইন"],"active":28,"progress":82},{"bn":"আইন খসড়া মেন্টরিং","en":"Legal drafting mentorship","mentor":{"bn":"প্রিন্সিপাল সহকারী","en":"Principal Assistant"},"mentee":{"bn":"জুনিয়র আইনজীবী","en":"Junior lawyer"},"skill":["আইন খসড়া","যোগাযোগ"],"active":22,"progress":71},{"bn":"প্রকল্প ব্যবস্থাপনা মেন্টরিং","en":"Project management mentorship","mentor":{"bn":"প্রকল্প পরিচালক","en":"Project director"},"mentee":{"bn":"সহকারী প্রকল্প পরিচালক","en":"Assistant director"},"skill":["প্রকল্প ব্যবস্থাপনা","বাজেট"],"active":38,"progress":74},{"bn":"সাইবার নিরাপত্তা মেন্টরিং","en":"Cybersecurity skills mentoring","mentor":{"bn":"সিনিয়র নিরাপত্তা বিশ্লেষক","en":"Senior security analyst"},"mentee":{"bn":"জুনিয়র প্রকৌশলী","en":"Junior engineer"},"skill":["সাইবার হুমকি","নীতি"],"active":19,"progress":58},{"bn":"সামাজিক সেবা সংবেদনশীলতা মেন্টরিং","en":"Social service sensitivity mentoring","mentor":{"bn":"সামাজিক কর্মী","en":"Social worker"},"mentee":{"bn":"নতুন প্রশাসক","en":"New administrator"},"skill":["সামাজিক সচেতনতা","মানবিক মূল্যবোধ"],"active":41,"progress":85},{"bn":"আর্থিক ব্যবস্থাপনা মেন্টরিং","en":"Financial stewardship mentoring","mentor":{"bn":"আর্থিক নিয়ন্ত্রক","en":"Finance controller"},"mentee":{"bn":"বাজেট প্রশাসক","en":"Budget administrator"},"skill":["বাজেট বিশ্লেষণ","জবাবদিহিতা"],"active":26,"progress":69},{"bn":"পরিবেশ নীতি বাস্তবায়ন মেন্টরিং","en":"Environmental policy mentoring","mentor":{"bn":"পরিবেশ বিশেষজ্ঞ","en":"Environment specialist"},"mentee":{"bn":"নতুন সমন্বয়কারী","en":"New coordinator"},"skill":["পরিবেশ আইন","জলবায়ু কর্ম"],"active":33,"progress":72},{"bn":"মানব সম্পদ রূপান্তর মেন্টরিং","en":"HR transformation mentoring","mentor":{"bn":"HR কৌশলবিদ","en":"HR strategist"},"mentee":{"bn":"HR পেশাদার","en":"HR professional"},"skill":["পরিবর্তন ব্যবস্থাপনা","সংস্কৃতি"],"active":24,"progress":64}],"expertise_registry":[{"bn":"সিনিয়র অর্থনীতিবিদ — জিডিপি মডেলিং","en":"Senior economist — GDP modeling","expert":"দেবপ্রিয় চট্টোপাধ্যায়","expertise":["অর্থনৈতিক মডেল","পূর্বাভাস"],"availability":"সপ্তাহে ১০ ঘণ্টা","projects_advised":12},{"bn":"প্রধান কৃষি বিজ্ঞানী","en":"Chief agronomist","expert":"ড. মোবাশ্বেরা বেগম","expertise":["কৃষি জৈব প্রযুক্তি","জলবায়ু"],"availability":"সাপ্তাহিক","projects_advised":8},{"bn":"সাইবার নিরাপত্তা স্থপতি","en":"Cybersecurity architect","expert":"ইঞ্জিনিয়ার করিম","expertise":["জাতীয় নিরাপত্তা","এনক্রিপশন"],"availability":"অন-ডিমান্ড","projects_advised":15},{"bn":"ই-গভর্নেন্স পরামর্শদাতা","en":"e-Governance consultant","expert":"প্রফেসর রহিম আহমেদ","expertise":["সেবা ডিজাইন","ব্যবহারকারী গবেষণা"],"availability":"মাসিক","projects_advised":22},{"bn":"বাজেট কৌশলবিদ","en":"Budget strategist","expert":"ফিউয়েরূল হক","expertise":["বাজেট পূর্বাভাস","ট্যাক্স নীতি"],"availability":"ত্রৈমাসিক","projects_advised":18},{"bn":"সামাজিক সুরক্ষা নেতা","en":"Social protection leader","expert":"রোবিনা আক্তার","expertise":["প্রোগ্রাম ডিজাইন","লক্ষ্যীকরণ"],"availability":"সাপ্তাহিক","projects_advised":11},{"bn":"জরিপ পদ্ধতিবিদ","en":"Survey methodologist","expert":"প্রফেসর সোফিয়া হোসেন","expertise":["নমুনায়ন","ডেটা গুণমান"],"availability":"প্রকল্প-ভিত্তিক","projects_advised":25},{"bn":"সবুজ অর্থনীতি উদ্ভাবক","en":"Green economy innovator","expert":"সালমা হোসেন","expertise":["সার্কুলার অর্থনীতি","টেকসইতা"],"availability":"ইভেন্ট","projects_advised":9},{"bn":"শিক্ষা সংস্কার নেতা","en":"Education reform leader","expert":"ড. মোহাম্মদ করিম","expertise":["পাঠ্যক্রম","শিক্ষক প্রশিক্ষণ"],"availability":"মাসিক","projects_advised":16},{"bn":"প্রবাসী সম্পদ কৌশলবিদ","en":"Diaspora wealth strategist","expert":"নাজমা আক্তার","expertise":["রেমিট্যান্স","পেশাদার নেটওয়ার্ক"],"availability":"বছরে ১০ ঘণ্টা","projects_advised":6}],"community_of_practice":[{"bn":"নীতিনির্ধারণকারীদের সংলাপ নেটওয়ার্ক","en":"Policy makers' dialogue network","members":87,"frequency":"মাসিক","topics":["প্রমাণ-ভিত্তিক নীতি","সমন্বয়"],"engagement":72},{"bn":"ডিজিটাল উদ্ভাবক সম্প্রদায়","en":"Digital innovators community","members":156,"frequency":"দ্বি-সাপ্তাহিক","topics":["GovTech","স্থানীয় AI"],"engagement":83},{"bn":"সামাজিক সেবা পেশাদার সিনেট","en":"Social service professionals' senate","members":203,"frequency":"সাপ্তাহিক","topics":["সংবেদনশীল সেবা","প্রতিক্রিয়া"],"engagement":68},{"bn":"সবুজ অর্থনীতি ফোরাম","en":"Green economy forum","members":94,"frequency":"ত্রৈমাসিক","topics":["পরিবেশ নীতি","জলবায়ু অর্থ"],"engagement":61},{"bn":"নতুন প্রশাসক শেখার সম্প্রদায়","en":"New administrators' learning community","members":312,"frequency":"সাপ্তাহিক","topics":["প্রশাসন","নৈতিকতা"],"engagement":91}],"storytelling_archive":[{"bn":"একটি ব্যর্থ প্রকল্প থেকে শেখা","en":"Learning from a failed project","teller":"সিনিয়র পরিচালক","topic":"প্রকল্প ব্যর্থতা","lesson":"খাঁটি যোগাযোগ গুরুত্বপূর্ণ","listeners":245,"impact":"৩৫ প্রকল্প ঝুঁকি আপডেট"},{"bn":"মানব-কেন্দ্রিক সেবা উদ্ভাবন","en":"Human-centric service innovation","teller":"জেলা কর্মকর্তা","topic":"স্থানীয় সমাধান","lesson":"তৃণমূল শোনা খুলে দেয়","listeners":189,"impact":"১২ জেলা উদ্ভাবন কর্মসূচি"},{"bn":"যখন প্রযুক্তি বিশ্বাস মিলিত হয়","en":"When technology meets trust","teller":"ডিজিটাল নেতা","topic":"প্রযুক্তি গ্রহণ","lesson":"মানব স্পর্শ প্রয়োজন","listeners":412,"impact":"৮ দেশ e-ID মডেল অধ্যয়ন"},{"bn":"আমার প্রথম মেন্টি সাফল্য","en":"My first mentee's success","teller":"সেবানিবৃত্ত সচিব","topic":"মেন্টরিং উত্তরাধিকার","lesson":"মানুষে বিনিয়োগ গুরুত্বপূর্ণ","listeners":156,"impact":"৫০+ মেন্টরিং জোড়া"},{"bn":"সাংস্কৃতিক পরিবর্তন শুরু করা","en":"Cultural change: where to start","teller":"সংস্কৃতি নেতা","topic":"সাংগঠনিক সংস্কৃতি","lesson":"ছোট বিজয় বিশ্বাস তৈরি করে","listeners":198,"impact":"জাতীয় সংস্কৃতি কৌশল"}]};
 const TACIT_SEARCH_INDEX=[{"bn":"জেলা প্রশাসক–সিনিয়র সহকারী কমিশনার মেন্টরিং জোড়া","en":"DC–Senior Assistant Commissioner mentoring pairs","type":"মেন্টরিং","category":"mentoring","value":45},{"bn":"কর-নীতি কর্মকর্তা মেন্টরিং","en":"Tax Policy Officer mentoring","type":"মেন্টরিং","category":"mentoring","value":32},{"bn":"ডিজিটাল উদ্ভাবন সেবা মেন্টরিং","en":"Digital Innovation Service mentoring","type":"মেন্টরিং","category":"mentoring","value":28},{"bn":"আইন খসড়া মেন্টরিং","en":"Legal drafting mentorship","type":"মেন্টরিং","category":"mentoring","value":22},{"bn":"প্রকল্প ব্যবস্থাপনা মেন্টরিং","en":"Project management mentorship","type":"মেন্টরিং","category":"mentoring","value":38},{"bn":"সাইবার নিরাপত্তা মেন্টরিং","en":"Cybersecurity skills mentoring","type":"মেন্টরিং","category":"mentoring","value":19},{"bn":"সামাজিক সেবা সংবেদনশীলতা মেন্টরিং","en":"Social service sensitivity mentoring","type":"মেন্টরিং","category":"mentoring","value":41},{"bn":"আর্থিক ব্যবস্থাপনা মেন্টরিং","en":"Financial stewardship mentoring","type":"মেন্টরিং","category":"mentoring","value":26},{"bn":"পরিবেশ নীতি বাস্তবায়ন মেন্টরিং","en":"Environmental policy mentoring","type":"মেন্টরিং","category":"mentoring","value":33},{"bn":"মানব সম্পদ রূপান্তর মেন্টরিং","en":"HR transformation mentoring","type":"মেন্টরিং","category":"mentoring","value":24},{"bn":"সিনিয়র অর্থনীতিবিদ — জিডিপি মডেলিং","en":"Senior economist — GDP modeling","type":"বিশেষজ্ঞ","category":"expertise","value":12},{"bn":"প্রধান কৃষি বিজ্ঞানী","en":"Chief agronomist","type":"বিশেষজ্ঞ","category":"expertise","value":8},{"bn":"সাইবার নিরাপত্তা স্থপতি","en":"Cybersecurity architect","type":"বিশেষজ্ঞ","category":"expertise","value":15},{"bn":"ই-গভর্নেন্স পরামর্শদাতা","en":"e-Governance consultant","type":"বিশেষজ্ঞ","category":"expertise","value":22},{"bn":"বাজেট কৌশলবিদ","en":"Budget strategist","type":"বিশেষজ্ঞ","category":"expertise","value":18},{"bn":"সামাজিক সুরক্ষা নেতা","en":"Social protection leader","type":"বিশেষজ্ঞ","category":"expertise","value":11},{"bn":"জরিপ পদ্ধতিবিদ","en":"Survey methodologist","type":"বিশেষজ্ঞ","category":"expertise","value":25},{"bn":"সবুজ অর্থনীতি উদ্ভাবক","en":"Green economy innovator","type":"বিশেষজ্ঞ","category":"expertise","value":9},{"bn":"শিক্ষা সংস্কার নেতা","en":"Education reform leader","type":"বিশেষজ্ঞ","category":"expertise","value":16},{"bn":"প্রবাসী সম্পদ কৌশলবিদ","en":"Diaspora wealth strategist","type":"বিশেষজ্ঞ","category":"expertise","value":6},{"bn":"নীতিনির্ধারণকারীদের সংলাপ নেটওয়ার্ক","en":"Policy makers' dialogue network","type":"সম্প্রদায়","category":"community","value":87},{"bn":"ডিজিটাল উদ্ভাবক সম্প্রদায়","en":"Digital innovators community","type":"সম্প্রদায়","category":"community","value":156},{"bn":"সামাজিক সেবা পেশাদার সিনেট","en":"Social service professionals' senate","type":"সম্প্রদায়","category":"community","value":203},{"bn":"সবুজ অর্থনীতি ফোরাম","en":"Green economy forum","type":"সম্প্রদায়","category":"community","value":94},{"bn":"নতুন প্রশাসক শেখার সম্প্রদায়","en":"New administrators' learning community","type":"সম্প্রদায়","category":"community","value":312},{"bn":"একটি ব্যর্থ প্রকল্প থেকে শেখা","en":"Learning from a failed project","type":"গল্প","category":"storytelling","value":245},{"bn":"মানব-কেন্দ্রিক সেবা উদ্ভাবন","en":"Human-centric service innovation","type":"গল্প","category":"storytelling","value":189},{"bn":"যখন প্রযুক্তি বিশ্বাস মিলিত হয়","en":"When technology meets trust","type":"গল্প","category":"storytelling","value":412},{"bn":"আমার প্রথম মেন্টি সাফল্য","en":"My first mentee's success","type":"গল্প","category":"storytelling","value":156},{"bn":"সাংস্কৃতিক পরিবর্তন শুরু করা","en":"Cultural change: where to start","type":"গল্প","category":"storytelling","value":198}];
@@ -1101,52 +1175,52 @@ function renderAIKS(){
 
   // Capabilities (20) with maturity
   const caps=bn?[
-    {ic:'🔍',t:'বাংলা সেমান্টিক সার্চ',d:'অর্থভিত্তিক অনুসন্ধান, কেবল শব্দ মেলানো নয়।',m:'production'},
-    {ic:'🧠',t:'নীতি সুপারিশ ইঞ্জিন',d:'প্রাসঙ্গিক নীতি ও নজির স্বয়ংক্রিয় সুপারিশ।',m:'pilot'},
-    {ic:'📊',t:'সিদ্ধান্ত সহায়তা ড্যাশবোর্ড',d:'ডেটা ও জ্ঞান একত্রে সিদ্ধান্ত গ্রহণে।',m:'pilot'},
-    {ic:'📝',t:'স্বয়ংক্রিয় সার-সংক্ষেপ',d:'দীর্ঘ প্রতিবেদনের দ্রুত AI সারাংশ।',m:'production'},
-    {ic:'🏷️',t:'অটো-ট্যাগিং ও মেটাডেটা',d:'নথি স্বয়ংক্রিয় শ্রেণিবিন্যাস।',m:'production'},
-    {ic:'🌐',t:'বাংলা⇄ইংরেজি অনুবাদ',d:'সরকারি পরিভাষাসহ নির্ভুল অনুবাদ।',m:'pilot'},
-    {ic:'🗣️',t:'বাংলা স্পিচ-টু-টেক্সট',d:'সভার কার্যবিবরণী স্বয়ংক্রিয় লিপিবদ্ধ।',m:'pilot'},
-    {ic:'📄',t:'বাংলা OCR',d:'পুরনো মুদ্রিত নথি ডিজিটাইজেশন।',m:'production'},
-    {ic:'💬',t:'এআই চ্যাট সহকারী',d:'সরকারি জ্ঞানভিত্তিক প্রশ্নোত্তর।',m:'pilot'},
-    {ic:'🕸️',t:'নলেজ গ্রাফ',d:'মন্ত্রণালয়–নীতি–প্রকল্প সংযোগ মানচিত্র।',m:'pilot'},
-    {ic:'🔗',t:'সাদৃশ্য শনাক্তকরণ',d:'ডুপ্লিকেট প্রকল্প/নথি স্ক্রিনিং।',m:'pilot'},
-    {ic:'📈',t:'ট্রেন্ড অ্যানালাইজার',d:'নীতি-আলোচনার ধারা বিশ্লেষণ।',m:'planned'},
-    {ic:'✅',t:'উৎস যাচাই সহায়ক',d:'তথ্যসূত্র ও সাইটেশন যাচাই।',m:'planned'},
-    {ic:'✍️',t:'স্মার্ট খসড়া সহায়ক',d:'নীতি ও চিঠি লিখনে AI সহায়তা।',m:'planned'},
-    {ic:'🔔',t:'রিয়েল-টাইম অ্যালার্ট',d:'প্রাসঙ্গিক নীতি পরিবর্তনে নোটিফিকেশন।',m:'planned'},
-    {ic:'📋',t:'মডেল কার্ড রেজিস্ট্রি',d:'সরকারি AI মডেলের নিরীক্ষাযোগ্য তালিকা।',m:'pilot'},
-    {ic:'🔒',t:'ডেটা অ্যানোনিমাইজেশন',d:'গোপনীয়তা রক্ষায় সংবেদনশীল তথ্য মাস্কিং।',m:'pilot'},
-    {ic:'🎯',t:'ব্যবহার বিশ্লেষণ',d:'KM মেট্রিক্স ও ব্যবহার ড্যাশবোর্ড।',m:'production'},
-    {ic:'⚖️',t:'পক্ষপাত পরীক্ষা',d:'AI আউটপুটে পক্ষপাত শনাক্ত ও হ্রাস।',m:'planned'},
-    {ic:'🔌',t:'ওপেন ডেটা API',d:'GovTech ও গবেষকদের জন্য উন্মুক্ত প্রবেশ।',m:'pilot'},
+    {id:'search',ic:'🔍',t:'বাংলা সেমান্টিক সার্চ',d:'অর্থভিত্তিক অনুসন্ধান, কেবল শব্দ মেলানো নয়।',m:'production'},
+    {id:'recommend',ic:'🧠',t:'নীতি সুপারিশ ইঞ্জিন',d:'প্রাসঙ্গিক নীতি ও নজির স্বয়ংক্রিয় সুপারিশ।',m:'pilot'},
+    {id:'decision',ic:'📊',t:'সিদ্ধান্ত সহায়তা ড্যাশবোর্ড',d:'ডেটা ও জ্ঞান একত্রে সিদ্ধান্ত গ্রহণে।',m:'pilot'},
+    {id:'summary',ic:'📝',t:'স্বয়ংক্রিয় সার-সংক্ষেপ',d:'দীর্ঘ প্রতিবেদনের দ্রুত AI সারাংশ।',m:'production'},
+    {id:'tagging',ic:'🏷️',t:'অটো-ট্যাগিং ও মেটাডেটা',d:'নথি স্বয়ংক্রিয় শ্রেণিবিন্যাস।',m:'production'},
+    {id:'translate',ic:'🌐',t:'বাংলা⇄ইংরেজি অনুবাদ',d:'সরকারি পরিভাষাসহ নির্ভুল অনুবাদ।',m:'pilot'},
+    {id:'speech',ic:'🗣️',t:'বাংলা স্পিচ-টু-টেক্সট',d:'সভার কার্যবিবরণী স্বয়ংক্রিয় লিপিবদ্ধ।',m:'pilot'},
+    {id:'ocr',ic:'📄',t:'বাংলা OCR',d:'পুরনো মুদ্রিত নথি ডিজিটাইজেশন।',m:'production'},
+    {id:'chat',ic:'💬',t:'এআই চ্যাট সহকারী',d:'সরকারি জ্ঞানভিত্তিক প্রশ্নোত্তর।',m:'pilot'},
+    {id:'graph',ic:'🕸️',t:'নলেজ গ্রাফ',d:'মন্ত্রণালয়–নীতি–প্রকল্প সংযোগ মানচিত্র।',m:'pilot'},
+    {id:'similarity',ic:'🔗',t:'সাদৃশ্য শনাক্তকরণ',d:'ডুপ্লিকেট প্রকল্প/নথি স্ক্রিনিং।',m:'pilot'},
+    {id:'trend',ic:'📈',t:'ট্রেন্ড অ্যানালাইজার',d:'নীতি-আলোচনার ধারা বিশ্লেষণ।',m:'planned'},
+    {id:'verify',ic:'✅',t:'উৎস যাচাই সহায়ক',d:'তথ্যসূত্র ও সাইটেশন যাচাই।',m:'planned'},
+    {id:'draft',ic:'✍️',t:'স্মার্ট খসড়া সহায়ক',d:'নীতি ও চিঠি লিখনে AI সহায়তা।',m:'planned'},
+    {id:'alert',ic:'🔔',t:'রিয়েল-টাইম অ্যালার্ট',d:'প্রাসঙ্গিক নীতি পরিবর্তনে নোটিফিকেশন।',m:'planned'},
+    {id:'modelcard',ic:'📋',t:'মডেল কার্ড রেজিস্ট্রি',d:'সরকারি AI মডেলের নিরীক্ষাযোগ্য তালিকা।',m:'pilot'},
+    {id:'anon',ic:'🔒',t:'ডেটা অ্যানোনিমাইজেশন',d:'গোপনীয়তা রক্ষায় সংবেদনশীল তথ্য মাস্কিং।',m:'pilot'},
+    {id:'usage',ic:'🎯',t:'ব্যবহার বিশ্লেষণ',d:'KM মেট্রিক্স ও ব্যবহার ড্যাশবোর্ড।',m:'production'},
+    {id:'bias',ic:'⚖️',t:'পক্ষপাত পরীক্ষা',d:'AI আউটপুটে পক্ষপাত শনাক্ত ও হ্রাস।',m:'planned'},
+    {id:'api',ic:'🔌',t:'ওপেন ডেটা API',d:'GovTech ও গবেষকদের জন্য উন্মুক্ত প্রবেশ।',m:'pilot'},
   ]:[
-    {ic:'🔍',t:'Bangla semantic search',d:'Meaning-based search, not just keyword matching.',m:'production'},
-    {ic:'🧠',t:'Policy recommendation engine',d:'Auto-suggests relevant policies and precedents.',m:'pilot'},
-    {ic:'📊',t:'Decision support dashboard',d:'Combines data and knowledge for decisions.',m:'pilot'},
-    {ic:'📝',t:'Automatic summarization',d:'Fast AI summaries of long reports.',m:'production'},
-    {ic:'🏷️',t:'Auto-tagging & metadata',d:'Automatic document classification.',m:'production'},
-    {ic:'🌐',t:'Bangla⇄English translation',d:'Accurate translation with govt terminology.',m:'pilot'},
-    {ic:'🗣️',t:'Bangla speech-to-text',d:'Auto-transcribe meeting minutes.',m:'pilot'},
-    {ic:'📄',t:'Bangla OCR',d:'Digitize old printed documents.',m:'production'},
-    {ic:'💬',t:'AI chat assistant',d:'Q&A grounded in government knowledge.',m:'pilot'},
-    {ic:'🕸️',t:'Knowledge graph',d:'Ministry–policy–project link map.',m:'pilot'},
-    {ic:'🔗',t:'Similarity detection',d:'Duplicate project/document screening.',m:'pilot'},
-    {ic:'📈',t:'Trend analyzer',d:'Analyze policy discourse trends.',m:'planned'},
-    {ic:'✅',t:'Source verification aid',d:'Verify references and citations.',m:'planned'},
-    {ic:'✍️',t:'Smart drafting aid',d:'AI help for policy and letter writing.',m:'planned'},
-    {ic:'🔔',t:'Real-time alerts',d:'Notifications on relevant policy changes.',m:'planned'},
-    {ic:'📋',t:'Model card registry',d:'Auditable inventory of govt AI models.',m:'pilot'},
-    {ic:'🔒',t:'Data anonymization',d:'Mask sensitive data to protect privacy.',m:'pilot'},
-    {ic:'🎯',t:'Usage analytics',d:'KM metrics and usage dashboard.',m:'production'},
-    {ic:'⚖️',t:'Bias testing',d:'Detect and reduce bias in AI output.',m:'planned'},
-    {ic:'🔌',t:'Open data API',d:'Open access for GovTech and researchers.',m:'pilot'},
+    {id:'search',ic:'🔍',t:'Bangla semantic search',d:'Meaning-based search, not just keyword matching.',m:'production'},
+    {id:'recommend',ic:'🧠',t:'Policy recommendation engine',d:'Auto-suggests relevant policies and precedents.',m:'pilot'},
+    {id:'decision',ic:'📊',t:'Decision support dashboard',d:'Combines data and knowledge for decisions.',m:'pilot'},
+    {id:'summary',ic:'📝',t:'Automatic summarization',d:'Fast AI summaries of long reports.',m:'production'},
+    {id:'tagging',ic:'🏷️',t:'Auto-tagging & metadata',d:'Automatic document classification.',m:'production'},
+    {id:'translate',ic:'🌐',t:'Bangla⇄English translation',d:'Accurate translation with govt terminology.',m:'pilot'},
+    {id:'speech',ic:'🗣️',t:'Bangla speech-to-text',d:'Auto-transcribe meeting minutes.',m:'pilot'},
+    {id:'ocr',ic:'📄',t:'Bangla OCR',d:'Digitize old printed documents.',m:'production'},
+    {id:'chat',ic:'💬',t:'AI chat assistant',d:'Q&A grounded in government knowledge.',m:'pilot'},
+    {id:'graph',ic:'🕸️',t:'Knowledge graph',d:'Ministry–policy–project link map.',m:'pilot'},
+    {id:'similarity',ic:'🔗',t:'Similarity detection',d:'Duplicate project/document screening.',m:'pilot'},
+    {id:'trend',ic:'📈',t:'Trend analyzer',d:'Analyze policy discourse trends.',m:'planned'},
+    {id:'verify',ic:'✅',t:'Source verification aid',d:'Verify references and citations.',m:'planned'},
+    {id:'draft',ic:'✍️',t:'Smart drafting aid',d:'AI help for policy and letter writing.',m:'planned'},
+    {id:'alert',ic:'🔔',t:'Real-time alerts',d:'Notifications on relevant policy changes.',m:'planned'},
+    {id:'modelcard',ic:'📋',t:'Model card registry',d:'Auditable inventory of govt AI models.',m:'pilot'},
+    {id:'anon',ic:'🔒',t:'Data anonymization',d:'Mask sensitive data to protect privacy.',m:'pilot'},
+    {id:'usage',ic:'🎯',t:'Usage analytics',d:'KM metrics and usage dashboard.',m:'production'},
+    {id:'bias',ic:'⚖️',t:'Bias testing',d:'Detect and reduce bias in AI output.',m:'planned'},
+    {id:'api',ic:'🔌',t:'Open data API',d:'Open access for GovTech and researchers.',m:'pilot'},
   ];
   const mLabel={production:bn?'উৎপাদন':'Production',pilot:bn?'পাইলট':'Pilot',planned:bn?'পরিকল্পনা':'Planned'};
   const mColor={production:'#2f7d52',pilot:'#b4863b',planned:'#6a7a73'};
   document.getElementById('aiksCaps').innerHTML=caps.map(c=>
-    `<div class="aiks-item"><div class="ai-ic">${c.ic}</div><div class="ai-t">${c.t}</div><div class="ai-d">${c.d}</div><span class="ai-badge" style="background:${mColor[c.m]}">${mLabel[c.m]}</span></div>`).join('');
+    `<div class="aiks-item" onclick="openDemo('${c.id}')" style="cursor:pointer"><div class="ai-ic">${c.ic}</div><div class="ai-t">${c.t}</div><div class="ai-d">${c.d}</div><span class="ai-badge" style="background:${mColor[c.m]}">${mLabel[c.m]}</span><span class="ai-try">${bn?'ডেমো দেখুন ▸':'Try demo ▸'}</span></div>`).join('');
 
   // Architecture (4 layers)
   const arch=bn?[
@@ -1229,6 +1303,360 @@ function renderAIKS(){
   document.getElementById('aiksRoadmap').innerHTML=rm.map((r,i)=>
     `<div class="rm-row"><div class="rm-ph">${r.ph}</div><div class="rm-body"><div class="rm-t">${r.t}</div><div class="rm-d">${r.d}</div></div></div>`).join('');
 }
+
+/* ====== AIKS TOOL DEMOS (20) ====== */
+const DEMO_DEFS = {
+  search: {
+    titleBn:'বাংলা সেমান্টিক সার্চ', titleEn:'Bangla Semantic Search',
+    descBn:'একটি ধারণা লিখুন — সিস্টেম অর্থ বুঝে প্রাসঙ্গিক ফল দেবে, শুধু শব্দ মিলিয়ে নয়।',
+    descEn:'Type a concept — the system understands meaning and returns relevant results, not just keyword matches.',
+    placeholderBn:'যেমন: দরিদ্র মানুষের জন্য টাকা সাহায্য', placeholderEn:'e.g. money help for poor people',
+    sampleBn:'দরিদ্র মানুষের জন্য টাকা সাহায্য', sampleEn:'money help for poor people',
+    run:(q,bn)=>{
+      const res=bn?[
+        {t:'সমন্বিত সামাজিক ভাতা — G2P মডেল',s:0.94,r:'"টাকা সাহায্য" → সামাজিক নিরাপত্তা ভাতা হিসেবে চিহ্নিত'},
+        {t:'সামাজিক সুরক্ষা কৌশলপত্র ২০২৬',s:0.89,r:'"দরিদ্র" → দারিদ্র্য-লক্ষ্যিত কর্মসূচি'},
+        {t:'ভিজিডি/ভিজিএফ বিতরণ নির্দেশিকা',s:0.82,r:'খাদ্য ও নগদ সহায়তা সম্পর্কিত'},
+      ]:[
+        {t:'Integrated Social Allowance — G2P Model',s:0.94,r:'"money help" → mapped to social safety allowance'},
+        {t:'Social Protection Strategy 2026',s:0.89,r:'"poor" → poverty-targeted programs'},
+        {t:'VGD/VGF Distribution Guidelines',s:0.82,r:'related to food & cash support'},
+      ];
+      return `<div class="d-note">${bn?'🔎 অর্থ-বিশ্লেষণ: query টি ভেক্টরে রূপান্তরিত হয়ে নিকটতম জ্ঞান-পণ্যের সাথে মিলিয়ে দেখা হলো।':'🔎 Meaning analysis: the query was converted to a vector and matched against nearest knowledge products.'}</div>`+
+        res.map(x=>`<div class="d-hit"><div class="d-hit-t">${x.t}</div><div class="d-bar"><i style="width:${x.s*100}%"></i><span>${(x.s*100).toFixed(0)}%</span></div><div class="d-hit-r">${x.r}</div></div>`).join('');
+    }
+  },
+  recommend: {
+    titleBn:'নীতি সুপারিশ ইঞ্জিন', titleEn:'Policy Recommendation Engine',
+    descBn:'আপনার বর্তমান কাজের বিষয় লিখুন — সিস্টেম প্রাসঙ্গিক নীতি, নজির ও সতর্কতা সুপারিশ করবে।',
+    descEn:'Describe your current task — the system suggests relevant policies, precedents and cautions.',
+    placeholderBn:'যেমন: নতুন ডিজিটাল সেবা চালু করছি', placeholderEn:'e.g. launching a new digital service',
+    sampleBn:'নতুন ডিজিটাল সেবা চালু করছি', sampleEn:'launching a new digital service',
+    run:(q,bn)=>{
+      const items=bn?[
+        {ic:'📜',t:'প্রাসঙ্গিক নীতি',v:'ডিজিটাল বাংলাদেশ নীতিমালা; e-Service ইন্টিগ্রেশন গাইড'},
+        {ic:'⚖️',t:'আইনি বিবেচনা',v:'তথ্য অধিকার আইন ২০০৯; ব্যক্তিগত ডেটা সুরক্ষা বিধি'},
+        {ic:'📚',t:'নজির',v:'একশপ ও ৩৩৩ — সফল রোলআউট কেস স্টাডি'},
+        {ic:'⚠️',t:'সতর্কতা',v:'সাদৃশ্য পরীক্ষা: অনুরূপ সেবা ২টি মন্ত্রণালয়ে বিদ্যমান'},
+      ]:[
+        {ic:'📜',t:'Relevant policies',v:'Digital Bangladesh Policy; e-Service Integration Guide'},
+        {ic:'⚖️',t:'Legal considerations',v:'RTI Act 2009; Personal Data Protection Rules'},
+        {ic:'📚',t:'Precedents',v:'Ekshop & 333 — successful rollout case studies'},
+        {ic:'⚠️',t:'Caution',v:'Similarity check: 2 similar services exist in other ministries'},
+      ];
+      return items.map(x=>`<div class="d-rec"><span class="d-rec-ic">${x.ic}</span><div><div class="d-rec-t">${x.t}</div><div class="d-rec-v">${x.v}</div></div></div>`).join('');
+    }
+  },
+  decision: {
+    titleBn:'সিদ্ধান্ত সহায়তা ড্যাশবোর্ড', titleEn:'Decision Support Dashboard',
+    descBn:'একটি সিদ্ধান্তের বিষয় বাছুন — সিস্টেম ডেটা ও জ্ঞান একত্রে করে বিকল্পসহ বিশ্লেষণ দেখাবে।',
+    descEn:'Pick a decision topic — the system combines data and knowledge to show options with analysis.',
+    placeholderBn:'যেমন: কোন জেলায় নতুন প্রশিক্ষণ কেন্দ্র', placeholderEn:'e.g. which district for new training centre',
+    sampleBn:'কোন জেলায় নতুন প্রশিক্ষণ কেন্দ্র', sampleEn:'which district for new training centre',
+    run:(q,bn)=>{
+      const opt=bn?[
+        {n:'কুড়িগ্রাম',score:88,d:'উচ্চ চাহিদা, কম বিদ্যমান কেন্দ্র, দারিদ্র্য সূচক উচ্চ'},
+        {n:'বরিশাল',score:72,d:'মাঝারি চাহিদা, পরিবহন সুবিধাজনক'},
+        {n:'সিলেট',score:61,d:'বিদ্যমান কেন্দ্র পর্যাপ্ত, প্রবাসী আয় বেশি'},
+      ]:[
+        {n:'Kurigram',score:88,d:'High demand, few existing centres, high poverty index'},
+        {n:'Barisal',score:72,d:'Medium demand, convenient transport'},
+        {n:'Sylhet',score:61,d:'Existing centres adequate, high remittance'},
+      ];
+      return `<div class="d-note">${bn?'📊 ৩টি সূচক একত্রে: চাহিদা + বিদ্যমান সক্ষমতা + আর্থ-সামাজিক অগ্রাধিকার':'📊 Combining 3 indicators: demand + existing capacity + socio-economic priority'}</div>`+
+        opt.map((o,i)=>`<div class="d-opt ${i===0?'best':''}"><div class="d-opt-h"><span class="d-opt-n">${o.n}</span><span class="d-opt-s">${o.score}/100${i===0?(bn?' ✓ সুপারিশকৃত':' ✓ Recommended'):''}</span></div><div class="d-bar"><i style="width:${o.score}%"></i></div><div class="d-opt-d">${o.d}</div></div>`).join('');
+    }
+  },
+  summary: {
+    titleBn:'স্বয়ংক্রিয় সার-সংক্ষেপ', titleEn:'Automatic Summarization',
+    descBn:'একটি দীর্ঘ অনুচ্ছেদ পেস্ট করুন — সিস্টেম মূল পয়েন্টে সংক্ষিপ্ত করবে।',
+    descEn:'Paste a long paragraph — the system condenses it to key points.',
+    placeholderBn:'দীর্ঘ প্রতিবেদন বা অনুচ্ছেদ পেস্ট করুন...', placeholderEn:'Paste a long report or paragraph...',
+    sampleBn:'২০২৫ অর্থবছরে বার্ষিক উন্নয়ন কর্মসূচির আওতায় মোট ২,৩০০টি প্রকল্প বাস্তবায়িত হয়েছে, যার মধ্যে ১,৮৫০টি যথাসময়ে সম্পন্ন হয়েছে। অবশিষ্ট প্রকল্পগুলোতে ভূমি অধিগ্রহণ ও অর্থছাড়ে বিলম্বের কারণে গড়ে ৭ মাস দেরি হয়েছে। সবচেয়ে ভালো পারফরম্যান্স দেখিয়েছে স্বাস্থ্য ও শিক্ষা খাত, আর অবকাঠামো খাতে বিলম্ব সর্বাধিক।',
+    sampleEn:'In FY2025, a total of 2,300 projects were implemented under the Annual Development Programme, of which 1,850 were completed on time. The remaining projects faced an average 7-month delay due to land acquisition and fund-release bottlenecks. Health and education sectors performed best, while infrastructure saw the most delays.',
+    run:(q,bn)=>{
+      const pts=bn?[
+        '২,৩০০ প্রকল্পের মধ্যে ১,৮৫০টি (৮০%) সময়মতো সম্পন্ন।',
+        'বিলম্বের মূল কারণ: ভূমি অধিগ্রহণ ও অর্থছাড় (গড় ৭ মাস)।',
+        'শীর্ষ পারফরম্যান্স: স্বাস্থ্য ও শিক্ষা; সর্বাধিক বিলম্ব: অবকাঠামো।',
+      ]:[
+        '1,850 of 2,300 projects (80%) completed on time.',
+        'Main delay causes: land acquisition & fund release (avg 7 months).',
+        'Top performers: health & education; most delays: infrastructure.',
+      ];
+      const words=(q||'').split(/\s+/).filter(Boolean).length;
+      return `<div class="d-note">${bn?`📝 ${toBn(words)} শব্দ → ${toBn(3)} মূল পয়েন্ট (≈${toBn(Math.round(words/15))}× সংক্ষিপ্ত)`:`📝 ${words} words → 3 key points (≈${Math.round(words/15)}× shorter)`}</div>`+
+        '<ul class="d-list">'+pts.map(p=>`<li>${p}</li>`).join('')+'</ul>';
+    }
+  },
+  tagging: {
+    titleBn:'অটো-ট্যাগিং ও মেটাডেটা', titleEn:'Auto-tagging & Metadata',
+    descBn:'একটি নথির শিরোনাম/বিবরণ লিখুন — সিস্টেম স্বয়ংক্রিয় ট্যাগ ও শ্রেণি নির্ধারণ করবে।',
+    descEn:'Enter a document title/description — the system auto-assigns tags and category.',
+    placeholderBn:'যেমন: ২০২৬ সালের বন্যা মোকাবিলায় জরুরি তহবিল বরাদ্দের পরিপত্র', placeholderEn:'e.g. circular on emergency fund allocation for 2026 flood response',
+    sampleBn:'২০২৬ সালের বন্যা মোকাবিলায় জরুরি তহবিল বরাদ্দের পরিপত্র', sampleEn:'circular on emergency fund allocation for 2026 flood response',
+    run:(q,bn)=>{
+      const tags=bn?['দুর্যোগ ব্যবস্থাপনা','বন্যা','জরুরি তহবিল','বাজেট বরাদ্দ','২০২৬']:['Disaster Management','Flood','Emergency Fund','Budget Allocation','2026'];
+      const meta=bn?[['ধরন','পরিপত্র'],['কম্পোনেন্ট','নীতি ও আইন রিপোজিটরি'],['সম্ভাব্য সংস্থা','দুর্যোগ ব্যবস্থাপনা অধিদপ্তর'],['গোপনীয়তা','সর্বজনীন']]:[['Type','Circular'],['Component','Policy & Legal Repository'],['Likely org','Dept. of Disaster Management'],['Sensitivity','Public']];
+      return `<div class="d-note">${bn?'🏷️ স্বয়ংক্রিয় বিশ্লেষণে নিচের ট্যাগ ও মেটাডেটা প্রস্তাবিত:':'🏷️ Auto-analysis proposes the following tags and metadata:'}</div>`+
+        '<div class="d-tags">'+tags.map(t=>`<span class="d-tag">${t}</span>`).join('')+'</div>'+
+        '<table class="d-meta">'+meta.map(m=>`<tr><td>${m[0]}</td><td><b>${m[1]}</b></td></tr>`).join('')+'</table>';
+    }
+  },
+  translate: {
+    titleBn:'বাংলা⇄ইংরেজি অনুবাদ', titleEn:'Bangla⇄English Translation',
+    descBn:'যেকোনো ভাষায় লিখুন — সরকারি পরিভাষাসহ অপর ভাষায় অনুবাদ হবে।',
+    descEn:'Write in either language — translated to the other with government terminology.',
+    placeholderBn:'অনুবাদের জন্য লিখুন...', placeholderEn:'Type to translate...',
+    sampleBn:'সকল মন্ত্রণালয়কে আগামী ৩০ দিনের মধ্যে বার্ষিক কর্মসম্পাদন চুক্তি জমা দিতে নির্দেশ দেওয়া হলো।',
+    sampleEn:'All ministries are directed to submit the Annual Performance Agreement within the next 30 days.',
+    run:(q,bn)=>{
+      const isBangla=/[\u0980-\u09FF]/.test(q||'');
+      const out=isBangla
+        ?'All ministries are hereby directed to submit the Annual Performance Agreement (APA) within the next 30 days.'
+        :'সকল মন্ত্রণালয়কে আগামী ৩০ দিনের মধ্যে বার্ষিক কর্মসম্পাদন চুক্তি (APA) জমা দিতে নির্দেশ প্রদান করা হলো।';
+      const term=isBangla?'কর্মসম্পাদন চুক্তি → Annual Performance Agreement (APA)':'Annual Performance Agreement → বার্ষিক কর্মসম্পাদন চুক্তি (APA)';
+      return `<div class="d-io"><div class="d-io-lab">${isBangla?'বাংলা → English':'English → বাংলা'}</div><div class="d-out-box">${out}</div></div>`+
+        `<div class="d-note">${bn?'📘 সরকারি পরিভাষা সংরক্ষিত: ':'📘 Govt terminology preserved: '}${term}</div>`;
+    }
+  },
+  speech: {
+    titleBn:'বাংলা স্পিচ-টু-টেক্সট', titleEn:'Bangla Speech-to-Text',
+    descBn:'একটি সভার অডিও ফাইল ধরে নিন — সিস্টেম স্বয়ংক্রিয় কার্যবিবরণী তৈরি করবে। (নিচে নমুনা ট্রান্সক্রিপশন)',
+    descEn:'Imagine a meeting audio file — the system auto-generates minutes. (sample transcription below)',
+    placeholderBn:'▶ নমুনা অডিও চালান বোতামে চাপুন', placeholderEn:'▶ Press the sample-audio button',
+    sampleBn:'[সভার অডিও: জেলা উন্নয়ন সমন্বয় সভা]', sampleEn:'[Meeting audio: District Development Coordination]',
+    run:(q,bn)=>{
+      const lines=bn?[
+        {sp:'সভাপতি',tx:'বন্যা পুনর্বাসন প্রকল্পের অগ্রগতি জানান।',t:'00:02'},
+        {sp:'প্রকল্প পরিচালক',tx:'৭৫% কাজ সম্পন্ন, ডিসেম্বরে শেষ হবে।',t:'00:18'},
+        {sp:'সভাপতি',tx:'অর্থছাড়ে কোনো সমস্যা আছে কি?',t:'00:33'},
+      ]:[
+        {sp:'Chair',tx:'Please report progress of the flood rehabilitation project.',t:'00:02'},
+        {sp:'Project Director',tx:'75% complete, will finish in December.',t:'00:18'},
+        {sp:'Chair',tx:'Any issue with fund release?',t:'00:33'},
+      ];
+      const action=bn?'✅ সিদ্ধান্ত: ডিসেম্বরের মধ্যে সমাপ্তি; অর্থছাড় ত্বরান্বিত করতে অর্থ বিভাগে পত্র।':'✅ Decision: complete by December; letter to Finance Division to expedite fund release.';
+      return `<div class="d-note">${bn?'🗣️ অডিও → সময়-চিহ্নিত কার্যবিবরণী + স্বয়ংক্রিয় সিদ্ধান্ত নিষ্কাশন':'🗣️ Audio → time-stamped minutes + auto decision extraction'}</div>`+
+        lines.map(l=>`<div class="d-trans"><span class="d-trans-t">${l.t}</span><b>${l.sp}:</b> ${l.tx}</div>`).join('')+
+        `<div class="d-action">${action}</div>`;
+    }
+  },
+  ocr: {
+    titleBn:'বাংলা OCR', titleEn:'Bangla OCR',
+    descBn:'একটি পুরনো মুদ্রিত নথির ছবি ধরে নিন — সিস্টেম তা সম্পাদনযোগ্য টেক্সটে রূপান্তর করবে।',
+    descEn:'Imagine a scanned old document — the system converts it to editable text.',
+    placeholderBn:'▶ নমুনা স্ক্যান প্রক্রিয়া করুন', placeholderEn:'▶ Process the sample scan',
+    sampleBn:'[স্ক্যান: ১৯৯৮ সালের পুরনো গেজেট]', sampleEn:'[Scan: an old 1998 gazette]',
+    run:(q,bn)=>{
+      const txt=bn?'গণপ্রজাতন্ত্রী বাংলাদেশ সরকার\nমন্ত্রিপরিষদ বিভাগ\nপ্রজ্ঞাপন নং ৫৪/১৯৯৮\nবিষয়: জেলা প্রশাসকগণের কার্যপরিধি পুনর্নির্ধারণ।':'Government of the People\u2019s Republic of Bangladesh\nCabinet Division\nNotification No. 54/1998\nSubject: Redefining the scope of work of District Commissioners.';
+      return `<div class="d-note">${bn?'📄 ছবি → টেক্সট (৯৭.৩% নির্ভুলতা); এখন সার্চযোগ্য ও সম্পাদনযোগ্য':'📄 Image → text (97.3% accuracy); now searchable & editable'}</div>`+
+        `<div class="d-ocr"><div class="d-ocr-img">🖼️ ${bn?'স্ক্যান করা ছবি':'Scanned image'}</div><div class="d-ocr-arrow">→</div><div class="d-out-box" style="white-space:pre-line">${txt}</div></div>`;
+    }
+  },
+  chat: {
+    titleBn:'এআই চ্যাট সহকারী', titleEn:'AI Chat Assistant',
+    descBn:'সরকারি জ্ঞান সম্পর্কে প্রশ্ন করুন — উৎসসহ উত্তর পাবেন।',
+    descEn:'Ask about government knowledge — get answers with sources.',
+    placeholderBn:'যেমন: APA জমার শেষ তারিখ কবে?', placeholderEn:'e.g. what is the APA submission deadline?',
+    sampleBn:'নতুন কর্মকর্তার জন্য কোন প্রশিক্ষণ বাধ্যতামূলক?', sampleEn:'which training is mandatory for new officers?',
+    run:(q,bn)=>{
+      const ans=bn?'নতুন কর্মকর্তাদের জন্য BPATC বুনিয়াদি প্রশিক্ষণ এবং CSKR-এর "KM Foundation Module" বাধ্যতামূলক। এছাড়া শুদ্ধাচার ও নৈতিকতা ই-লার্নিং সম্পন্ন করতে হয়।':'For new officers, the BPATC Foundation Training and the CSKR "KM Foundation Module" are mandatory. The Integrity & Ethics e-learning must also be completed.';
+      const src=bn?['ডিজিটাল লার্নিং প্ল্যাটফর্ম → BPATC মডিউল','নীতি ও আইন → প্রশিক্ষণ পরিপত্র']:['Digital Learning → BPATC Module','Policy & Legal → Training Circular'];
+      return `<div class="d-chat-q">${q||(bn?'নতুন কর্মকর্তার জন্য কোন প্রশিক্ষণ বাধ্যতামূলক?':'which training is mandatory for new officers?')}</div>`+
+        `<div class="d-chat-a">${ans}</div>`+
+        `<div class="d-src">${bn?'📎 উৎস:':'📎 Sources:'} ${src.map(s=>`<span>${s}</span>`).join('')}</div>`;
+    }
+  },
+  graph: {
+    titleBn:'নলেজ গ্রাফ', titleEn:'Knowledge Graph',
+    descBn:'একটি সত্তা লিখুন (মন্ত্রণালয়/নীতি/প্রকল্প) — সিস্টেম এর সংযোগ-জাল দেখাবে।',
+    descEn:'Enter an entity (ministry/policy/project) — the system shows its connection web.',
+    placeholderBn:'যেমন: ভূমি মন্ত্রণালয়', placeholderEn:'e.g. Ministry of Land',
+    sampleBn:'ভূমি মন্ত্রণালয়', sampleEn:'Ministry of Land',
+    run:(q,bn)=>{
+      const center=q||(bn?'ভূমি মন্ত্রণালয়':'Ministry of Land');
+      const nodes=bn?[
+        {t:'ই-নামজারি প্রকল্প',r:'বাস্তবায়ন করে'},{t:'ভূমি সেবা ডিজিটালাইজেশন',r:'কেস স্টাডি'},
+        {t:'ই-পর্চা',r:'সেবা'},{t:'ICT বিভাগ',r:'প্রযুক্তি অংশীদার'},{t:'১৬১২২ হটলাইন',r:'নাগরিক সেবা'},
+      ]:[
+        {t:'e-Mutation Project',r:'implements'},{t:'Land Service Digitization',r:'case study'},
+        {t:'e-Porcha',r:'service'},{t:'ICT Division',r:'tech partner'},{t:'16122 Hotline',r:'citizen service'},
+      ];
+      return `<div class="d-graph"><div class="d-graph-center">${center}</div><div class="d-graph-nodes">`+
+        nodes.map(n=>`<div class="d-graph-node"><span class="d-graph-r">${n.r}</span>${n.t}</div>`).join('')+
+        `</div></div><div class="d-note">${bn?'🕸️ ৫টি সংযোগ পাওয়া গেছে — সম্পর্কের ধরনসহ':'🕸️ 5 connections found — with relationship types'}</div>`;
+    }
+  },
+  similarity: {
+    titleBn:'সাদৃশ্য শনাক্তকরণ', titleEn:'Similarity Detection',
+    descBn:'একটি নতুন প্রকল্পের বিবরণ লিখুন — সিস্টেম অনুরূপ বিদ্যমান প্রকল্প খুঁজে দেবে (ডুপ্লিকেশন রোধ)।',
+    descEn:'Describe a new project — the system finds similar existing ones (avoid duplication).',
+    placeholderBn:'যেমন: কৃষকদের জন্য মোবাইল পরামর্শ অ্যাপ', placeholderEn:'e.g. mobile advisory app for farmers',
+    sampleBn:'কৃষকদের জন্য মোবাইল পরামর্শ অ্যাপ', sampleEn:'mobile advisory app for farmers',
+    run:(q,bn)=>{
+      const sim=bn?[
+        {t:'কৃষকের জানালা (DAE)',s:0.91,st:'⚠️ উচ্চ সাদৃশ্য'},
+        {t:'কৃষি কল সেন্টার ১৬১২৩',s:0.74,st:'মাঝারি সাদৃশ্য'},
+        {t:'বালাইনাশক পরামর্শ SMS',s:0.58,st:'আংশিক সাদৃশ্য'},
+      ]:[
+        {t:'Krishoker Janala (DAE)',s:0.91,st:'⚠️ High similarity'},
+        {t:'Agriculture Call Centre 16123',s:0.74,st:'Medium similarity'},
+        {t:'Pesticide Advisory SMS',s:0.58,st:'Partial similarity'},
+      ];
+      return `<div class="d-warn">${bn?'⚠️ সতর্কতা: একটি উচ্চ-সাদৃশ্যপূর্ণ প্রকল্প বিদ্যমান — নতুন বিনিয়োগের আগে পর্যালোচনা করুন।':'⚠️ Warning: a highly similar project exists — review before new investment.'}</div>`+
+        sim.map(x=>`<div class="d-hit"><div class="d-hit-t">${x.t} <span style="color:var(--muted);font-weight:400">${x.st}</span></div><div class="d-bar"><i style="width:${x.s*100}%;background:${x.s>0.85?'var(--danger)':'var(--gold)'}"></i><span>${(x.s*100).toFixed(0)}%</span></div></div>`).join('');
+    }
+  },
+  trend: {
+    titleBn:'ট্রেন্ড অ্যানালাইজার', titleEn:'Trend Analyzer',
+    descBn:'একটি নীতি-বিষয় লিখুন — সময়ের সাথে এর আলোচনা ও অগ্রাধিকারের ধারা দেখুন।',
+    descEn:'Enter a policy topic — see how its discussion and priority trended over time.',
+    placeholderBn:'যেমন: জলবায়ু অভিযোজন', placeholderEn:'e.g. climate adaptation',
+    sampleBn:'জলবায়ু অভিযোজন', sampleEn:'climate adaptation',
+    run:(q,bn)=>{
+      const yrs=[['২০২২','2022',35],['২০২৩','2023',52],['২০২৪','2024',68],['২০২৫','2025',81],['২০২৬','2026',95]];
+      return `<div class="d-note">${bn?'📈 "জলবায়ু অভিযোজন" — নীতি-নথিতে উল্লেখের হার ক্রমবর্ধমান (↑১৭১%)':'📈 "climate adaptation" — mention rate in policy docs is rising (↑171%)'}</div>`+
+        yrs.map(y=>`<div class="chart-row"><div class="nm">${bn?y[0]:y[1]}</div><div class="track"><i style="width:${y[2]}%"></i></div><div class="pct">${bn?toBn(y[2]):y[2]}</div></div>`).join('');
+    }
+  },
+  verify: {
+    titleBn:'উৎস যাচাই সহায়ক', titleEn:'Source Verification Aid',
+    descBn:'একটি দাবি বা তথ্য লিখুন — সিস্টেম জ্ঞানভান্ডারে উৎস যাচাই করবে।',
+    descEn:'Enter a claim or fact — the system verifies the source in the knowledge base.',
+    placeholderBn:'যেমন: বাংলাদেশের সাক্ষরতার হার ৭৬%', placeholderEn:'e.g. Bangladesh literacy rate is 76%',
+    sampleBn:'বাংলাদেশের সাক্ষরতার হার ৭৬%', sampleEn:'Bangladesh literacy rate is 76%',
+    run:(q,bn)=>{
+      return `<div class="d-verify ok">${bn?'✅ যাচাইকৃত':'✅ Verified'}</div>`+
+        `<div class="d-rec"><span class="d-rec-ic">📊</span><div><div class="d-rec-t">${bn?'নিকটতম উৎস':'Closest source'}</div><div class="d-rec-v">${bn?'BBS সাক্ষরতা জরিপ ২০২৪ — ৭৬.৮% (১৫+ বয়স)':'BBS Literacy Survey 2024 — 76.8% (age 15+)'}</div></div></div>`+
+        `<div class="d-note">${bn?'⚖️ দাবিটি BBS তথ্যের কাছাকাছি (পার্থক্য ০.৮%)। সঠিক উদ্ধৃতি সুপারিশকৃত।':'⚖️ The claim is close to BBS data (0.8% difference). Exact citation recommended.'}</div>`;
+    }
+  },
+  draft: {
+    titleBn:'স্মার্ট খসড়া সহায়ক', titleEn:'Smart Drafting Aid',
+    descBn:'কী লিখতে চান বলুন — সিস্টেম সরকারি ভাষারীতিতে খসড়া তৈরি করবে।',
+    descEn:'Say what you want to write — the system drafts it in official style.',
+    placeholderBn:'যেমন: প্রশিক্ষণে অনুপস্থিতির জন্য কারণ দর্শানোর নোটিশ', placeholderEn:'e.g. show-cause notice for training absence',
+    sampleBn:'প্রশিক্ষণে অনুপস্থিতির জন্য কারণ দর্শানোর নোটিশ', sampleEn:'show-cause notice for training absence',
+    run:(q,bn)=>{
+      const draft=bn?'বিষয়: বাধ্যতামূলক প্রশিক্ষণে অনুপস্থিতির কারণ দর্শানো প্রসঙ্গে।\n\nআপনি গত ১৫ জুন ২০২৬ তারিখে অনুষ্ঠিত বাধ্যতামূলক "KM Foundation" প্রশিক্ষণে অনুপস্থিত ছিলেন। উক্ত অনুপস্থিতির যৌক্তিক কারণ আগামী ৭ (সাত) কার্যদিবসের মধ্যে লিখিতভাবে ব্যাখ্যা করার জন্য নির্দেশ প্রদান করা হলো।':'Subject: Show-cause regarding absence from mandatory training.\n\nYou were absent from the mandatory "KM Foundation" training held on 15 June 2026. You are hereby directed to explain in writing, within 7 (seven) working days, the valid reasons for the said absence.';
+      return `<div class="d-note">${bn?'✍️ সরকারি ভাষারীতি ও কাঠামোয় খসড়া তৈরি:':'✍️ Drafted in official tone and structure:'}</div><div class="d-out-box" style="white-space:pre-line">${draft}</div>`;
+    }
+  },
+  alert: {
+    titleBn:'রিয়েল-টাইম অ্যালার্ট', titleEn:'Real-time Alerts',
+    descBn:'আপনার আগ্রহের বিষয় বাছুন — সংশ্লিষ্ট নতুন নীতি/পরিপত্রে স্বয়ংক্রিয় নোটিফিকেশন।',
+    descEn:'Pick your interest — get auto-notifications on related new policies/circulars.',
+    placeholderBn:'যেমন: সরকারি ক্রয়', placeholderEn:'e.g. public procurement',
+    sampleBn:'সরকারি ক্রয়', sampleEn:'public procurement',
+    run:(q,bn)=>{
+      const al=bn?[
+        {d:'আজ',t:'PPR সংশোধনী ২০২৬ — ই-জিপি থ্রেশহোল্ড পরিবর্তন',n:'নতুন'},
+        {d:'৩ দিন আগে',t:'ক্রয় পরিকল্পনা দাখিলের সময়সীমা বর্ধিত',n:''},
+        {d:'১ সপ্তাহ আগে',t:'সবুজ ক্রয় নির্দেশিকা খসড়া প্রকাশ',n:''},
+      ]:[
+        {d:'Today',t:'PPR Amendment 2026 — e-GP threshold change',n:'NEW'},
+        {d:'3 days ago',t:'Procurement plan submission deadline extended',n:''},
+        {d:'1 week ago',t:'Green procurement guideline draft published',n:''},
+      ];
+      return `<div class="d-note">${bn?'🔔 "সরকারি ক্রয়" বিষয়ে ৩টি সাম্প্রতিক হালনাগাদ:':'🔔 3 recent updates on "public procurement":'}</div>`+
+        al.map(a=>`<div class="d-alert"><span class="d-alert-d">${a.d}</span><span class="d-alert-t">${a.t}</span>${a.n?`<span class="d-alert-n">${a.n}</span>`:''}</div>`).join('');
+    }
+  },
+  modelcard: {
+    titleBn:'মডেল কার্ড রেজিস্ট্রি', titleEn:'Model Card Registry',
+    descBn:'একটি সরকারি AI মডেল বাছুন — এর স্বচ্ছ তথ্য (উদ্দেশ্য, ডেটা, সীমাবদ্ধতা) দেখুন।',
+    descEn:'Pick a government AI model — view its transparent info (purpose, data, limitations).',
+    placeholderBn:'যেমন: বাংলা সেমান্টিক সার্চ মডেল', placeholderEn:'e.g. Bangla semantic search model',
+    sampleBn:'বাংলা সেমান্টিক সার্চ মডেল', sampleEn:'Bangla semantic search model',
+    run:(q,bn)=>{
+      const card=bn?[['উদ্দেশ্য','বাংলা নথিতে অর্থভিত্তিক অনুসন্ধান'],['প্রশিক্ষণ ডেটা','১.২M সরকারি নথি (পাবলিক)'],['নির্ভুলতা','top-5 রিকল ৯১%'],['সীমাবদ্ধতা','আঞ্চলিক উপভাষায় কম কার্যকর'],['সর্বশেষ নিরীক্ষা','মে ২০২৬'],['দায়িত্বপ্রাপ্ত','BCC + মন্ত্রিপরিষদ বিভাগ']]:[['Purpose','Meaning-based search in Bangla docs'],['Training data','1.2M public govt documents'],['Accuracy','top-5 recall 91%'],['Limitation','weaker on regional dialects'],['Last audit','May 2026'],['Owner','BCC + Cabinet Division']];
+      return `<div class="d-note">${bn?'📋 স্বচ্ছ মডেল কার্ড — দায়িত্বশীল AI-এর জন্য:':'📋 Transparent model card — for responsible AI:'}</div><table class="d-meta">`+card.map(c=>`<tr><td>${c[0]}</td><td><b>${c[1]}</b></td></tr>`).join('')+'</table>';
+    }
+  },
+  anon: {
+    titleBn:'ডেটা অ্যানোনিমাইজেশন', titleEn:'Data Anonymization',
+    descBn:'ব্যক্তিগত তথ্যসহ একটি বাক্য লিখুন — সিস্টেম সংবেদনশীল অংশ মাস্ক করবে।',
+    descEn:'Enter a sentence with personal info — the system masks sensitive parts.',
+    placeholderBn:'যেমন: রহিম উদ্দিন, NID ১৯৯০১২৩৪৫৬, মোবাইল ০১৭১২৩৪৫৬৭৮', placeholderEn:'e.g. Rahim Uddin, NID 1990123456, mobile 01712345678',
+    sampleBn:'রহিম উদ্দিন, NID ১৯৯০১২৩৪৫৬, মোবাইল ০১৭১২৩৪৫৬৭৮, ঢাকা', sampleEn:'Rahim Uddin, NID 1990123456, mobile 01712345678, Dhaka',
+    run:(q,bn)=>{
+      let masked=(q||(bn?'রহিম উদ্দিন, NID ১৯৯০১২৩৪৫৬, মোবাইল ০১৭১২৩৪৫৬৭৮, ঢাকা':'Rahim Uddin, NID 1990123456, mobile 01712345678, Dhaka'));
+      masked=masked.replace(/[0-9০-৯]{6,}/g,'••••••••').replace(/(রহিম উদ্দিন|Rahim Uddin)/g,bn?'[নাম মাস্কড]':'[NAME MASKED]');
+      return `<div class="d-io"><div class="d-io-lab">${bn?'মূল (সংবেদনশীল)':'Original (sensitive)'}</div><div class="d-out-box" style="opacity:.6">${q||(bn?'রহিম উদ্দিন, NID ১৯৯০১২৩৪৫৬...':'Rahim Uddin, NID 1990123456...')}</div></div>`+
+        `<div class="d-io"><div class="d-io-lab" style="color:var(--ok)">${bn?'অ্যানোনিমাইজড (নিরাপদ)':'Anonymized (safe)'}</div><div class="d-out-box">${masked}</div></div>`+
+        `<div class="d-note">${bn?'🔒 নাম, NID ও মোবাইল স্বয়ংক্রিয় শনাক্ত ও মাস্ক করা হলো।':'🔒 Name, NID and mobile auto-detected and masked.'}</div>`;
+    }
+  },
+  usage: {
+    titleBn:'ব্যবহার বিশ্লেষণ', titleEn:'Usage Analytics',
+    descBn:'রিপোজিটরির ব্যবহার-মেট্রিক্সের নমুনা ড্যাশবোর্ড।',
+    descEn:'Sample dashboard of repository usage metrics.',
+    placeholderBn:'▶ মেট্রিক্স লোড করুন', placeholderEn:'▶ Load metrics',
+    sampleBn:'[সাপ্তাহিক ব্যবহার রিপোর্ট]', sampleEn:'[weekly usage report]',
+    run:(q,bn)=>{
+      const m=bn?[['মোট সার্চ (সপ্তাহ)','১২,৪৮০'],['সক্রিয় ব্যবহারকারী','৩,১২০'],['শীর্ষ কম্পোনেন্ট','নীতি ও আইন'],['গড় সন্তুষ্টি','৪.৩/৫']]:[['Total searches (week)','12,480'],['Active users','3,120'],['Top component','Policy & Legal'],['Avg satisfaction','4.3/5']];
+      const top=bn?[['নীতি ও আইন',82],['গবেষণা আর্কাইভ',64],['কেস স্টাডি',51],['ডিজিটাল লার্নিং',43]]:[['Policy & Legal',82],['Research Archive',64],['Case Studies',51],['Digital Learning',43]];
+      return '<div class="kpi-grid" style="margin-bottom:12px">'+m.map(x=>`<div class="kpi"><div class="lab">${x[0]}</div><div class="val">${x[1]}</div></div>`).join('')+'</div>'+
+        top.map(t=>`<div class="chart-row"><div class="nm">${t[0]}</div><div class="track"><i style="width:${t[1]}%"></i></div><div class="pct">${bn?toBn(t[1]):t[1]}</div></div>`).join('');
+    }
+  },
+  bias: {
+    titleBn:'পক্ষপাত পরীক্ষা', titleEn:'Bias Testing',
+    descBn:'একটি AI সিদ্ধান্তের ক্ষেত্র বাছুন — সিস্টেম বিভিন্ন গোষ্ঠীতে ন্যায্যতা পরীক্ষা করবে।',
+    descEn:'Pick an AI decision area — the system checks fairness across groups.',
+    placeholderBn:'যেমন: প্রশিক্ষণ সুপারিশ', placeholderEn:'e.g. training recommendations',
+    sampleBn:'প্রশিক্ষণ সুপারিশ', sampleEn:'training recommendations',
+    run:(q,bn)=>{
+      const g=bn?[['পুরুষ কর্মকর্তা',51,'ok'],['নারী কর্মকর্তা',49,'ok'],['ঢাকা অঞ্চল',58,'warn'],['ঢাকার বাইরে',42,'warn']]:[['Male officers',51,'ok'],['Female officers',49,'ok'],['Dhaka region',58,'warn'],['Outside Dhaka',42,'warn']];
+      return `<div class="d-note">${bn?'⚖️ লিঙ্গে ভারসাম্যপূর্ণ; তবে অঞ্চলভিত্তিক পক্ষপাত শনাক্ত — ঢাকার বাইরে কম সুপারিশ।':'⚖️ Gender-balanced; but regional bias detected — fewer recommendations outside Dhaka.'}</div>`+
+        g.map(x=>`<div class="chart-row"><div class="nm">${x[0]}</div><div class="track"><i style="width:${x[1]}%;background:${x[2]==='warn'?'var(--gold)':'var(--ok)'}"></i></div><div class="pct">${bn?toBn(x[1]):x[1]}%</div></div>`).join('')+
+        `<div class="d-action">${bn?'🔧 সুপারিশ: ঢাকার বাইরের প্রশিক্ষণ-সুযোগের ডেটা সমৃদ্ধ করে পুনঃপ্রশিক্ষণ।':'🔧 Action: retrain with enriched data on training opportunities outside Dhaka.'}</div>`;
+    }
+  },
+  api: {
+    titleBn:'ওপেন ডেটা API', titleEn:'Open Data API',
+    descBn:'একটি ডেটাসেট বাছুন — কীভাবে API কল করে ডেটা পাওয়া যায় তার নমুনা।',
+    descEn:'Pick a dataset — sample of how to fetch data via API.',
+    placeholderBn:'যেমন: জেলাভিত্তিক জনসংখ্যা', placeholderEn:'e.g. district-wise population',
+    sampleBn:'জেলাভিত্তিক জনসংখ্যা', sampleEn:'district-wise population',
+    run:(q,bn)=>{
+      const code='GET /api/v1/datasets/population?district=all\nAuthorization: Bearer <token>\n\n200 OK\n{\n  "dataset": "population_2022",\n  "source": "BBS",\n  "records": 64,\n  "license": "BD Open Govt Licence",\n  "data": [ {"district":"Dhaka","pop":12043977}, ... ]\n}';
+      return `<div class="d-note">${bn?'🔌 যেকোনো GovTech অ্যাপ এভাবে উন্মুক্ত ডেটা ব্যবহার করতে পারে:':'🔌 Any GovTech app can consume open data like this:'}</div><div class="d-code">${code}</div>`+
+        `<div class="d-note">${bn?'✅ ৫০০+ ডেটাসেট · উন্মুক্ত লাইসেন্স · রেট-লিমিটেড নিরাপদ অ্যাক্সেস':'✅ 500+ datasets · open licence · rate-limited secure access'}</div>`;
+    }
+  },
+};
+
+function openDemo(id){
+  const bn=document.body.classList.contains('lang-bn');
+  const d=DEMO_DEFS[id];
+  if(!d)return;
+  CURRENT_DEMO=id;
+  document.getElementById('demoTitle').textContent=bn?d.titleBn:d.titleEn;
+  document.getElementById('demoDesc').textContent=bn?d.descBn:d.descEn;
+  const inp=document.getElementById('demoInput');
+  inp.placeholder=bn?d.placeholderBn:d.placeholderEn;
+  inp.value='';
+  document.getElementById('demoSample').textContent=(bn?'নমুনা: ':'Sample: ')+(bn?d.sampleBn:d.sampleEn);
+  document.getElementById('demoOut').innerHTML='';
+  document.getElementById('demoModal').classList.add('show');
+}
+function closeDemo(){document.getElementById('demoModal').classList.remove('show');}
+function useDemoSample(){
+  const bn=document.body.classList.contains('lang-bn');
+  const d=DEMO_DEFS[CURRENT_DEMO];
+  document.getElementById('demoInput').value=bn?d.sampleBn:d.sampleEn;
+}
+function runDemoTool(){
+  const bn=document.body.classList.contains('lang-bn');
+  const d=DEMO_DEFS[CURRENT_DEMO];
+  const q=document.getElementById('demoInput').value.trim();
+  const out=document.getElementById('demoOut');
+  out.innerHTML=`<div class="thinking"><span class="spinner"></span> ${bn?'প্রক্রিয়াকরণ হচ্ছে...':'Processing...'}</div>`;
+  setTimeout(()=>{ out.innerHTML=d.run(q,bn); }, 450);
+}
+let CURRENT_DEMO=null;
 
 /* init */
 setLang('bn');
